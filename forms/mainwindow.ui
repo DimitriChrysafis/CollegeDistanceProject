@@ -27,7 +27,7 @@
      <string>PushButton</string>
     </property>
    </widget>
-   <widget class="QGroupBox" name="groupBox">
+   <widget class="QGroupBox" name="box_collegeNames">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -41,67 +41,11 @@
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QListWidget" name="listWidget">
-       <item>
-        <property name="text">
-         <string>Arizona State University</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Masssachusetts Institute of Technology</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Northwestern</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Ohio State University</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Saddleback College</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>University of Michigan</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>University of California, Irvine</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>University of California, Los Angeles</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>University of Oregon</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>University of the Pacific</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>University of Wisconsin</string>
-        </property>
-       </item>
-      </widget>
+      <widget class="QListWidget" name="list_collegeNames"/>
      </item>
     </layout>
    </widget>
-   <widget class="QGroupBox" name="groupBox_2">
+   <widget class="QGroupBox" name="box_collegeInfo">
     <property name="geometry">
      <rect>
       <x>280</x>
@@ -116,14 +60,50 @@
     <widget class="QLabel" name="label_collegeName">
      <property name="geometry">
       <rect>
-       <x>60</x>
-       <y>150</y>
+       <x>20</x>
+       <y>40</y>
        <width>171</width>
        <height>16</height>
       </rect>
      </property>
      <property name="text">
-      <string>default</string>
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_distanceFromSaddlebackPREFIX">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>100</y>
+       <width>151</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Distance from Saddleback:</string>
+     </property>
+    </widget>
+    <widget class="QListWidget" name="list_souvenirs">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>140</y>
+       <width>256</width>
+       <height>192</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_distanceFromSaddleback">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>100</y>
+       <width>71</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
      </property>
     </widget>
    </widget>
