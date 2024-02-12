@@ -3,3 +3,7 @@
 *.swp
 *.o
 *.out
+*.stash
+*CollegeProject
+*Makefile
+moc*
