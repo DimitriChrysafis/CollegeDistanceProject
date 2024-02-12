@@ -3,6 +3,7 @@
 #include <fstream>
 #include <QApplication>
 #include <iostream>
+#include <QDir>
 #include <QString>
 #include <string>
 #include <cstring>
@@ -12,10 +13,17 @@ using namespace std;
 //nested map datatype used for colleges. Use two subscripts to index two colleges and get their distance
 typedef map<QString, map<QString, int>> dataframe;
 
+dataframe df;    //Dataframe object containing colleges and their distances
+
 
 //Accepts custom df datatype by reference and reads CSV data into it
 void csvToDF(map<QString, map<QString, int>> &mp){
-    ifstream csv("C:/Users/Rowan Speckman/Documents/Code/School/CS1D/CollegeDistanceProject/College Campus Distances and Souvenirs.csv");
+    QDir csvPath = qApp->applicationDirPath();
+    csvPath.cdUp();
+    csvPath.cdUp();
+    cout << csvPath.path().toStdString() << endl;
+
+    ifstream csv(csvPath.path().toStdString() + "/CollegeDistanceProject/College Campus Distances and Souvenirs.csv");
 
     if(!csv){
         cout << "Could not open file! :(" << endl;
@@ -31,13 +39,27 @@ void csvToDF(map<QString, map<QString, int>> &mp){
     }
 }
 
+
+void findShortestPath(QString location, QString trip[], int n){
+    if (n >= 1){
+        
+    }
+    int min = 100000;
+    QString next;
+    for (auto i = df[location].begin(); i != df[location].end(); i++){
+        if (i->second < min){
+           
+            min = i->second;
+            next = i->first;
+        }
+    }
+}
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     MainWindow w;
     w.show();
-
-    dataframe df;    //Dataframe object containing colleges and their distances
 
     csvToDF(df);
 
