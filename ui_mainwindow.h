@@ -36,6 +36,9 @@ public:
     QLabel *label_distanceFromSaddlebackPREFIX;
     QListWidget *list_souvenirs;
     QLabel *label_distanceFromSaddleback;
+    QPushButton *button_addSouvenir;
+    QPushButton *button_editSouvenir;
+    QPushButton *button_deleteSouvenir;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -49,7 +52,6 @@ public:
         pushButton = new QPushButton(centralwidget);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
         pushButton->setGeometry(QRect(680, 520, 80, 24));
-
         box_collegeNames = new QGroupBox(centralwidget);
         box_collegeNames->setObjectName(QString::fromUtf8("box_collegeNames"));
         box_collegeNames->setGeometry(QRect(20, 20, 241, 481));
@@ -75,6 +77,17 @@ public:
         label_distanceFromSaddleback = new QLabel(box_collegeInfo);
         label_distanceFromSaddleback->setObjectName(QString::fromUtf8("label_distanceFromSaddleback"));
         label_distanceFromSaddleback->setGeometry(QRect(200, 100, 71, 16));
+        button_addSouvenir = new QPushButton(box_collegeInfo);
+        button_addSouvenir->setObjectName(QString::fromUtf8("button_addSouvenir"));
+        button_addSouvenir->setGeometry(QRect(20, 350, 80, 24));
+        button_editSouvenir = new QPushButton(box_collegeInfo);
+        button_editSouvenir->setObjectName(QString::fromUtf8("button_editSouvenir"));
+        button_editSouvenir->setEnabled(false);
+        button_editSouvenir->setGeometry(QRect(109, 350, 80, 24));
+        button_deleteSouvenir = new QPushButton(box_collegeInfo);
+        button_deleteSouvenir->setObjectName(QString::fromUtf8("button_deleteSouvenir"));
+        button_deleteSouvenir->setEnabled(false);
+        button_deleteSouvenir->setGeometry(QRect(197, 350, 80, 24));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -98,6 +111,9 @@ public:
         label_collegeName->setText(QString());
         label_distanceFromSaddlebackPREFIX->setText(QCoreApplication::translate("MainWindow", "Distance from Saddleback:", nullptr));
         label_distanceFromSaddleback->setText(QString());
+        button_addSouvenir->setText(QCoreApplication::translate("MainWindow", "Add", nullptr));
+        button_editSouvenir->setText(QCoreApplication::translate("MainWindow", "Edit", nullptr));
+        button_deleteSouvenir->setText(QCoreApplication::translate("MainWindow", "Delete", nullptr));
     } // retranslateUi
 
 };

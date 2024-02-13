@@ -22,6 +22,7 @@ public:
 
     //Mutators
     void addSouvenir(QString name, double price);
+    void removeSouvenir(QString name);
 
 private:
     QString _name;
