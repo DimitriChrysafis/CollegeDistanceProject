@@ -28,11 +28,14 @@ class Ui_MainWindow
 public:
     QWidget *centralwidget;
     QPushButton *pushButton;
-    QGroupBox *groupBox;
+    QGroupBox *box_collegeNames;
     QVBoxLayout *verticalLayout;
-    QListWidget *listWidget;
-    QGroupBox *groupBox_2;
+    QListWidget *list_collegeNames;
+    QGroupBox *box_collegeInfo;
     QLabel *label_collegeName;
+    QLabel *label_distanceFromSaddlebackPREFIX;
+    QListWidget *list_souvenirs;
+    QLabel *label_distanceFromSaddleback;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -46,33 +49,32 @@ public:
         pushButton = new QPushButton(centralwidget);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
         pushButton->setGeometry(QRect(680, 520, 80, 24));
-        groupBox = new QGroupBox(centralwidget);
-        groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        groupBox->setGeometry(QRect(20, 20, 241, 481));
-        verticalLayout = new QVBoxLayout(groupBox);
+
+        box_collegeNames = new QGroupBox(centralwidget);
+        box_collegeNames->setObjectName(QString::fromUtf8("box_collegeNames"));
+        box_collegeNames->setGeometry(QRect(20, 20, 241, 481));
+        verticalLayout = new QVBoxLayout(box_collegeNames);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
-        listWidget = new QListWidget(groupBox);
-        new QListWidgetItem(listWidget);
-        new QListWidgetItem(listWidget);
-        new QListWidgetItem(listWidget);
-        new QListWidgetItem(listWidget);
-        new QListWidgetItem(listWidget);
-        new QListWidgetItem(listWidget);
-        new QListWidgetItem(listWidget);
-        new QListWidgetItem(listWidget);
-        new QListWidgetItem(listWidget);
-        new QListWidgetItem(listWidget);
-        new QListWidgetItem(listWidget);
-        listWidget->setObjectName(QString::fromUtf8("listWidget"));
+        list_collegeNames = new QListWidget(box_collegeNames);
+        list_collegeNames->setObjectName(QString::fromUtf8("list_collegeNames"));
 
-        verticalLayout->addWidget(listWidget);
+        verticalLayout->addWidget(list_collegeNames);
 
-        groupBox_2 = new QGroupBox(centralwidget);
-        groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
-        groupBox_2->setGeometry(QRect(280, 20, 501, 481));
-        label_collegeName = new QLabel(groupBox_2);
+        box_collegeInfo = new QGroupBox(centralwidget);
+        box_collegeInfo->setObjectName(QString::fromUtf8("box_collegeInfo"));
+        box_collegeInfo->setGeometry(QRect(280, 20, 501, 481));
+        label_collegeName = new QLabel(box_collegeInfo);
         label_collegeName->setObjectName(QString::fromUtf8("label_collegeName"));
-        label_collegeName->setGeometry(QRect(60, 150, 171, 16));
+        label_collegeName->setGeometry(QRect(20, 40, 171, 16));
+        label_distanceFromSaddlebackPREFIX = new QLabel(box_collegeInfo);
+        label_distanceFromSaddlebackPREFIX->setObjectName(QString::fromUtf8("label_distanceFromSaddlebackPREFIX"));
+        label_distanceFromSaddlebackPREFIX->setGeometry(QRect(20, 100, 151, 16));
+        list_souvenirs = new QListWidget(box_collegeInfo);
+        list_souvenirs->setObjectName(QString::fromUtf8("list_souvenirs"));
+        list_souvenirs->setGeometry(QRect(20, 140, 256, 192));
+        label_distanceFromSaddleback = new QLabel(box_collegeInfo);
+        label_distanceFromSaddleback->setObjectName(QString::fromUtf8("label_distanceFromSaddleback"));
+        label_distanceFromSaddleback->setGeometry(QRect(200, 100, 71, 16));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -91,36 +93,11 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         pushButton->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
-        groupBox->setTitle(QCoreApplication::translate("MainWindow", "Colleges", nullptr));
-
-        const bool __sortingEnabled = listWidget->isSortingEnabled();
-        listWidget->setSortingEnabled(false);
-        QListWidgetItem *___qlistwidgetitem = listWidget->item(0);
-        ___qlistwidgetitem->setText(QCoreApplication::translate("MainWindow", "Arizona State University", nullptr));
-        QListWidgetItem *___qlistwidgetitem1 = listWidget->item(1);
-        ___qlistwidgetitem1->setText(QCoreApplication::translate("MainWindow", "Masssachusetts Institute of Technology", nullptr));
-        QListWidgetItem *___qlistwidgetitem2 = listWidget->item(2);
-        ___qlistwidgetitem2->setText(QCoreApplication::translate("MainWindow", "Northwestern", nullptr));
-        QListWidgetItem *___qlistwidgetitem3 = listWidget->item(3);
-        ___qlistwidgetitem3->setText(QCoreApplication::translate("MainWindow", "Ohio State University", nullptr));
-        QListWidgetItem *___qlistwidgetitem4 = listWidget->item(4);
-        ___qlistwidgetitem4->setText(QCoreApplication::translate("MainWindow", "Saddleback College", nullptr));
-        QListWidgetItem *___qlistwidgetitem5 = listWidget->item(5);
-        ___qlistwidgetitem5->setText(QCoreApplication::translate("MainWindow", "University of Michigan", nullptr));
-        QListWidgetItem *___qlistwidgetitem6 = listWidget->item(6);
-        ___qlistwidgetitem6->setText(QCoreApplication::translate("MainWindow", "University of California, Irvine", nullptr));
-        QListWidgetItem *___qlistwidgetitem7 = listWidget->item(7);
-        ___qlistwidgetitem7->setText(QCoreApplication::translate("MainWindow", "University of California, Los Angeles", nullptr));
-        QListWidgetItem *___qlistwidgetitem8 = listWidget->item(8);
-        ___qlistwidgetitem8->setText(QCoreApplication::translate("MainWindow", "University of Oregon", nullptr));
-        QListWidgetItem *___qlistwidgetitem9 = listWidget->item(9);
-        ___qlistwidgetitem9->setText(QCoreApplication::translate("MainWindow", "University of the Pacific", nullptr));
-        QListWidgetItem *___qlistwidgetitem10 = listWidget->item(10);
-        ___qlistwidgetitem10->setText(QCoreApplication::translate("MainWindow", "University of Wisconsin", nullptr));
-        listWidget->setSortingEnabled(__sortingEnabled);
-
-        groupBox_2->setTitle(QCoreApplication::translate("MainWindow", "College Info", nullptr));
-        label_collegeName->setText(QCoreApplication::translate("MainWindow", "default", nullptr));
+        box_collegeNames->setTitle(QCoreApplication::translate("MainWindow", "Colleges", nullptr));
+        box_collegeInfo->setTitle(QCoreApplication::translate("MainWindow", "College Info", nullptr));
+        label_collegeName->setText(QString());
+        label_distanceFromSaddlebackPREFIX->setText(QCoreApplication::translate("MainWindow", "Distance from Saddleback:", nullptr));
+        label_distanceFromSaddleback->setText(QString());
     } // retranslateUi
 
 };
