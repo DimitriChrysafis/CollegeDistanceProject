@@ -159,7 +159,17 @@ void MainWindow::on_button_addToTrip_clicked(bool checked)
     currentCollege->toggleInTrip(checked);
 
     if (checked) TripColleges.append(*currentCollege);
-    //else TripColleges.remove();
+    else
+    {
+        for (int i = 0; i < TripColleges.length(); i++)
+        {
+            if (TripColleges[i].name() == currentCollege->name())
+            {
+                TripColleges.remove(i);
+                break;
+            }
+        }
+    }
 
     ui->label_tripColleges->clear();
 
@@ -167,7 +177,8 @@ void MainWindow::on_button_addToTrip_clicked(bool checked)
     {
         text += TripColleges[i].name() + " > ";
     }
-    text += TripColleges[TripColleges.length() - 1].name();
+
+    if (TripColleges.length() != 0) text += TripColleges[TripColleges.length() - 1].name();
     ui->label_tripColleges->setText(text);
 }
 
