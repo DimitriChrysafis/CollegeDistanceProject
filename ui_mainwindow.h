@@ -79,6 +79,7 @@ public:
         label_distanceFromSaddleback->setGeometry(QRect(200, 100, 71, 16));
         button_addSouvenir = new QPushButton(box_collegeInfo);
         button_addSouvenir->setObjectName(QString::fromUtf8("button_addSouvenir"));
+        button_addSouvenir->setEnabled(false);
         button_addSouvenir->setGeometry(QRect(20, 350, 80, 24));
         button_editSouvenir = new QPushButton(box_collegeInfo);
         button_editSouvenir->setObjectName(QString::fromUtf8("button_editSouvenir"));

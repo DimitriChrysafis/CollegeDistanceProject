@@ -10,12 +10,15 @@ CONFIG += c++17
 
 SOURCES += src/mainwindow.cpp \
     src/college.cpp \
-    src/main.cpp
+    src/main.cpp \
+    src/souvenirdialog.cpp
 
 HEADERS += src/mainwindow.h \
-    src/college.h
+    src/college.h \
+    src/souvenirdialog.h
 
-FORMS += forms/mainwindow.ui
+FORMS += forms/mainwindow.ui \
+    src/souvenirdialog.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

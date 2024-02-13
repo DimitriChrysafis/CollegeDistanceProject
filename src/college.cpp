@@ -8,6 +8,7 @@ College::College(QString name, QMap<QString, double> souvenirList, int distance)
 QString College::name() { return _name; }
 QMap<QString, double> College::souvenirList() { return _souvenirList; }
 int College::distance() { return _distance; }
+double College::souvenirPrice(QString item) { return _souvenirList[item]; }
 
 //Mutators
 void College::addSouvenir(QString name, double price)

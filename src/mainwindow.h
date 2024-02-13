@@ -5,6 +5,7 @@
 #include <QListWidgetItem>
 
 #include "college.h"
+#include "souvenirdialog.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -36,5 +37,6 @@ private:
     Ui::MainWindow *ui;
     QVector<College> Colleges;
     College* currentCollege;
+    SouvenirDialog* souvenirDialog;
 };
 #endif // MAINWINDOW_H

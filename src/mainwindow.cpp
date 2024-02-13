@@ -9,6 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    souvenirDialog = new SouvenirDialog;
 
     QMap<QString, double> dummySouvenirList;
     dummySouvenirList["Shirt"] = 15.50;
@@ -67,6 +68,8 @@ void MainWindow::on_list_collegeNames_itemClicked(QListWidgetItem *item)
             currentCollege = &Colleges[i];
         }
     }
+
+    ui->button_addSouvenir->setEnabled(true);
 }
 
 //Enable/disable "edit" and "delete" buttons when a souvenir is clicked/unclicked
@@ -86,13 +89,41 @@ void MainWindow::on_list_souvenirs_currentTextChanged(const QString &currentText
 
 void MainWindow::on_button_addSouvenir_clicked()
 {
-
+    souvenirDialog->exec();
+    if (souvenirDialog->getOk())
+    {
+        currentCollege->addSouvenir(souvenirDialog->getItem(), souvenirDialog->getPrice());
+        displayCollegeInfo(*currentCollege);
+    }
 }
 
 
 void MainWindow::on_button_editSouvenir_clicked()
 {
+    QString key;
+    QString souvenir;
+    souvenir = ui->list_souvenirs->currentItem()->text();
+    for (int i = 0; i < souvenir.length(); i++)
+    {
+        if (souvenir[i] != "-")
+        {
+            key.append(souvenir[i]);
+        }
+        else
+        {
+            key.chop(1);
+            break;
+        }
+    }
 
+    souvenirDialog->editSouvenir(key, currentCollege->souvenirPrice(key));
+    currentCollege->removeSouvenir(key);
+    souvenirDialog->exec();
+    if (souvenirDialog->getOk())
+    {
+        currentCollege->addSouvenir(souvenirDialog->getItem(), souvenirDialog->getPrice());
+        displayCollegeInfo(*currentCollege);
+    }
 }
 
 

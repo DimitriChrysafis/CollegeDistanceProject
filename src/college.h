@@ -19,6 +19,7 @@ public:
     QString name();
     int distance();
     QMap<QString, double> souvenirList();
+    double souvenirPrice(QString item);
 
     //Mutators
     void addSouvenir(QString name, double price);
