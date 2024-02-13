@@ -3,6 +3,7 @@
 #include <QVector>
 #include <QMainWindow>
 #include <QListWidgetItem>
+
 #include "college.h"
 
 QT_BEGIN_NAMESPACE

@@ -49,6 +49,7 @@ public:
         pushButton = new QPushButton(centralwidget);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
         pushButton->setGeometry(QRect(680, 520, 80, 24));
+
         box_collegeNames = new QGroupBox(centralwidget);
         box_collegeNames->setObjectName(QString::fromUtf8("box_collegeNames"));
         box_collegeNames->setGeometry(QRect(20, 20, 241, 481));

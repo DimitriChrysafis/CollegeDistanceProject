@@ -3,6 +3,7 @@
 #include <QMapIterator>
 
 
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -59,6 +60,3 @@ void MainWindow::on_list_collegeNames_itemClicked(QListWidgetItem *item)
         if (collegeName == Colleges[i].name()) { displayCollegeInfo(Colleges[i]); }
     }
 }
-
-
-
