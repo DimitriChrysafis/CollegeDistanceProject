@@ -70,6 +70,8 @@ void MainWindow::on_list_collegeNames_itemClicked(QListWidgetItem *item)
     }
 
     ui->button_addSouvenir->setEnabled(true);
+    ui->button_addToTrip->setEnabled(true);
+    ui->button_addToTrip->setChecked(currentCollege->isInTrip());
 }
 
 //Enable/disable "edit" and "delete" buttons when a souvenir is clicked/unclicked
@@ -148,5 +150,24 @@ void MainWindow::on_button_deleteSouvenir_clicked()
 
     currentCollege->removeSouvenir(key);
     displayCollegeInfo(*currentCollege);
+}
+
+
+void MainWindow::on_button_addToTrip_clicked(bool checked)
+{
+    QString text = "";
+    currentCollege->toggleInTrip(checked);
+
+    if (checked) TripColleges.append(*currentCollege);
+    //else TripColleges.remove();
+
+    ui->label_tripColleges->clear();
+
+    for (int i = 0; i < TripColleges.length() - 1; i++)
+    {
+        text += TripColleges[i].name() + " > ";
+    }
+    text += TripColleges[TripColleges.length() - 1].name();
+    ui->label_tripColleges->setText(text);
 }
 

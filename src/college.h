@@ -20,16 +20,18 @@ public:
     int distance();
     QMap<QString, double> souvenirList();
     double souvenirPrice(QString item);
+    bool isInTrip();
 
     //Mutators
     void addSouvenir(QString name, double price);
     void removeSouvenir(QString name);
+    void toggleInTrip(bool inTrip);
 
 private:
     QString _name;
     QMap<QString, double> _souvenirList;
     int _distance;
-
+    bool _isInTrip = false;
 };
 
 #endif // COLLEGE_H

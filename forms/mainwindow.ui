@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="button_go">
     <property name="geometry">
      <rect>
       <x>680</x>
@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>Go!</string>
     </property>
    </widget>
    <widget class="QGroupBox" name="box_collegeNames">
@@ -154,6 +154,35 @@
       <string>Delete</string>
      </property>
     </widget>
+    <widget class="QRadioButton" name="button_addToTrip">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>390</y>
+       <width>91</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Add to Trip</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="label_tripColleges">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>520</y>
+      <width>641</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
