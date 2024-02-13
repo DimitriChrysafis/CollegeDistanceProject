@@ -14,3 +14,8 @@ void College::addSouvenir(QString name, double price)
 {
     _souvenirList[name] = price;
 }
+
+void College::removeSouvenir(QString name)
+{
+    _souvenirList.remove(name);
+}

@@ -27,6 +27,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+//Displays all college info within the UI, including name, distance from starting college, and all souvenirs.
 void MainWindow::displayCollegeInfo(College college)
 {
     QMapIterator<QString, double> it(college.souvenirList());
@@ -45,11 +46,14 @@ void MainWindow::displayCollegeInfo(College college)
     }
 }
 
+//Adds the college to the "Colleges" vector within MainWindow. Also adds the college name to the UI.
 void MainWindow::addCollege(College college)
 {
     Colleges.append(college);
     ui->list_collegeNames->addItem(college.name());
 }
+
+//----------------------------Beginning of UI functions (go to slots)-------------------------------------------------
 
 void MainWindow::on_list_collegeNames_itemClicked(QListWidgetItem *item)
 {
@@ -57,6 +61,61 @@ void MainWindow::on_list_collegeNames_itemClicked(QListWidgetItem *item)
 
     for (int i = 0; i < Colleges.length(); i++)
     {
-        if (collegeName == Colleges[i].name()) { displayCollegeInfo(Colleges[i]); }
+        if (collegeName == Colleges[i].name())
+        {
+            displayCollegeInfo(Colleges[i]);
+            currentCollege = &Colleges[i];
+        }
     }
 }
+
+//Enable/disable "edit" and "delete" buttons when a souvenir is clicked/unclicked
+void MainWindow::on_list_souvenirs_currentTextChanged(const QString &currentText)
+{
+    if (currentText != "")
+    {
+        ui->button_editSouvenir->setEnabled(true);
+        ui->button_deleteSouvenir->setEnabled(true);
+    }
+    else
+    {
+        ui->button_editSouvenir->setEnabled(false);
+        ui->button_deleteSouvenir->setEnabled(false);
+    }
+}
+
+void MainWindow::on_button_addSouvenir_clicked()
+{
+
+}
+
+
+void MainWindow::on_button_editSouvenir_clicked()
+{
+
+}
+
+
+
+void MainWindow::on_button_deleteSouvenir_clicked()
+{
+    QString key;
+    QString souvenir;
+    souvenir = ui->list_souvenirs->currentItem()->text();
+    for (int i = 0; i < souvenir.length(); i++)
+    {
+        if (souvenir[i] != "-")
+        {
+            key.append(souvenir[i]);
+        }
+        else
+        {
+            key.chop(1);
+            break;
+        }
+    }
+
+    currentCollege->removeSouvenir(key);
+    displayCollegeInfo(*currentCollege);
+}
+
