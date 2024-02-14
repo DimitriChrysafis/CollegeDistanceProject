@@ -33,9 +33,14 @@ private slots:
 
     void on_button_deleteSouvenir_clicked();
 
+    void on_button_addToTrip_clicked(bool checked);
+
+    void on_button_startingCollege_clicked();
+
 private:
     Ui::MainWindow *ui;
     QVector<College> Colleges;
+    QVector<College> TripColleges;
     College* currentCollege;
     SouvenirDialog* souvenirDialog;
 };
