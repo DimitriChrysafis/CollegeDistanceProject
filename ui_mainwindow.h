@@ -41,6 +41,7 @@ public:
     QPushButton *button_editSouvenir;
     QPushButton *button_deleteSouvenir;
     QRadioButton *button_addToTrip;
+    QPushButton *button_startingCollege;
     QLabel *label_tripColleges;
     QMenuBar *menubar;
     QStatusBar *statusbar;
@@ -67,6 +68,7 @@ public:
 
         box_collegeInfo = new QGroupBox(centralwidget);
         box_collegeInfo->setObjectName(QString::fromUtf8("box_collegeInfo"));
+        box_collegeInfo->setEnabled(true);
         box_collegeInfo->setGeometry(QRect(280, 20, 501, 481));
         label_collegeName = new QLabel(box_collegeInfo);
         label_collegeName->setObjectName(QString::fromUtf8("label_collegeName"));
@@ -96,6 +98,10 @@ public:
         button_addToTrip->setObjectName(QString::fromUtf8("button_addToTrip"));
         button_addToTrip->setEnabled(false);
         button_addToTrip->setGeometry(QRect(20, 390, 91, 22));
+        button_startingCollege = new QPushButton(box_collegeInfo);
+        button_startingCollege->setObjectName(QString::fromUtf8("button_startingCollege"));
+        button_startingCollege->setEnabled(false);
+        button_startingCollege->setGeometry(QRect(19, 390, 111, 24));
         label_tripColleges = new QLabel(centralwidget);
         label_tripColleges->setObjectName(QString::fromUtf8("label_tripColleges"));
         label_tripColleges->setGeometry(QRect(20, 520, 641, 41));
@@ -126,6 +132,7 @@ public:
         button_editSouvenir->setText(QCoreApplication::translate("MainWindow", "Edit", nullptr));
         button_deleteSouvenir->setText(QCoreApplication::translate("MainWindow", "Delete", nullptr));
         button_addToTrip->setText(QCoreApplication::translate("MainWindow", "Add to Trip", nullptr));
+        button_startingCollege->setText(QCoreApplication::translate("MainWindow", "Starting College", nullptr));
         label_tripColleges->setText(QString());
     } // retranslateUi
 

@@ -35,6 +35,8 @@ private slots:
 
     void on_button_addToTrip_clicked(bool checked);
 
+    void on_button_startingCollege_clicked();
+
 private:
     Ui::MainWindow *ui;
     QVector<College> Colleges;

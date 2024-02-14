@@ -21,6 +21,9 @@ MainWindow::MainWindow(QWidget *parent)
     dummySouvenirList.remove("Lanyard");
     dummySouvenirList["Water Flask"] = 8.25;
     addCollege(College("Arizona State University", dummySouvenirList, 166));
+
+    dummySouvenirList["Sweater"] = 18.00;
+    addCollege(College("University of California Irvine", dummySouvenirList, 500));
 }
 
 MainWindow::~MainWindow()
@@ -56,6 +59,7 @@ void MainWindow::addCollege(College college)
 
 //----------------------------Beginning of UI functions (go to slots)-------------------------------------------------
 
+//Enable/disable certain buttons when a new college is clicked
 void MainWindow::on_list_collegeNames_itemClicked(QListWidgetItem *item)
 {
     QString collegeName = item->text();
@@ -70,8 +74,10 @@ void MainWindow::on_list_collegeNames_itemClicked(QListWidgetItem *item)
     }
 
     ui->button_addSouvenir->setEnabled(true);
-    ui->button_addToTrip->setEnabled(true);
     ui->button_addToTrip->setChecked(currentCollege->isInTrip());
+    ui->button_startingCollege->setEnabled(true);
+    if (TripColleges.length() != 0 && !currentCollege->isStartingCollege()) ui->button_addToTrip->setEnabled(true);
+    else ui->button_addToTrip->setEnabled(false);
 }
 
 //Enable/disable "edit" and "delete" buttons when a souvenir is clicked/unclicked
@@ -128,8 +134,6 @@ void MainWindow::on_button_editSouvenir_clicked()
     }
 }
 
-
-
 void MainWindow::on_button_deleteSouvenir_clicked()
 {
     QString key;
@@ -180,5 +184,13 @@ void MainWindow::on_button_addToTrip_clicked(bool checked)
 
     if (TripColleges.length() != 0) text += TripColleges[TripColleges.length() - 1].name();
     ui->label_tripColleges->setText(text);
+}
+
+void MainWindow::on_button_startingCollege_clicked()
+{
+    TripColleges.append(*currentCollege);
+    ui->label_tripColleges->setText(currentCollege->name());
+    ui->button_startingCollege->hide();
+    currentCollege->toggleIsStartingCollege(true);
 }
 
