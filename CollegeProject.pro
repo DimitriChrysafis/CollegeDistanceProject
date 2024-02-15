@@ -10,10 +10,10 @@ CONFIG += c++17
 
 SOURCES += src/mainwindow.cpp \
     src/college.cpp \
-    src/main.cpp
+    src/main.cpp src/storewidget.cpp
 
 HEADERS += src/mainwindow.h \
-    src/college.h
+    src/college.h src/storewidget.h
 
 FORMS += forms/mainwindow.ui
 
