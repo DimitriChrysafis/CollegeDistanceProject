@@ -10,6 +10,7 @@
 #include <QSpinBox>
 #include <QString>
 #include <QGroupBox>
+#include <QScrollArea>
 #include <iostream>
 
 class Souvenir: public QWidget {
@@ -59,7 +60,7 @@ class CampusStore: public QWidget {
   private:
   void createLayout();
 
-  std::vector<std::unique_ptr<Souvenir>> cart;
+  std::vector<Souvenir*> cart;
   QLabel receipt;
 
   QGroupBox* storeShelf;
