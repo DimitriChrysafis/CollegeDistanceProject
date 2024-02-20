@@ -13,9 +13,13 @@ MainWindow::MainWindow(QWidget *parent)
     tripDialog = new TripDialog;
     loginDialog = new LoginDialog;
 
+    //Hide certain buttons until the user logs in or clicks on the first college-------------------------
     ui->label_distanceFromSaddleback->hide();
+    ui->button_addSouvenir->hide();
+    ui->button_editSouvenir->hide();
+    ui->button_deleteSouvenir->hide();
 
-    //Set up menu and actions
+    //Set up menu and actions----------------------------------------------------------------------------
     loginAct = new QAction("Login to Admin", this);
     UCITripAct = new QAction("Preset Trip from UCI", this);
     ASUTripAct = new QAction("Preset Trip from ASU", this);
@@ -27,6 +31,7 @@ MainWindow::MainWindow(QWidget *parent)
     presetsMenu->addAction(ASUTripAct);
     connect(loginAct, &QAction::triggered, this, &MainWindow::login);
 
+    //Add dummy test colleges-----------------------------------------------------------------------------
     QMap<QString, double> dummySouvenirList;
     dummySouvenirList["Shirt"] = 15.50;
     dummySouvenirList["Lanyard"] = 4.00;
@@ -76,6 +81,12 @@ void MainWindow::addCollege(College college)
 void MainWindow::login()
 {
     loginDialog->exec();
+    if (loginDialog->getOk() && loginDialog->getPassword() == "Test")
+    {
+        ui->button_addSouvenir->show();
+        ui->button_editSouvenir->show();
+        ui->button_deleteSouvenir->show();
+    }
 }
 
 //----------------------------Beginning of UI functions (go to slots)-------------------------------------------------
