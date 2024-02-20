@@ -14,7 +14,10 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="button_go">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>680</x>
@@ -24,7 +27,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>Go!</string>
     </property>
    </widget>
    <widget class="QGroupBox" name="box_collegeNames">
@@ -46,6 +49,9 @@
     </layout>
    </widget>
    <widget class="QGroupBox" name="box_collegeInfo">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>280</x>
@@ -61,26 +67,40 @@
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>40</y>
-       <width>171</width>
-       <height>16</height>
+       <y>30</y>
+       <width>461</width>
+       <height>40</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <bold>true</bold>
+      </font>
      </property>
      <property name="text">
       <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
     </widget>
     <widget class="QLabel" name="label_distanceFromSaddlebackPREFIX">
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>100</y>
-       <width>151</width>
-       <height>16</height>
+       <y>95</y>
+       <width>381</width>
+       <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
      <property name="text">
-      <string>Distance from Saddleback:</string>
+      <string/>
      </property>
     </widget>
     <widget class="QListWidget" name="list_souvenirs">
@@ -94,18 +114,119 @@
      </property>
     </widget>
     <widget class="QLabel" name="label_distanceFromSaddleback">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
      <property name="geometry">
       <rect>
-       <x>200</x>
-       <y>100</y>
+       <x>410</x>
+       <y>95</y>
        <width>71</width>
-       <height>16</height>
+       <height>21</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
      </property>
      <property name="text">
       <string/>
      </property>
     </widget>
+    <widget class="QPushButton" name="button_addSouvenir">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>350</y>
+       <width>80</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Add</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="button_editSouvenir">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>109</x>
+       <y>350</y>
+       <width>80</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Edit</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="button_deleteSouvenir">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>197</x>
+       <y>350</y>
+       <width>80</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Delete</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="button_addToTrip">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>390</y>
+       <width>91</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Add to Trip</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="button_startingCollege">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>19</x>
+       <y>390</y>
+       <width>111</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Starting College</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="label_tripColleges">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>520</y>
+      <width>641</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -119,6 +240,21 @@
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionUniversity_Of_California_Irvine">
+   <property name="text">
+    <string>University Of California Irvine</string>
+   </property>
+  </action>
+  <action name="actionArizona_State_University">
+   <property name="text">
+    <string>Arizona State University</string>
+   </property>
+  </action>
+  <action name="actionAdmin">
+   <property name="text">
+    <string>Admin</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
