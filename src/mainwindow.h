@@ -3,9 +3,12 @@
 #include <QVector>
 #include <QMainWindow>
 #include <QListWidgetItem>
+#include <QAction>
 
 #include "college.h"
 #include "souvenirdialog.h"
+#include "tripdialog.h"
+#include "logindialog.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -21,6 +24,7 @@ public:
 
     void displayCollegeInfo(College college);
     void addCollege(College college);
+    void login();
 
 private slots:
     void on_list_collegeNames_itemClicked(QListWidgetItem *item);
@@ -37,11 +41,21 @@ private slots:
 
     void on_button_startingCollege_clicked();
 
+    void on_button_go_clicked();
+
 private:
     Ui::MainWindow *ui;
     QVector<College> Colleges;
     QVector<College> TripColleges;
     College* currentCollege;
     SouvenirDialog* souvenirDialog;
+    TripDialog* tripDialog;
+    LoginDialog* loginDialog;
+
+    QMenu *loginMenu;
+    QMenu *presetsMenu;
+    QAction *loginAct;
+    QAction *UCITripAct;
+    QAction *ASUTripAct;
 };
 #endif // MAINWINDOW_H

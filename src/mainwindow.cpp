@@ -10,7 +10,28 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     souvenirDialog = new SouvenirDialog;
+    tripDialog = new TripDialog;
+    loginDialog = new LoginDialog;
 
+    //Hide certain buttons until the user logs in or clicks on the first college-------------------------
+    ui->label_distanceFromSaddleback->hide();
+    ui->button_addSouvenir->hide();
+    ui->button_editSouvenir->hide();
+    ui->button_deleteSouvenir->hide();
+
+    //Set up menu and actions----------------------------------------------------------------------------
+    loginAct = new QAction("Login to Admin", this);
+    UCITripAct = new QAction("Preset Trip from UCI", this);
+    ASUTripAct = new QAction("Preset Trip from ASU", this);
+
+    loginMenu = menuBar()->addMenu("&Login");
+    loginMenu->addAction(loginAct);
+    presetsMenu = menuBar()->addMenu("Select Preset Trip");
+    presetsMenu->addAction(UCITripAct);
+    presetsMenu->addAction(ASUTripAct);
+    connect(loginAct, &QAction::triggered, this, &MainWindow::login);
+
+    //Add dummy test colleges-----------------------------------------------------------------------------
     QMap<QString, double> dummySouvenirList;
     dummySouvenirList["Shirt"] = 15.50;
     dummySouvenirList["Lanyard"] = 4.00;
@@ -55,6 +76,17 @@ void MainWindow::addCollege(College college)
 {
     Colleges.append(college);
     ui->list_collegeNames->addItem(college.name());
+}
+
+void MainWindow::login()
+{
+    loginDialog->exec();
+    if (loginDialog->getOk() && loginDialog->getPassword() == "Test")
+    {
+        ui->button_addSouvenir->show();
+        ui->button_editSouvenir->show();
+        ui->button_deleteSouvenir->show();
+    }
 }
 
 //----------------------------Beginning of UI functions (go to slots)-------------------------------------------------
@@ -192,5 +224,13 @@ void MainWindow::on_button_startingCollege_clicked()
     ui->label_tripColleges->setText(currentCollege->name());
     ui->button_startingCollege->hide();
     currentCollege->toggleIsStartingCollege(true);
+    ui->button_go->setEnabled(true);
+    ui->label_distanceFromSaddleback->show();
+    ui->label_distanceFromSaddlebackPREFIX->setText("Distance From " + currentCollege->name() + ":");
+}
+
+void MainWindow::on_button_go_clicked()
+{
+    tripDialog->exec();
 }
 
