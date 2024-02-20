@@ -18,9 +18,9 @@ dataframe df;    //Dataframe object containing colleges and their distances
 
 //Accepts custom df datatype by reference and reads CSV data into it
 void csvToDF(map<QString, map<QString, int>> &mp){
-    QDir csvPath = qApp->applicationDirPath();
+    QDir csvPath;
     csvPath.cdUp();
-    csvPath.cdUp();
+    // csvPath.cdUp();
     cout << csvPath.path().toStdString() << endl;
 
     ifstream csv(csvPath.path().toStdString() + "/CollegeDistanceProject/College Campus Distances and Souvenirs.csv");
@@ -40,18 +40,19 @@ void csvToDF(map<QString, map<QString, int>> &mp){
 }
 
 
-void findShortestPath(QString location, QString trip[], int n){
+void findShortestPath(QString location, vector<QString> &trip, int n){
     if (n >= 1){
-        
-    }
-    int min = 100000;
-    QString next;
-    for (auto i = df[location].begin(); i != df[location].end(); i++){
-        if (i->second < min){
-           
-            min = i->second;
-            next = i->first;
+        int min = 100000;
+        QString next;
+        for (auto i = df[location].begin(); i != df[location].end(); i++){
+            if (i->second < min && find(trip.begin(), trip.end(), i->first) == trip.end()){
+                min = i->second;
+                next = i->first;
+            }
         }
+        trip.push_back(next);
+        cout << next.toStdString() << endl;
+        findShortestPath(location, trip, n-1);
     }
 }
 
@@ -63,6 +64,14 @@ int main(int argc, char *argv[])
 
     csvToDF(df);
 
+
+    vector<QString> trip;
+
+    findShortestPath("Arizona State University", trip, df["Arizona State University"].size());
+
+    for (int i = 0; i < trip.size(); i++){
+        cout << i << ": " << trip[i].toStdString() << endl;
+    }
 
     return a.exec();
 }
