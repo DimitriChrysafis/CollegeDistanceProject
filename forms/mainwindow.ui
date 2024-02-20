@@ -67,26 +67,40 @@
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>40</y>
-       <width>171</width>
-       <height>16</height>
+       <y>30</y>
+       <width>461</width>
+       <height>40</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <bold>true</bold>
+      </font>
      </property>
      <property name="text">
       <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
     </widget>
     <widget class="QLabel" name="label_distanceFromSaddlebackPREFIX">
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>100</y>
-       <width>151</width>
-       <height>16</height>
+       <y>95</y>
+       <width>381</width>
+       <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
      <property name="text">
-      <string>Distance from Saddleback:</string>
+      <string/>
      </property>
     </widget>
     <widget class="QListWidget" name="list_souvenirs">
@@ -100,13 +114,21 @@
      </property>
     </widget>
     <widget class="QLabel" name="label_distanceFromSaddleback">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
      <property name="geometry">
       <rect>
-       <x>200</x>
-       <y>100</y>
+       <x>410</x>
+       <y>95</y>
        <width>71</width>
-       <height>16</height>
+       <height>21</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
      </property>
      <property name="text">
       <string/>

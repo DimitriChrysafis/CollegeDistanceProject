@@ -12,6 +12,8 @@ MainWindow::MainWindow(QWidget *parent)
     souvenirDialog = new SouvenirDialog;
     tripDialog = new TripDialog;
 
+    ui->label_distanceFromSaddleback->hide();
+
     QMap<QString, double> dummySouvenirList;
     dummySouvenirList["Shirt"] = 15.50;
     dummySouvenirList["Lanyard"] = 4.00;
@@ -194,6 +196,8 @@ void MainWindow::on_button_startingCollege_clicked()
     ui->button_startingCollege->hide();
     currentCollege->toggleIsStartingCollege(true);
     ui->button_go->setEnabled(true);
+    ui->label_distanceFromSaddleback->show();
+    ui->label_distanceFromSaddlebackPREFIX->setText("Distance From " + currentCollege->name() + ":");
 }
 
 

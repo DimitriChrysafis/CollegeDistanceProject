@@ -19,20 +19,20 @@ QT_BEGIN_NAMESPACE
 class Ui_TripDialog
 {
 public:
-    QPushButton *pushButton;
-    QPushButton *pushButton_2;
+    QPushButton *button_previous;
+    QPushButton *button_next;
 
     void setupUi(QDialog *TripDialog)
     {
         if (TripDialog->objectName().isEmpty())
             TripDialog->setObjectName(QString::fromUtf8("TripDialog"));
         TripDialog->resize(539, 456);
-        pushButton = new QPushButton(TripDialog);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(20, 420, 80, 24));
-        pushButton_2 = new QPushButton(TripDialog);
-        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
-        pushButton_2->setGeometry(QRect(430, 420, 80, 24));
+        button_previous = new QPushButton(TripDialog);
+        button_previous->setObjectName(QString::fromUtf8("button_previous"));
+        button_previous->setGeometry(QRect(20, 420, 80, 24));
+        button_next = new QPushButton(TripDialog);
+        button_next->setObjectName(QString::fromUtf8("button_next"));
+        button_next->setGeometry(QRect(430, 420, 80, 24));
 
         retranslateUi(TripDialog);
 
@@ -42,8 +42,8 @@ public:
     void retranslateUi(QDialog *TripDialog)
     {
         TripDialog->setWindowTitle(QCoreApplication::translate("TripDialog", "Dialog", nullptr));
-        pushButton->setText(QCoreApplication::translate("TripDialog", "Previous", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("TripDialog", "Previous", nullptr));
+        button_previous->setText(QCoreApplication::translate("TripDialog", "Previous", nullptr));
+        button_next->setText(QCoreApplication::translate("TripDialog", "Next", nullptr));
     } // retranslateUi
 
 };
