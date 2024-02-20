@@ -11,8 +11,21 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     souvenirDialog = new SouvenirDialog;
     tripDialog = new TripDialog;
+    loginDialog = new LoginDialog;
 
     ui->label_distanceFromSaddleback->hide();
+
+    //Set up menu and actions
+    loginAct = new QAction("Login to Admin", this);
+    UCITripAct = new QAction("Preset Trip from UCI", this);
+    ASUTripAct = new QAction("Preset Trip from ASU", this);
+
+    loginMenu = menuBar()->addMenu("&Login");
+    loginMenu->addAction(loginAct);
+    presetsMenu = menuBar()->addMenu("Select Preset Trip");
+    presetsMenu->addAction(UCITripAct);
+    presetsMenu->addAction(ASUTripAct);
+    connect(loginAct, &QAction::triggered, this, &MainWindow::login);
 
     QMap<QString, double> dummySouvenirList;
     dummySouvenirList["Shirt"] = 15.50;
@@ -58,6 +71,11 @@ void MainWindow::addCollege(College college)
 {
     Colleges.append(college);
     ui->list_collegeNames->addItem(college.name());
+}
+
+void MainWindow::login()
+{
+    loginDialog->exec();
 }
 
 //----------------------------Beginning of UI functions (go to slots)-------------------------------------------------
@@ -199,7 +217,6 @@ void MainWindow::on_button_startingCollege_clicked()
     ui->label_distanceFromSaddleback->show();
     ui->label_distanceFromSaddlebackPREFIX->setText("Distance From " + currentCollege->name() + ":");
 }
-
 
 void MainWindow::on_button_go_clicked()
 {

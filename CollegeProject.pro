@@ -10,17 +10,20 @@ CONFIG += c++17
 
 SOURCES += src/mainwindow.cpp \
     src/college.cpp \
+    src/logindialog.cpp \
     src/main.cpp \
     src/souvenirdialog.cpp \
     src/tripdialog.cpp \
 
 HEADERS += src/mainwindow.h \
     src/college.h \
+    src/logindialog.h \
     src/souvenirdialog.h \
     src/tripdialog.h \
 
 FORMS += forms/mainwindow.ui \
     forms/tripdialog.ui \
+    src/logindialog.ui \
     src/souvenirdialog.ui \
 
 # Default rules for deployment.

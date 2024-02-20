@@ -10,6 +10,7 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
+#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QLabel>
@@ -27,6 +28,9 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
+    QAction *actionUniversity_Of_California_Irvine;
+    QAction *actionArizona_State_University;
+    QAction *actionAdmin;
     QWidget *centralwidget;
     QPushButton *button_go;
     QGroupBox *box_collegeNames;
@@ -51,6 +55,12 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
         MainWindow->resize(800, 600);
+        actionUniversity_Of_California_Irvine = new QAction(MainWindow);
+        actionUniversity_Of_California_Irvine->setObjectName(QString::fromUtf8("actionUniversity_Of_California_Irvine"));
+        actionArizona_State_University = new QAction(MainWindow);
+        actionArizona_State_University->setObjectName(QString::fromUtf8("actionArizona_State_University"));
+        actionAdmin = new QAction(MainWindow);
+        actionAdmin->setObjectName(QString::fromUtf8("actionAdmin"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         button_go = new QPushButton(centralwidget);
@@ -133,6 +143,9 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+        actionUniversity_Of_California_Irvine->setText(QCoreApplication::translate("MainWindow", "University Of California Irvine", nullptr));
+        actionArizona_State_University->setText(QCoreApplication::translate("MainWindow", "Arizona State University", nullptr));
+        actionAdmin->setText(QCoreApplication::translate("MainWindow", "Admin", nullptr));
         button_go->setText(QCoreApplication::translate("MainWindow", "Go!", nullptr));
         box_collegeNames->setTitle(QCoreApplication::translate("MainWindow", "Colleges", nullptr));
         box_collegeInfo->setTitle(QCoreApplication::translate("MainWindow", "College Info", nullptr));
