@@ -6,6 +6,7 @@
 
 #include "college.h"
 #include "souvenirdialog.h"
+#include "tripdialog.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -37,11 +38,14 @@ private slots:
 
     void on_button_startingCollege_clicked();
 
+    void on_button_go_clicked();
+
 private:
     Ui::MainWindow *ui;
     QVector<College> Colleges;
     QVector<College> TripColleges;
     College* currentCollege;
     SouvenirDialog* souvenirDialog;
+    TripDialog* tripDialog;
 };
 #endif // MAINWINDOW_H

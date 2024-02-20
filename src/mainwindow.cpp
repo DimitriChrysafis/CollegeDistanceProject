@@ -10,6 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     souvenirDialog = new SouvenirDialog;
+    tripDialog = new TripDialog;
 
     QMap<QString, double> dummySouvenirList;
     dummySouvenirList["Shirt"] = 15.50;
@@ -192,5 +193,12 @@ void MainWindow::on_button_startingCollege_clicked()
     ui->label_tripColleges->setText(currentCollege->name());
     ui->button_startingCollege->hide();
     currentCollege->toggleIsStartingCollege(true);
+    ui->button_go->setEnabled(true);
+}
+
+
+void MainWindow::on_button_go_clicked()
+{
+    tripDialog->exec();
 }
 

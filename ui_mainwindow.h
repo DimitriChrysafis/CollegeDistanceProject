@@ -55,6 +55,7 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         button_go = new QPushButton(centralwidget);
         button_go->setObjectName(QString::fromUtf8("button_go"));
+        button_go->setEnabled(false);
         button_go->setGeometry(QRect(680, 520, 80, 24));
         box_collegeNames = new QGroupBox(centralwidget);
         box_collegeNames->setObjectName(QString::fromUtf8("box_collegeNames"));
