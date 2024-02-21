@@ -63,6 +63,9 @@ class CampusStore: public QWidget {
   std::vector<Souvenir*> cart;
   QLabel receipt;
 
+  QVBoxLayout* storeItems;
+  QVBoxLayout* cartItems;
+
   QGroupBox* storeShelf;
   QGroupBox* cartShelf;
 };
