@@ -213,10 +213,10 @@ void MainWindow::on_button_editSouvenir_clicked()
     }
 
     souvenirDialog->editSouvenir(key, currentCollege->souvenirPrice(key));
-    currentCollege->removeSouvenir(key);
     souvenirDialog->exec();
     if (souvenirDialog->getOk())
     {
+        currentCollege->removeSouvenir(key);
         currentCollege->addSouvenir(souvenirDialog->getItem(), souvenirDialog->getPrice());
         displayCollegeInfo(*currentCollege);
     }
