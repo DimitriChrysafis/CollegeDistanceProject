@@ -43,7 +43,7 @@ private slots:
 
     void on_button_go_clicked();
 
-    QVector<QString> *find_shortest_path(QString location, int n, QVector<QString> *trip = nullptr);
+    QVector<College> *find_shortest_path(QString location, int n, QVector<College> *trip = nullptr);
 
 private:
     Ui::MainWindow *ui;

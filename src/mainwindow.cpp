@@ -263,6 +263,8 @@ void MainWindow::on_button_addToTrip_clicked(bool checked)
         }
     }
 
+    TripColleges = *find_shortest_path(TripColleges[0].name(), TripColleges.length());
+
     ui->label_tripColleges->clear();
 
     for (int i = 0; i < TripColleges.length() - 1; i++)
@@ -291,20 +293,20 @@ void MainWindow::on_button_go_clicked()
     tripDialog->exec();
 }
 
-QVector<QString> *MainWindow::find_shortest_path(QString location, int n, QVector<QString> *trip)
+//Returns a pointer to a new vector containing a list of college objects ordered in the most efficient path
+QVector<College> *MainWindow::find_shortest_path(QString location, int n, QVector<College> *trip)
 {
     if (trip == nullptr){
-        trip = new QVector<QString> {location};
+        trip = new QVector<College> {};
     }
-    else{
-        trip->push_back(location);
-    }
+    trip->push_back(location);
 
-    if (n >= 1){
+    if (n > 1){
         int min = 100000;
         QString next;
-        for (auto i = Colleges.begin(); i != Colleges.end(); i++){
-            if (dataframe[location][i->name()] < min && trip->indexOf(i->name()) == -1){
+        for (auto i = TripColleges.begin(); i != TripColleges.end(); i++){
+            const auto eqCollegeName = [i] ( College& s ) { return s.name() == i->name() ; };
+            if (dataframe[location][i->name()] < min && std::find_if(trip->begin(), trip->end(), eqCollegeName) == trip->end()){
                 min = dataframe[location][i->name()];
                 next = i->name();
             }
@@ -316,3 +318,5 @@ QVector<QString> *MainWindow::find_shortest_path(QString location, int n, QVecto
         return trip;
     }
 }
+
+
