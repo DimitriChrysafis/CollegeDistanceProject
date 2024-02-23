@@ -50,7 +50,7 @@ MainWindow::MainWindow(QWidget *parent)
     addCollege(College("Arizona State University", dummySouvenirList, 166));
 
     dummySouvenirList["Sweater"] = 18.00;
-    addCollege(College("University of California Irvine", dummySouvenirList, 500));
+    addCollege(College("University of California, Irvine (UCI)", dummySouvenirList, 500));
 
     //Read CSV to dataframe-------------------------------------------------------------------------------
     QDir csvPath;
@@ -267,12 +267,18 @@ void MainWindow::on_button_addToTrip_clicked(bool checked)
 
     ui->label_tripColleges->clear();
 
+    int totalDistance = 0;
     for (int i = 0; i < TripColleges.length() - 1; i++)
     {
-        text += TripColleges[i].name() + " > ";
+        totalDistance += dataframe[TripColleges[i].name()][TripColleges[i+1].name()];
+        text += TripColleges[i].name() +
+                " > " +
+                QString::number(dataframe[TripColleges[i].name()][TripColleges[i+1].name()]) +
+                "mi > ";
     }
 
-    if (TripColleges.length() != 0) text += TripColleges[TripColleges.length() - 1].name();
+    if (TripColleges.length() != 0) text += TripColleges[TripColleges.length() - 1].name() +
+                                            " -- Total Distance: " + QString::number(totalDistance);
     ui->label_tripColleges->setText(text);
 }
 
