@@ -43,14 +43,18 @@ private slots:
 
     void on_button_go_clicked();
 
+    QVector<QString> *find_shortest_path(QString location, int n, QVector<QString> *trip = nullptr);
+
 private:
     Ui::MainWindow *ui;
     QVector<College> Colleges;
     QVector<College> TripColleges;
+    QVector<College> shortestPath;
     College* currentCollege;
     SouvenirDialog* souvenirDialog;
     TripDialog* tripDialog;
     LoginDialog* loginDialog;
+    std::map<QString, std::map<QString, int>> dataframe;
 
     QMenu *loginMenu;
     QMenu *presetsMenu;

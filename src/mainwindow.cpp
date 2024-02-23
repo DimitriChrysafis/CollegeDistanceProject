@@ -1,8 +1,14 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QMapIterator>
+#include <iostream>
+#include <QString>
+#include <QDir>
+#include <QString>
+#include <string>
+#include <fstream>
 
-
+using namespace std;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -45,6 +51,56 @@ MainWindow::MainWindow(QWidget *parent)
 
     dummySouvenirList["Sweater"] = 18.00;
     addCollege(College("University of California Irvine", dummySouvenirList, 500));
+
+    //Read CSV to dataframe-------------------------------------------------------------------------------
+    QDir csvPath;
+    csvPath.cdUp();
+    // csvPath.cdUp();
+    cout << csvPath.path().toStdString() << endl;
+
+    ifstream csv(csvPath.path().toStdString() + "/CollegeDistanceProject/College Campus Distances and Souvenirs.csv");
+
+    if(!csv){
+        cout << "Could not open file! :(" << endl;
+    }
+
+    char ch;
+    string buffer;
+    unsigned quotes = 0, count = 0;
+    string row, col, val;
+
+    csv.ignore(1000, '\n');
+    while((ch = csv.get()) != EOF){
+        if (ch == ',' && quotes % 2 == 0) {
+            switch(count%3){
+            case 0:
+                row.assign(buffer);
+                break;
+            case 1:
+                col.assign(buffer);
+                break;
+            case 2:
+                val.assign(buffer);
+                // cout << row << " " << col << " " << val << endl;
+                break;
+            }
+            count += 1;
+            buffer.assign("");
+        }
+
+        else if (ch == '\n') {
+            // cout << row << " " << col << " " << val << endl;
+            dataframe[QString::fromStdString(row)][QString::fromStdString(col)] = std::stoi(val);
+        }
+
+        else if (ch == '\"') {
+            quotes += 1;
+        }
+
+        else{
+            buffer += ch;
+        }
+    }
 }
 
 MainWindow::~MainWindow()
@@ -145,7 +201,7 @@ void MainWindow::on_button_editSouvenir_clicked()
     souvenir = ui->list_souvenirs->currentItem()->text();
     for (int i = 0; i < souvenir.length(); i++)
     {
-        if (souvenir[i] != "-")
+        if (souvenir[i] != '-')
         {
             key.append(souvenir[i]);
         }
@@ -173,7 +229,7 @@ void MainWindow::on_button_deleteSouvenir_clicked()
     souvenir = ui->list_souvenirs->currentItem()->text();
     for (int i = 0; i < souvenir.length(); i++)
     {
-        if (souvenir[i] != "-")
+        if (souvenir[i] != '-')
         {
             key.append(souvenir[i]);
         }
@@ -231,6 +287,32 @@ void MainWindow::on_button_startingCollege_clicked()
 
 void MainWindow::on_button_go_clicked()
 {
+    cout <<
     tripDialog->exec();
 }
 
+QVector<QString> *MainWindow::find_shortest_path(QString location, int n, QVector<QString> *trip)
+{
+    if (trip == nullptr){
+        trip = new QVector<QString> {location};
+    }
+    else{
+        trip->push_back(location);
+    }
+
+    if (n >= 1){
+        int min = 100000;
+        QString next;
+        for (auto i = Colleges.begin(); i != Colleges.end(); i++){
+            if (dataframe[location][i->name()] < min && trip->indexOf(i->name()) == -1){
+                min = dataframe[location][i->name()];
+                next = i->name();
+            }
+        }
+        // cout << next.toStdString() << endl;
+        return find_shortest_path(next, n-1, trip);
+    }
+    else{
+        return trip;
+    }
+}
