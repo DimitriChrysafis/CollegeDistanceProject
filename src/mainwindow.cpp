@@ -145,7 +145,7 @@ void MainWindow::on_button_editSouvenir_clicked()
     souvenir = ui->list_souvenirs->currentItem()->text();
     for (int i = 0; i < souvenir.length(); i++)
     {
-        if (souvenir[i] != "-")
+        if (souvenir[i] != '-')
         {
             key.append(souvenir[i]);
         }
@@ -173,7 +173,7 @@ void MainWindow::on_button_deleteSouvenir_clicked()
     souvenir = ui->list_souvenirs->currentItem()->text();
     for (int i = 0; i < souvenir.length(); i++)
     {
-        if (souvenir[i] != "-")
+        if (souvenir[i] != '-')
         {
             key.append(souvenir[i]);
         }
@@ -231,6 +231,8 @@ void MainWindow::on_button_startingCollege_clicked()
 
 void MainWindow::on_button_go_clicked()
 {
+    tripDialog->getColleges(TripColleges);
+    tripDialog->display(0);
     tripDialog->exec();
 }
 

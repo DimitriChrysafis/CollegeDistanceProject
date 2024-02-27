@@ -14,6 +14,9 @@
    <string>Dialog</string>
   </property>
   <widget class="QPushButton" name="button_previous">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -37,6 +40,19 @@
    </property>
    <property name="text">
     <string>Next</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_collegeName">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>20</y>
+     <width>231</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
  </widget>
