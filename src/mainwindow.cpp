@@ -116,7 +116,9 @@ void MainWindow::displayCollegeInfo(College college)
     ui->list_souvenirs->clear();
 
     ui->label_collegeName->setText(college.name());
-    ui->label_distanceFromSaddleback->setText(QString::number(college.distance()));
+    if (!TripColleges.empty()){
+        ui->label_distanceFromSaddleback->setText(QString::number(dataframe[college.name()][TripColleges[0].name()]));
+    }
 
     while (it.hasNext())
     {
