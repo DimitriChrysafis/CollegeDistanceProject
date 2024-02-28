@@ -1,6 +1,6 @@
 #include "storewidget.h"
 
-//Default Constructor
+//Overloaded Constructor
 Souvenir::Souvenir(QString name, QString desc, double price, QWidget* parent): QWidget(parent) {
   itemName = name;
   itemDescription = desc;
@@ -26,22 +26,34 @@ void Souvenir::cartClicked() {
   emit moveMe(this);
 }
 
+void Souvenir::amtChanged(int newVal) {
+  cartQuantity = newVal;
+  if(inCart && newVal == 0) cartClicked();
+  if(!inCart && newVal == 0) moveCart->setEnabled(false);
+  else moveCart->setEnabled(true);
+}
+
 //Called on Construction, builds layout of item
 void Souvenir::createLayout() {
   QHBoxLayout* layout_ = new QHBoxLayout(this);
   QLabel* name = new QLabel(itemName);
-  name->setMinimumWidth(200);
+  name->setMinimumWidth(110);
   name->setWordWrap(true);
   name->setAlignment(Qt::AlignCenter);
   amountInCart = new QSpinBox;
   connect(amountInCart, QOverload<int>::of(&QSpinBox::valueChanged), 
-      [=](int i){ cartQuantity = i; if(i == 0) cartClicked(); }); 
+      this, &Souvenir::amtChanged);
+
   moveCart = new QPushButton("Add To Cart");
+  moveCart->setEnabled(false);
   connect(moveCart, &QPushButton::clicked, this, &Souvenir::cartClicked);
   amountInCart->setRange(0, 99);
 
+  QLabel* price = new QLabel("$" + QString::number(itemPrice));
+  price->setMinimumWidth(40);
+
   layout_->addWidget(name);
-  layout_->addWidget(new QLabel("$" + QString::number(itemPrice)));
+  layout_->addWidget(price);
   layout_->addWidget(amountInCart);
   layout_->addWidget(moveCart);
   
@@ -56,15 +68,16 @@ CampusStore::CampusStore(QWidget* parent): QWidget(parent) {
 //Called on construction, builds layout of store
 void CampusStore::createLayout() {
   storeShelf = new QGroupBox("Souvenirs Store");
-  storeShelf->setContentsMargins(0, 0, 0, 0);
+  storeShelf->setContentsMargins(10, 10, 10, 10);
   cartShelf = new QGroupBox("Your Cart");
-  cartShelf->setContentsMargins(0, 0, 0, 0);
+  cartShelf->setContentsMargins(10, 10, 10, 10);
   
   QHBoxLayout* mainLayout = new QHBoxLayout(this);
   mainLayout->addWidget(storeShelf);
   mainLayout->addWidget(cartShelf);
-  setMaximumSize(1000, 370);
-  resize(1000, 370);
+  setMaximumSize(755, 310);
+  setMinimumSize(755, 310);
+  resize(755, 310);
   setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
   
   storeItems = new QVBoxLayout();
@@ -74,11 +87,11 @@ void CampusStore::createLayout() {
   cartShelf->setLayout(cartItems);
   storeShelf->setLayout(storeItems);
 
-  addItem("jacket", "", 70);
-  addItem("mug", "", 70);
-  addItem("t-shirt", "", 70);
-  addItem("socks", "", 70);
-  addItem("socks", "", 70);
+  //addItem("License plate cover", "", 11.85);
+  //addItem("License plate cover", "", 11.85);
+  //addItem("socks", "", 70);
+  //addItem("t-shirt", "", 70);
+  //addItem("socks", "", 70);
 }
 
 //Add item to store shelf
@@ -111,5 +124,6 @@ void CampusStore::updateCart() {
   for(auto& item: cart) 
     sum += item->getPrice();
 
+  std::cout << width() << '\n';
   std::cout << "$" << sum << '\n';
 }

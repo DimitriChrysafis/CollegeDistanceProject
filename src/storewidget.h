@@ -17,7 +17,6 @@ class Souvenir: public QWidget {
   Q_OBJECT;
 
   public:
-  explicit Souvenir(QWidget* parent = nullptr);
   explicit Souvenir(QString name, QString desc, double price, QWidget* parent = nullptr);
   int getQuantity() const;
   double getPrice() const;
@@ -25,6 +24,7 @@ class Souvenir: public QWidget {
 
   public slots:
   void cartClicked();
+  void amtChanged(int newVal);
 
   signals:
   void moveMe(Souvenir* me);
@@ -34,6 +34,8 @@ class Souvenir: public QWidget {
 
   QString itemName;
   QString itemDescription;
+  
+  QLabel* price;
   QSpinBox* amountInCart;
   QPushButton* moveCart;
   double itemPrice;
