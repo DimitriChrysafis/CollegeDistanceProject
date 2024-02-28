@@ -293,9 +293,10 @@ void MainWindow::on_button_addToTrip_clicked(bool checked)
                 "mi > ";
     }
 
-    if (TripColleges.length() != 0) text += TripColleges[TripColleges.length() - 1].name() +
+    if (TripColleges.length() != 0) text += TripColleges[TripColleges.length() - 1].name(); //+
                                             " -- Total Distance: " + QString::number(totalDistance);
     ui->label_tripColleges->setText(text);
+    ui->label_totalDistance->setText("Total Distance: " + QString::number(totalDistance));
 }
 
 void MainWindow::on_button_startingCollege_clicked()
