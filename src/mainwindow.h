@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QListWidgetItem>
 #include <QAction>
+#include <string>
 
 #include "college.h"
 #include "souvenirdialog.h"
@@ -27,6 +28,8 @@ public:
     void login();
 
 private slots:
+    void csv_to_df(std::string path, std::map<QString, std::map<QString, float>> &datagframe);
+
     void on_list_collegeNames_itemClicked(QListWidgetItem *item);
 
     void on_button_addSouvenir_clicked();
@@ -54,7 +57,8 @@ private:
     SouvenirDialog* souvenirDialog;
     TripDialog* tripDialog;
     LoginDialog* loginDialog;
-    std::map<QString, std::map<QString, int>> dataframe;
+    std::map<QString, std::map<QString, float>> distanceMap;
+    std::map<QString, std::map<QString, float>> souvenirMap;
 
     QMenu *loginMenu;
     QMenu *presetsMenu;

@@ -43,27 +43,42 @@ MainWindow::MainWindow(QWidget *parent)
     dummySouvenirList["Lanyard"] = 4.00;
     dummySouvenirList["Hoodie"] = 25.00;
 
-    addCollege(College("Saddleback College", dummySouvenirList, 55));
+    addCollege(College("Saddleback College", dummySouvenirList));
     dummySouvenirList.remove("Shirt");
     dummySouvenirList.remove("Lanyard");
     dummySouvenirList["Water Flask"] = 8.25;
-    addCollege(College("Arizona State University", dummySouvenirList, 166));
+    addCollege(College("Arizona State University", dummySouvenirList));
 
     dummySouvenirList["Sweater"] = 18.00;
-    addCollege(College("University of California, Irvine (UCI)", dummySouvenirList, 500));
+    addCollege(College("University of California, Irvine (UCI)", dummySouvenirList));
 
-    //Read CSV to dataframe-------------------------------------------------------------------------------
-    QDir csvPath;
-    csvPath.cdUp();
-    // csvPath.cdUp();
-    cout << csvPath.path().toStdString() << endl;
+    //Read CSV to data-------------------------------------------------------------------------------
+    QDir distPath;
+    distPath.cdUp();
+    string path = distPath.path().toStdString() + "/CollegeDistanceProject/College Campus Distances.csv";
+    csv_to_df(path, distanceMap);
 
-    ifstream csv(csvPath.path().toStdString() + "/CollegeDistanceProject/College Campus Distances and Souvenirs.csv");
+    QDir souvPath = QDir::current();
+    cout << QDir::current().path().toStdString() << endl;
+    souvPath.cdUp();
+    cout << souvPath.path().toStdString() << endl;
+    path = souvPath.path().toStdString() + "/CollegeDistanceProject/College Campus Souvenirs.csv";
+    cout << "Path: " << path << endl;
+    csv_to_df(path, souvenirMap);
+    cout << souvenirMap["Arizona State University"]["Football Jersey"] << endl;
+}
+
+MainWindow::~MainWindow()
+{
+    delete ui;
+}
+
+void MainWindow::csv_to_df(string path, std::map<QString, std::map<QString, float>> &dataframe){
+    ifstream csv(path);
 
     if(!csv){
         cout << "Could not open file! :(" << endl;
     }
-
     char ch;
     string buffer;
     unsigned quotes = 0, count = 0;
@@ -90,7 +105,7 @@ MainWindow::MainWindow(QWidget *parent)
 
         else if (ch == '\n') {
             // cout << row << " " << col << " " << val << endl;
-            dataframe[QString::fromStdString(row)][QString::fromStdString(col)] = std::stoi(val);
+            dataframe[QString::fromStdString(row)][QString::fromStdString(col)] = std::stof(val);
         }
 
         else if (ch == '\"') {
@@ -103,11 +118,6 @@ MainWindow::MainWindow(QWidget *parent)
     }
 }
 
-MainWindow::~MainWindow()
-{
-    delete ui;
-}
-
 //Displays all college info within the UI, including name, distance from starting college, and all souvenirs.
 void MainWindow::displayCollegeInfo(College college)
 {
@@ -117,7 +127,7 @@ void MainWindow::displayCollegeInfo(College college)
 
     ui->label_collegeName->setText(college.name());
     if (!TripColleges.empty()){
-        ui->label_distanceFromSaddleback->setText(QString::number(dataframe[college.name()][TripColleges[0].name()]));
+        ui->label_distanceFromSaddleback->setText(QString::number(distanceMap[college.name()][TripColleges[0].name()]));
     }
 
     while (it.hasNext())
@@ -272,10 +282,10 @@ void MainWindow::on_button_addToTrip_clicked(bool checked)
     int totalDistance = 0;
     for (int i = 0; i < TripColleges.length() - 1; i++)
     {
-        totalDistance += dataframe[TripColleges[i].name()][TripColleges[i+1].name()];
+        totalDistance += distanceMap[TripColleges[i].name()][TripColleges[i+1].name()];
         text += TripColleges[i].name() +
                 " > " +
-                QString::number(dataframe[TripColleges[i].name()][TripColleges[i+1].name()]) +
+                QString::number(distanceMap[TripColleges[i].name()][TripColleges[i+1].name()]) +
                 "mi > ";
     }
 
@@ -314,8 +324,8 @@ QVector<College> *MainWindow::find_shortest_path(QString location, int n, QVecto
         QString next;
         for (auto i = TripColleges.begin(); i != TripColleges.end(); i++){
             const auto eqCollegeName = [i] ( College& s ) { return s.name() == i->name() ; };
-            if (dataframe[location][i->name()] < min && std::find_if(trip->begin(), trip->end(), eqCollegeName) == trip->end()){
-                min = dataframe[location][i->name()];
+            if (distanceMap[location][i->name()] < min && std::find_if(trip->begin(), trip->end(), eqCollegeName) == trip->end()){
+                min = distanceMap[location][i->name()];
                 next = i->name();
             }
         }
