@@ -2,12 +2,10 @@
 
 College::College(QString name): _name(name) {};
 College::College(QString name, QMap<QString, double> souvenirList): _name(name), _souvenirList(souvenirList) {};
-College::College(QString name, QMap<QString, double> souvenirList, int distance): _name(name), _souvenirList(souvenirList), _distance(distance) {};
 
 //Accessors
 QString College::name() { return _name; }
 QMap<QString, double> College::souvenirList() { return _souvenirList; }
-int College::distance() { return _distance; }
 double College::souvenirPrice(QString item) { return _souvenirList[item]; }
 bool College::isInTrip() { return _isInTrip; }
 bool College::isStartingCollege() { return _isStartingCollege; }
