@@ -38,19 +38,19 @@ MainWindow::MainWindow(QWidget *parent)
     connect(loginAct, &QAction::triggered, this, &MainWindow::login);
 
     //Add dummy test colleges-----------------------------------------------------------------------------
-    QMap<QString, double> dummySouvenirList;
-    dummySouvenirList["Shirt"] = 15.50;
-    dummySouvenirList["Lanyard"] = 4.00;
-    dummySouvenirList["Hoodie"] = 25.00;
+    // QMap<QString, double> dummySouvenirList;
+    // dummySouvenirList["Shirt"] = 15.50;
+    // dummySouvenirList["Lanyard"] = 4.00;
+    // dummySouvenirList["Hoodie"] = 25.00;
 
-    addCollege(College("Saddleback College", dummySouvenirList));
-    dummySouvenirList.remove("Shirt");
-    dummySouvenirList.remove("Lanyard");
-    dummySouvenirList["Water Flask"] = 8.25;
-    addCollege(College("Arizona State University", dummySouvenirList));
+    // addCollege(College("Saddleback College", dummySouvenirList));
+    // dummySouvenirList.remove("Shirt");
+    // dummySouvenirList.remove("Lanyard");
+    // dummySouvenirList["Water Flask"] = 8.25;
+    // addCollege(College("Arizona State University", dummySouvenirList));
 
-    dummySouvenirList["Sweater"] = 18.00;
-    addCollege(College("University of California, Irvine (UCI)", dummySouvenirList));
+    // dummySouvenirList["Sweater"] = 18.00;
+    // addCollege(College("University of California, Irvine (UCI)", dummySouvenirList));
 
     //Read CSV to data-------------------------------------------------------------------------------
     QDir distPath;
@@ -65,7 +65,11 @@ MainWindow::MainWindow(QWidget *parent)
     path = souvPath.path().toStdString() + "/CollegeDistanceProject/College Campus Souvenirs.csv";
     cout << "Path: " << path << endl;
     csv_to_df(path, souvenirMap);
-    cout << souvenirMap["Arizona State University"]["Football Jersey"] << endl;
+    // cout << souvenirMap["Arizona State University"]["Football Jersey"] << endl;
+
+    for (auto i = distanceMap.cbegin(); i != distanceMap.cend(); i++){
+        addCollege(College(i.key(), souvenirMap[i.key()]));
+    }
 }
 
 MainWindow::~MainWindow()
@@ -73,7 +77,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::csv_to_df(string path, std::map<QString, std::map<QString, float>> &dataframe){
+void MainWindow::csv_to_df(string path, QMap<QString, QMap<QString, double>> &dataframe){
     ifstream csv(path);
 
     if(!csv){

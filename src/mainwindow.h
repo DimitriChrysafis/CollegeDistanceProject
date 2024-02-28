@@ -28,7 +28,7 @@ public:
     void login();
 
 private slots:
-    void csv_to_df(std::string path, std::map<QString, std::map<QString, float>> &datagframe);
+    void csv_to_df(std::string path, QMap<QString, QMap<QString, double>> &datagframe);
 
     void on_list_collegeNames_itemClicked(QListWidgetItem *item);
 
@@ -57,8 +57,8 @@ private:
     SouvenirDialog* souvenirDialog;
     TripDialog* tripDialog;
     LoginDialog* loginDialog;
-    std::map<QString, std::map<QString, float>> distanceMap;
-    std::map<QString, std::map<QString, float>> souvenirMap;
+    QMap<QString, QMap<QString, double>> distanceMap;
+    QMap<QString, QMap<QString, double>> souvenirMap;
 
     QMenu *loginMenu;
     QMenu *presetsMenu;
