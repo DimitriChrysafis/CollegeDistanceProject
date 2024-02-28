@@ -6,8 +6,7 @@
 #include <QAction>
 
 #include "college.h"
-#include "souvenirdialog.h"
-#include "logindialog.h"
+//#include "souvenirdialog.h"
 #include <QDialog>
 
 namespace Ui {

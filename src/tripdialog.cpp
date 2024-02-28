@@ -24,11 +24,11 @@ void TripDialog::display(int index)
     ui->label_collegeName->setText(colleges[index].name());
 }
 
-
 void TripDialog::on_button_next_clicked()
 {
     index++;
     if (index == colleges.size() - 1) ui->button_next->setEnabled(false);
+    if (index > 0) ui->button_previous->setEnabled(true);
     display(index);
 }
 
@@ -36,6 +36,7 @@ void TripDialog::on_button_previous_clicked()
 {
     index--;
     if (index == 0) ui->button_previous->setEnabled(false);
+    if(index > 0 && index < colleges.size() - 1) ui->button_next->setEnabled(true);
     display(index);
 }
 
