@@ -32,13 +32,19 @@ public:
         button_previous = new QPushButton(TripDialog);
         button_previous->setObjectName("button_previous");
         button_previous->setEnabled(false);
-        button_previous->setGeometry(QRect(20, 420, 80, 24));
+        button_previous->setGeometry(QRect(6, 432, 80, 18));
         button_next = new QPushButton(TripDialog);
         button_next->setObjectName("button_next");
-        button_next->setGeometry(QRect(430, 420, 80, 24));
+        button_next->setGeometry(QRect(450, 430, 80, 18));
         label_collegeName = new QLabel(TripDialog);
         label_collegeName->setObjectName("label_collegeName");
-        label_collegeName->setGeometry(QRect(130, 20, 231, 31));
+        label_collegeName->setGeometry(QRect(110, 30, 300, 41));
+        QFont font;
+        font.setPointSize(15);
+        font.setBold(true);
+        font.setUnderline(true);
+        label_collegeName->setFont(font);
+        label_collegeName->setAlignment(Qt::AlignCenter);
 
         retranslateUi(TripDialog);
 
