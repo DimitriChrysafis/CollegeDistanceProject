@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.15.15
+** Created by: Qt User Interface Compiler version 6.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,7 +10,7 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
-//#include <QtWidgets/QAction>
+#include <QtGui/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QLabel>
@@ -47,42 +47,44 @@ public:
     QRadioButton *button_addToTrip;
     QPushButton *button_startingCollege;
     QLabel *label_tripColleges;
+    QLabel *label_totalDistance;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
-            MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(800, 600);
+            MainWindow->setObjectName("MainWindow");
+        MainWindow->resize(800, 643);
         actionUniversity_Of_California_Irvine = new QAction(MainWindow);
-        actionUniversity_Of_California_Irvine->setObjectName(QString::fromUtf8("actionUniversity_Of_California_Irvine"));
+        actionUniversity_Of_California_Irvine->setObjectName("actionUniversity_Of_California_Irvine");
         actionArizona_State_University = new QAction(MainWindow);
-        actionArizona_State_University->setObjectName(QString::fromUtf8("actionArizona_State_University"));
+        actionArizona_State_University->setObjectName("actionArizona_State_University");
         actionAdmin = new QAction(MainWindow);
-        actionAdmin->setObjectName(QString::fromUtf8("actionAdmin"));
+        actionAdmin->setObjectName("actionAdmin");
         centralwidget = new QWidget(MainWindow);
-        centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
+        centralwidget->setObjectName("centralwidget");
         button_go = new QPushButton(centralwidget);
-        button_go->setObjectName(QString::fromUtf8("button_go"));
+        button_go->setObjectName("button_go");
         button_go->setEnabled(false);
-        button_go->setGeometry(QRect(680, 520, 80, 24));
+        button_go->setGeometry(QRect(680, 550, 80, 24));
         box_collegeNames = new QGroupBox(centralwidget);
-        box_collegeNames->setObjectName(QString::fromUtf8("box_collegeNames"));
-        box_collegeNames->setGeometry(QRect(20, 20, 241, 481));
+        box_collegeNames->setObjectName("box_collegeNames");
+        box_collegeNames->setGeometry(QRect(20, 20, 241, 431));
         verticalLayout = new QVBoxLayout(box_collegeNames);
-        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalLayout->setObjectName("verticalLayout");
         list_collegeNames = new QListWidget(box_collegeNames);
-        list_collegeNames->setObjectName(QString::fromUtf8("list_collegeNames"));
+        list_collegeNames->setObjectName("list_collegeNames");
+        list_collegeNames->setWordWrap(true);
 
         verticalLayout->addWidget(list_collegeNames);
 
         box_collegeInfo = new QGroupBox(centralwidget);
-        box_collegeInfo->setObjectName(QString::fromUtf8("box_collegeInfo"));
+        box_collegeInfo->setObjectName("box_collegeInfo");
         box_collegeInfo->setEnabled(true);
-        box_collegeInfo->setGeometry(QRect(280, 20, 501, 481));
+        box_collegeInfo->setGeometry(QRect(280, 20, 501, 431));
         label_collegeName = new QLabel(box_collegeInfo);
-        label_collegeName->setObjectName(QString::fromUtf8("label_collegeName"));
+        label_collegeName->setObjectName("label_collegeName");
         label_collegeName->setGeometry(QRect(20, 30, 461, 40));
         QFont font;
         font.setPointSize(12);
@@ -90,49 +92,53 @@ public:
         label_collegeName->setFont(font);
         label_collegeName->setAlignment(Qt::AlignCenter);
         label_distanceFromSaddlebackPREFIX = new QLabel(box_collegeInfo);
-        label_distanceFromSaddlebackPREFIX->setObjectName(QString::fromUtf8("label_distanceFromSaddlebackPREFIX"));
+        label_distanceFromSaddlebackPREFIX->setObjectName("label_distanceFromSaddlebackPREFIX");
         label_distanceFromSaddlebackPREFIX->setGeometry(QRect(20, 95, 381, 21));
         QFont font1;
         font1.setPointSize(10);
         label_distanceFromSaddlebackPREFIX->setFont(font1);
         list_souvenirs = new QListWidget(box_collegeInfo);
-        list_souvenirs->setObjectName(QString::fromUtf8("list_souvenirs"));
+        list_souvenirs->setObjectName("list_souvenirs");
         list_souvenirs->setGeometry(QRect(20, 140, 256, 192));
         label_distanceFromSaddleback = new QLabel(box_collegeInfo);
-        label_distanceFromSaddleback->setObjectName(QString::fromUtf8("label_distanceFromSaddleback"));
+        label_distanceFromSaddleback->setObjectName("label_distanceFromSaddleback");
         label_distanceFromSaddleback->setEnabled(true);
         label_distanceFromSaddleback->setGeometry(QRect(410, 95, 71, 21));
         label_distanceFromSaddleback->setFont(font1);
         button_addSouvenir = new QPushButton(box_collegeInfo);
-        button_addSouvenir->setObjectName(QString::fromUtf8("button_addSouvenir"));
+        button_addSouvenir->setObjectName("button_addSouvenir");
         button_addSouvenir->setEnabled(false);
         button_addSouvenir->setGeometry(QRect(20, 350, 80, 24));
         button_editSouvenir = new QPushButton(box_collegeInfo);
-        button_editSouvenir->setObjectName(QString::fromUtf8("button_editSouvenir"));
+        button_editSouvenir->setObjectName("button_editSouvenir");
         button_editSouvenir->setEnabled(false);
         button_editSouvenir->setGeometry(QRect(109, 350, 80, 24));
         button_deleteSouvenir = new QPushButton(box_collegeInfo);
-        button_deleteSouvenir->setObjectName(QString::fromUtf8("button_deleteSouvenir"));
+        button_deleteSouvenir->setObjectName("button_deleteSouvenir");
         button_deleteSouvenir->setEnabled(false);
         button_deleteSouvenir->setGeometry(QRect(197, 350, 80, 24));
         button_addToTrip = new QRadioButton(box_collegeInfo);
-        button_addToTrip->setObjectName(QString::fromUtf8("button_addToTrip"));
+        button_addToTrip->setObjectName("button_addToTrip");
         button_addToTrip->setEnabled(false);
         button_addToTrip->setGeometry(QRect(20, 390, 91, 22));
         button_startingCollege = new QPushButton(box_collegeInfo);
-        button_startingCollege->setObjectName(QString::fromUtf8("button_startingCollege"));
+        button_startingCollege->setObjectName("button_startingCollege");
         button_startingCollege->setEnabled(false);
         button_startingCollege->setGeometry(QRect(19, 390, 111, 24));
         label_tripColleges = new QLabel(centralwidget);
-        label_tripColleges->setObjectName(QString::fromUtf8("label_tripColleges"));
-        label_tripColleges->setGeometry(QRect(20, 520, 641, 41));
+        label_tripColleges->setObjectName("label_tripColleges");
+        label_tripColleges->setGeometry(QRect(20, 470, 641, 71));
+        label_tripColleges->setWordWrap(true);
+        label_totalDistance = new QLabel(centralwidget);
+        label_totalDistance->setObjectName("label_totalDistance");
+        label_totalDistance->setGeometry(QRect(20, 560, 361, 20));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
-        menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 21));
+        menubar->setObjectName("menubar");
+        menubar->setGeometry(QRect(0, 0, 800, 26));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
-        statusbar->setObjectName(QString::fromUtf8("statusbar"));
+        statusbar->setObjectName("statusbar");
         MainWindow->setStatusBar(statusbar);
 
         retranslateUi(MainWindow);
@@ -158,6 +164,7 @@ public:
         button_addToTrip->setText(QCoreApplication::translate("MainWindow", "Add to Trip", nullptr));
         button_startingCollege->setText(QCoreApplication::translate("MainWindow", "Starting College", nullptr));
         label_tripColleges->setText(QString());
+        label_totalDistance->setText(QString());
     } // retranslateUi
 
 };

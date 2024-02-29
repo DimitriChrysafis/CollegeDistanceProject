@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QListWidgetItem>
 #include <QAction>
+#include <string>
 
 #include "college.h"
 #include "souvenirdialog.h"
@@ -27,6 +28,8 @@ public:
     void login();
 
 private slots:
+    void csv_to_df(std::string path, QMap<QString, QMap<QString, double>> &datagframe);
+
     void on_list_collegeNames_itemClicked(QListWidgetItem *item);
 
     void on_button_addSouvenir_clicked();
@@ -43,14 +46,19 @@ private slots:
 
     void on_button_go_clicked();
 
+    QVector<College> *find_shortest_path(QString location, int n, QVector<College> *trip = nullptr);
+
 private:
     Ui::MainWindow *ui;
     QVector<College> Colleges;
     QVector<College> TripColleges;
+    QVector<College> shortestPath;
     College* currentCollege;
     SouvenirDialog* souvenirDialog;
     TripDialog* tripDialog;
     LoginDialog* loginDialog;
+    QMap<QString, QMap<QString, double>> distanceMap;
+    QMap<QString, QMap<QString, double>> souvenirMap;
 
     QMenu *loginMenu;
     QMenu *presetsMenu;

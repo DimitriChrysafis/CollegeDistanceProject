@@ -1,8 +1,14 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QMapIterator>
+#include <iostream>
+#include <QString>
+#include <QDir>
+#include <QString>
+#include <string>
+#include <fstream>
 
-
+using namespace std;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -32,24 +38,88 @@ MainWindow::MainWindow(QWidget *parent)
     connect(loginAct, &QAction::triggered, this, &MainWindow::login);
 
     //Add dummy test colleges-----------------------------------------------------------------------------
-    QMap<QString, double> dummySouvenirList;
-    dummySouvenirList["Shirt"] = 15.50;
-    dummySouvenirList["Lanyard"] = 4.00;
-    dummySouvenirList["Hoodie"] = 25.00;
+    // QMap<QString, double> dummySouvenirList;
+    // dummySouvenirList["Shirt"] = 15.50;
+    // dummySouvenirList["Lanyard"] = 4.00;
+    // dummySouvenirList["Hoodie"] = 25.00;
 
-    addCollege(College("Saddleback College", dummySouvenirList, 55));
-    dummySouvenirList.remove("Shirt");
-    dummySouvenirList.remove("Lanyard");
-    dummySouvenirList["Water Flask"] = 8.25;
-    addCollege(College("Arizona State University", dummySouvenirList, 166));
+    // addCollege(College("Saddleback College", dummySouvenirList));
+    // dummySouvenirList.remove("Shirt");
+    // dummySouvenirList.remove("Lanyard");
+    // dummySouvenirList["Water Flask"] = 8.25;
+    // addCollege(College("Arizona State University", dummySouvenirList));
 
-    dummySouvenirList["Sweater"] = 18.00;
-    addCollege(College("University of California Irvine", dummySouvenirList, 500));
+    // dummySouvenirList["Sweater"] = 18.00;
+    // addCollege(College("University of California, Irvine (UCI)", dummySouvenirList));
+
+    //Read CSV to data-------------------------------------------------------------------------------
+    QDir distPath;
+    distPath.cdUp();
+    string path = distPath.path().toStdString() + "/CollegeDistanceProject/College Campus Distances.csv";
+    csv_to_df(path, distanceMap);
+
+    QDir souvPath = QDir::current();
+    cout << QDir::current().path().toStdString() << endl;
+    souvPath.cdUp();
+    cout << souvPath.path().toStdString() << endl;
+    path = souvPath.path().toStdString() + "/CollegeDistanceProject/College Campus Souvenirs.csv";
+    cout << "Path: " << path << endl;
+    csv_to_df(path, souvenirMap);
+    // cout << souvenirMap["Arizona State University"]["Football Jersey"] << endl;
+
+    for (auto i = distanceMap.cbegin(); i != distanceMap.cend(); i++){
+        addCollege(College(i.key(), souvenirMap[i.key()]));
+    }
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::csv_to_df(string path, QMap<QString, QMap<QString, double>> &dataframe){
+    ifstream csv(path);
+
+    if(!csv){
+        cout << "Could not open file! :(" << endl;
+    }
+    char ch;
+    string buffer;
+    unsigned quotes = 0, count = 0;
+    string row, col, val;
+
+    csv.ignore(1000, '\n');
+    while((ch = csv.get()) != EOF){
+        if (ch == ',' && quotes % 2 == 0) {
+            switch(count%3){
+            case 0:
+                row.assign(buffer);
+                break;
+            case 1:
+                col.assign(buffer);
+                break;
+            case 2:
+                val.assign(buffer);
+                // cout << row << " " << col << " " << val << endl;
+                break;
+            }
+            count += 1;
+            buffer.assign("");
+        }
+
+        else if (ch == '\n') {
+            // cout << row << " " << col << " " << val << endl;
+            dataframe[QString::fromStdString(row)][QString::fromStdString(col)] = std::stof(val);
+        }
+
+        else if (ch == '\"') {
+            quotes += 1;
+        }
+
+        else{
+            buffer += ch;
+        }
+    }
 }
 
 //Displays all college info within the UI, including name, distance from starting college, and all souvenirs.
@@ -60,7 +130,9 @@ void MainWindow::displayCollegeInfo(College college)
     ui->list_souvenirs->clear();
 
     ui->label_collegeName->setText(college.name());
-    ui->label_distanceFromSaddleback->setText(QString::number(college.distance()));
+    if (!TripColleges.empty()){
+        ui->label_distanceFromSaddleback->setText(QString::number(distanceMap[college.name()][TripColleges[0].name()]));
+    }
 
     while (it.hasNext())
     {
@@ -157,10 +229,10 @@ void MainWindow::on_button_editSouvenir_clicked()
     }
 
     souvenirDialog->editSouvenir(key, currentCollege->souvenirPrice(key));
-    currentCollege->removeSouvenir(key);
     souvenirDialog->exec();
     if (souvenirDialog->getOk())
     {
+        currentCollege->removeSouvenir(key);
         currentCollege->addSouvenir(souvenirDialog->getItem(), souvenirDialog->getPrice());
         displayCollegeInfo(*currentCollege);
     }
@@ -207,15 +279,24 @@ void MainWindow::on_button_addToTrip_clicked(bool checked)
         }
     }
 
+    TripColleges = *find_shortest_path(TripColleges[0].name(), TripColleges.length());
+
     ui->label_tripColleges->clear();
 
+    int totalDistance = 0;
     for (int i = 0; i < TripColleges.length() - 1; i++)
     {
-        text += TripColleges[i].name() + " > ";
+        totalDistance += distanceMap[TripColleges[i].name()][TripColleges[i+1].name()];
+        text += TripColleges[i].name() +
+                " > " +
+                QString::number(distanceMap[TripColleges[i].name()][TripColleges[i+1].name()]) +
+                "mi > ";
     }
 
-    if (TripColleges.length() != 0) text += TripColleges[TripColleges.length() - 1].name();
+    if (TripColleges.length() != 0) text += TripColleges[TripColleges.length() - 1].name(); //+
+                                            " -- Total Distance: " + QString::number(totalDistance);
     ui->label_tripColleges->setText(text);
+    ui->label_totalDistance->setText("Total Distance: " + QString::number(totalDistance));
 }
 
 void MainWindow::on_button_startingCollege_clicked()
@@ -231,9 +312,35 @@ void MainWindow::on_button_startingCollege_clicked()
 
 void MainWindow::on_button_go_clicked()
 {
-    //Test
     tripDialog->getColleges(TripColleges);
     tripDialog->display(0);
     tripDialog->exec();
 }
+
+//Returns a pointer to a new vector containing a list of college objects ordered in the most efficient path
+QVector<College> *MainWindow::find_shortest_path(QString location, int n, QVector<College> *trip)
+{
+    if (trip == nullptr){
+        trip = new QVector<College> {};
+    }
+    trip->push_back(location);
+
+    if (n > 1){
+        int min = 100000;
+        QString next;
+        for (auto i = TripColleges.begin(); i != TripColleges.end(); i++){
+            const auto eqCollegeName = [i] ( College& s ) { return s.name() == i->name() ; };
+            if (distanceMap[location][i->name()] < min && std::find_if(trip->begin(), trip->end(), eqCollegeName) == trip->end()){
+                min = distanceMap[location][i->name()];
+                next = i->name();
+            }
+        }
+        // cout << next.toStdString() << endl;
+        return find_shortest_path(next, n-1, trip);
+    }
+    else{
+        return trip;
+    }
+}
+
 

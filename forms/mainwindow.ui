@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>600</height>
+    <height>643</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,7 +21,7 @@
     <property name="geometry">
      <rect>
       <x>680</x>
-      <y>520</y>
+      <y>550</y>
       <width>80</width>
       <height>24</height>
      </rect>
@@ -36,7 +36,7 @@
       <x>20</x>
       <y>20</y>
       <width>241</width>
-      <height>481</height>
+      <height>431</height>
      </rect>
     </property>
     <property name="title">
@@ -44,7 +44,11 @@
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QListWidget" name="list_collegeNames"/>
+      <widget class="QListWidget" name="list_collegeNames">
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>
@@ -57,7 +61,7 @@
       <x>280</x>
       <y>20</y>
       <width>501</width>
-      <height>481</height>
+      <height>431</height>
      </rect>
     </property>
     <property name="title">
@@ -219,9 +223,25 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>520</y>
+      <y>470</y>
       <width>641</width>
-      <height>41</height>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_totalDistance">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>560</y>
+      <width>361</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="text">
@@ -235,7 +255,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
