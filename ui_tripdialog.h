@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'tripdialog.ui'
 **
-** Created by: Qt User Interface Compiler version 6.6.1
+** Created by: Qt User Interface Compiler version 6.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -20,15 +20,15 @@ QT_BEGIN_NAMESPACE
 class Ui_TripDialog
 {
 public:
-    QPushButton* button_previous;
-    QPushButton* button_next;
-    QLabel* label_collegeName;
-    QLabel* label_distance_next;
-    QLabel* label_next;
-    QLabel* label_previous;
-    QLabel* label_distance_previous;
+    QPushButton *button_previous;
+    QPushButton *button_next;
+    QLabel *label_collegeName;
+    QLabel *label_distance_next;
+    QLabel *label_next;
+    QLabel *label_previous;
+    QLabel *label_distance_previous;
 
-    void setupUi(QDialog* TripDialog)
+    void setupUi(QDialog *TripDialog)
     {
         if (TripDialog->objectName().isEmpty())
             TripDialog->setObjectName("TripDialog");
@@ -36,10 +36,10 @@ public:
         button_previous = new QPushButton(TripDialog);
         button_previous->setObjectName("button_previous");
         button_previous->setEnabled(false);
-        button_previous->setGeometry(QRect(80, 440, 80, 18));
+        button_previous->setGeometry(QRect(60, 440, 101, 21));
         button_next = new QPushButton(TripDialog);
         button_next->setObjectName("button_next");
-        button_next->setGeometry(QRect(450, 440, 80, 18));
+        button_next->setGeometry(QRect(420, 440, 101, 21));
         label_collegeName = new QLabel(TripDialog);
         label_collegeName->setObjectName("label_collegeName");
         label_collegeName->setGeometry(QRect(40, 30, 521, 41));
@@ -53,13 +53,13 @@ public:
         label_distance_next->setObjectName("label_distance_next");
         label_distance_next->setGeometry(QRect(550, 410, 51, 21));
         QFont font1;
-        font1.setBold(true);
+        font1.setBold(false);
         font1.setUnderline(false);
         label_distance_next->setFont(font1);
         label_distance_next->setAlignment(Qt::AlignCenter);
         label_next = new QLabel(TripDialog);
         label_next->setObjectName("label_next");
-        label_next->setGeometry(QRect(400, 410, 151, 20));
+        label_next->setGeometry(QRect(390, 410, 151, 20));
         QFont font2;
         font2.setBold(true);
         font2.setUnderline(true);
@@ -67,7 +67,7 @@ public:
         label_next->setAlignment(Qt::AlignCenter);
         label_previous = new QLabel(TripDialog);
         label_previous->setObjectName("label_previous");
-        label_previous->setGeometry(QRect(10, 410, 181, 20));
+        label_previous->setGeometry(QRect(20, 410, 181, 20));
         label_previous->setFont(font2);
         label_previous->setAlignment(Qt::AlignCenter);
         label_distance_previous = new QLabel(TripDialog);
@@ -81,7 +81,7 @@ public:
         QMetaObject::connectSlotsByName(TripDialog);
     } // setupUi
 
-    void retranslateUi(QDialog* TripDialog)
+    void retranslateUi(QDialog *TripDialog)
     {
         TripDialog->setWindowTitle(QCoreApplication::translate("TripDialog", "Dialog", nullptr));
         button_previous->setText(QCoreApplication::translate("TripDialog", "Previous", nullptr));
@@ -96,7 +96,7 @@ public:
 };
 
 namespace Ui {
-    class TripDialog : public Ui_TripDialog {};
+    class TripDialog: public Ui_TripDialog {};
 } // namespace Ui
 
 QT_END_NAMESPACE

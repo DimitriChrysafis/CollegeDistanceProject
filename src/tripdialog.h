@@ -1,9 +1,9 @@
 #ifndef TRIPDIALOG_H
 #define TRIPDIALOG_H
-#include <QVector>
-#include <QMainWindow>
-#include <QListWidgetItem>
 #include <QAction>
+#include <QListWidgetItem>
+#include <QMainWindow>
+#include <QVector>
 
 #include "college.h"
 //#include "souvenirdialog.h"
@@ -25,8 +25,7 @@ public:
     void displayName(int index);
     void displayPreviousDistance(int index);
     void displayNextDistance(int index);
-
-
+    void reset();
 
 private slots:
     void on_button_next_clicked();
@@ -37,7 +36,6 @@ private:
     int index = 0;
     QVector<College> colleges;
     QVector<int> distances;
-
 };
 
 #endif // TRIPDIALOG_H
