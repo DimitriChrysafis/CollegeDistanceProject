@@ -231,6 +231,7 @@ void MainWindow::on_button_startingCollege_clicked()
 
 void MainWindow::on_button_go_clicked()
 {
+    //Test
     tripDialog->getColleges(TripColleges);
     tripDialog->display(0);
     tripDialog->exec();
