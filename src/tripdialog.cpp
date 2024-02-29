@@ -23,24 +23,55 @@ void TripDialog::getColleges(QVector<College> vector)
     }
 }
 
-void TripDialog::display(int index)
+void TripDialog::getDistances(QVector<int> vector)
+{
+    distances = vector;
+}
+
+void TripDialog::displayName(int index)
 {
     ui->label_collegeName->setText(colleges[index].name());
+}
+
+void TripDialog::displayPreviousDistance(int index)
+{
+    if (index >= 0 && index < distances.size())
+        ui->label_distance_previous->setText(QString::number(distances[index]));
+    else
+        ui->label_distance_previous->setText("N/A");
+}
+
+
+void TripDialog::displayNextDistance(int index)
+{
+    if (index >= 0 && index < distances.size())
+        ui->label_distance_next->setText(QString::number(distances[index]));
+    else
+        ui->label_distance_next->setText("N/A");
 }
 
 void TripDialog::on_button_next_clicked()
 {
     index++;
-    if (index == colleges.size() - 1) ui->button_next->setEnabled(false);
-    if (index > 0) ui->button_previous->setEnabled(true);
-    display(index);
+    if (index == colleges.size() - 1)
+        ui->button_next->setEnabled(false);
+    if (index > 0)
+        ui->button_previous->setEnabled(true);
+    displayName(index);
+    displayPreviousDistance(index - 1);
+    displayNextDistance(index);
 }
 
 void TripDialog::on_button_previous_clicked()
 {
     index--;
-    if (index == 0) ui->button_previous->setEnabled(false);
-    if(index > 0 && index < colleges.size() - 1) ui->button_next->setEnabled(true);
-    display(index);
+    if (index == 0)
+        ui->button_previous->setEnabled(false);
+    if (index < colleges.size() - 1)
+        ui->button_next->setEnabled(true);
+    displayName(index);
+    displayPreviousDistance(index - 1);
+    displayNextDistance(index);
 }
+
 

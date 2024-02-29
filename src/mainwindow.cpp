@@ -312,8 +312,16 @@ void MainWindow::on_button_startingCollege_clicked()
 
 void MainWindow::on_button_go_clicked()
 {
+    QVector<int> distances;
+    for (int i = 0; i < TripColleges.size() - 1; i++)
+    {
+        distances.append(distanceMap[TripColleges[i].name()][TripColleges[i + 1].name()]);
+    }
     tripDialog->getColleges(TripColleges);
-    tripDialog->display(0);
+    tripDialog->getDistances(distances);
+    tripDialog->displayName(0);
+    tripDialog->displayNextDistance(0);
+    tripDialog->displayPreviousDistance(-1);
     tripDialog->exec();
 }
 
