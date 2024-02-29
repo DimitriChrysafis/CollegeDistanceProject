@@ -1,6 +1,12 @@
 #ifndef TRIPDIALOG_H
 #define TRIPDIALOG_H
+#include <QVector>
+#include <QMainWindow>
+#include <QListWidgetItem>
+#include <QAction>
 
+#include "college.h"
+//#include "souvenirdialog.h"
 #include <QDialog>
 
 namespace Ui {
@@ -14,9 +20,17 @@ class TripDialog : public QDialog
 public:
     explicit TripDialog(QWidget *parent = nullptr);
     ~TripDialog();
+    void getColleges(QVector<College> vector);
+    void display(int index);
+
+private slots:
+    void on_button_next_clicked();
+    void on_button_previous_clicked();
 
 private:
     Ui::TripDialog *ui;
+    int index = 0;
+    QVector<College> colleges;
 };
 
 #endif // TRIPDIALOG_H
