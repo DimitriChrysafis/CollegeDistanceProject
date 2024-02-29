@@ -13,11 +13,9 @@ public:
 
     College(QString name);
     College(QString name, QMap<QString, double> souvenirList);
-    College(QString name, QMap<QString, double> souvenirList, int distance);
 
     //Accessors
     QString name();
-    int distance();
     QMap<QString, double> souvenirList();
     double souvenirPrice(QString item);
     bool isInTrip();
