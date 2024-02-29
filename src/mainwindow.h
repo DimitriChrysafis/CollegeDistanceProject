@@ -65,5 +65,6 @@ private:
     QAction *loginAct;
     QAction *UCITripAct;
     QAction *ASUTripAct;
+    QAction *SaddlebackTripAct;
 };
 #endif // MAINWINDOW_H

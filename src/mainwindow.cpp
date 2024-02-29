@@ -28,12 +28,14 @@ MainWindow::MainWindow(QWidget *parent)
     loginAct = new QAction("Login to Admin", this);
     UCITripAct = new QAction("Preset Trip from UCI", this);
     ASUTripAct = new QAction("Preset Trip from ASU", this);
+    SaddlebackTripAct = new QAction("Preset Trip from Saddleback", this);
 
     loginMenu = menuBar()->addMenu("&Login");
     loginMenu->addAction(loginAct);
     presetsMenu = menuBar()->addMenu("Select Preset Trip");
     presetsMenu->addAction(UCITripAct);
     presetsMenu->addAction(ASUTripAct);
+    presetsMenu->addAction(SaddlebackTripAct);
     connect(loginAct, &QAction::triggered, this, &MainWindow::login);
 
     //Add dummy test colleges-----------------------------------------------------------------------------
