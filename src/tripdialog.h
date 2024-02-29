@@ -21,7 +21,12 @@ public:
     explicit TripDialog(QWidget *parent = nullptr);
     ~TripDialog();
     void getColleges(QVector<College> vector);
-    void display(int index);
+    void getDistances(QVector<int> vector);
+    void displayName(int index);
+    void displayPreviousDistance(int index);
+    void displayNextDistance(int index);
+
+
 
 private slots:
     void on_button_next_clicked();
@@ -31,6 +36,8 @@ private:
     Ui::TripDialog *ui;
     int index = 0;
     QVector<College> colleges;
+    QVector<int> distances;
+
 };
 
 #endif // TRIPDIALOG_H
