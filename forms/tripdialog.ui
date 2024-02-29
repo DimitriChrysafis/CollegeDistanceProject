@@ -19,10 +19,10 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>80</x>
+     <x>60</x>
      <y>440</y>
-     <width>80</width>
-     <height>18</height>
+     <width>101</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="text">
@@ -32,10 +32,10 @@
   <widget class="QPushButton" name="button_next">
    <property name="geometry">
     <rect>
-     <x>450</x>
+     <x>420</x>
      <y>440</y>
-     <width>80</width>
-     <height>18</height>
+     <width>101</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="text">
@@ -76,7 +76,7 @@
    </property>
    <property name="font">
     <font>
-     <bold>true</bold>
+     <bold>false</bold>
      <underline>false</underline>
     </font>
    </property>
@@ -90,7 +90,7 @@
   <widget class="QLabel" name="label_next">
    <property name="geometry">
     <rect>
-     <x>400</x>
+     <x>390</x>
      <y>410</y>
      <width>151</width>
      <height>20</height>
@@ -112,7 +112,7 @@
   <widget class="QLabel" name="label_previous">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>20</x>
      <y>410</y>
      <width>181</width>
      <height>20</height>
@@ -142,7 +142,7 @@
    </property>
    <property name="font">
     <font>
-     <bold>true</bold>
+     <bold>false</bold>
      <underline>false</underline>
     </font>
    </property>
