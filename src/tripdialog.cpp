@@ -16,11 +16,11 @@ TripDialog::~TripDialog()
 void TripDialog::getColleges(QVector<College> vector)
 {
     colleges = vector;
-    if (colleges.size() <= 1) {
-        ui->button_next->setEnabled(false);
-    } else {
-        ui->button_next->setEnabled(true);
-    }
+    //if (colleges.size() <= 1) {
+        //ui->button_next->setEnabled(false);
+    //} else {
+        //ui->button_next->setEnabled(true);
+    //}
 }
 
 void TripDialog::getDistances(QVector<int> vector)
@@ -54,7 +54,6 @@ void TripDialog::on_button_next_clicked()
     index++;
     if (index == colleges.size())
     {
-        //ui->button_next->setEnabled(false);
         ui->button_next->setText("Finish");
         ui->label_collegeName->setText("End of the Trip!");
         ui->label_distance_next->setHidden(true);
@@ -68,11 +67,11 @@ void TripDialog::on_button_next_clicked()
     }
     else
     {
-        ui->button_previous->setEnabled(true);
         displayName(index);
         displayPreviousDistance(index - 1);
         displayNextDistance(index);
     }
+    ui->button_previous->setEnabled(true);
 
 }
 
@@ -83,7 +82,6 @@ void TripDialog::on_button_previous_clicked()
         ui->button_previous->setEnabled(false);
     if (index < colleges.size())
     {
-        ui->button_next->setEnabled(true);
         ui->label_distance_next->setHidden(false);
         ui->label_distance_previous->setHidden(false);
         ui->label_next->setHidden(false);
