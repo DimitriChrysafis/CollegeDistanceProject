@@ -10,6 +10,7 @@
 #include "souvenirdialog.h"
 #include "tripdialog.h"
 #include "logindialog.h"
+#include "asudialog.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -60,6 +61,7 @@ private:
     SouvenirDialog* souvenirDialog;
     TripDialog* tripDialog;
     LoginDialog* loginDialog;
+    ASUDialog* asuDialog;
     QMap<QString, QMap<QString, double>> distanceMap;
     QMap<QString, QMap<QString, double>> souvenirMap;
 

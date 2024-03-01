@@ -17,6 +17,7 @@ MainWindow::MainWindow(QWidget *parent)
     souvenirDialog = new SouvenirDialog;
     tripDialog = new TripDialog;
     loginDialog = new LoginDialog;
+    asuDialog = new ASUDialog;
 
     //Hide certain buttons until the user logs in or clicks on the first college-------------------------
     //ui->label_distanceFromSaddleback->hide();
@@ -171,18 +172,62 @@ void MainWindow::tripUCI()
     TripColleges.clear();
     for (int i = 0; i < Colleges.length(); i++)
     {
+        Colleges[i].toggleIsStartingCollege(false);
         if (Colleges[i].name() == "University of California, Irvine (UCI)")
         {
             currentCollege = &Colleges[i];
             on_button_startingCollege_clicked();
-            break;
         }
     }
+
+    for (int i = 0; i < Colleges.length(); i++)
+    {
+        currentCollege = &Colleges[i];
+        if (!currentCollege->isStartingCollege())
+        {
+            on_button_addToTrip_clicked(true);
+        }
+    }
+    ui->list_collegeNames->clearSelection();
 }
 
 void MainWindow::tripASU()
 {
+    asuDialog->exec();
+    TripColleges.clear();
+    for (int i = 0; i < Colleges.length(); i++)
+    {
+        Colleges[i].toggleIsStartingCollege(false);
+        if (Colleges[i].name() == "Arizona State University")
+        {
+            currentCollege = &Colleges[i];
+            on_button_startingCollege_clicked();
+        }
+    }
 
+    for (int i = 0; i < Colleges.length(); i++)
+    {
+        currentCollege = &Colleges[i];
+        if (!currentCollege->isStartingCollege())
+        {
+            on_button_addToTrip_clicked(true);
+        }
+    }
+
+    for (int i = 0; i < Colleges.length(); i++)
+    {
+        for (int x = TripColleges.length() - 1; x > asuDialog->getNum(); x--)
+        {
+            if (Colleges[i].name() == TripColleges[x].name())
+            {
+                currentCollege = &Colleges[i];
+                on_button_addToTrip_clicked(false);
+            }
+        }
+    }
+
+    ui->list_collegeNames->clearSelection();
+    asuDialog->reset();
 }
 
 void MainWindow::tripSaddleback()
@@ -190,11 +235,11 @@ void MainWindow::tripSaddleback()
     TripColleges.clear();
     for (int i = 0; i < Colleges.length(); i++)
     {
+        Colleges[i].toggleIsStartingCollege(false);
         if (Colleges[i].name() == "Saddleback College")
         {
             currentCollege = &Colleges[i];
             on_button_startingCollege_clicked();
-            break;
         }
     }
 
@@ -294,6 +339,7 @@ void MainWindow::on_button_deleteSouvenir_clicked()
     displayCollegeInfo(*currentCollege);
 }
 
+//Add the currently selected college to the trip OR remove it. Also, update trip colleges label and total distance label.
 void MainWindow::on_button_addToTrip_clicked(bool checked)
 {
     QString text = "";
@@ -323,21 +369,18 @@ void MainWindow::on_button_addToTrip_clicked(bool checked)
     }
 
     if (TripColleges.length() != 0)
-        text += TripColleges[TripColleges.length() - 1].name(); //+
-    " -- Total Distance: " + QString::number(totalDistance);
+        text += TripColleges[TripColleges.length() - 1].name();
     ui->label_tripColleges->setText(text);
     ui->label_totalDistance->setText("Total Distance: " + QString::number(totalDistance));
 }
 
 void MainWindow::on_button_startingCollege_clicked()
 {
+    currentCollege->toggleIsStartingCollege(true);
     TripColleges.append(*currentCollege);
     ui->label_tripColleges->setText(currentCollege->name());
     ui->button_startingCollege->hide();
-    currentCollege->toggleIsStartingCollege(true);
     ui->button_go->setEnabled(true);
-    //ui->label_distanceFromSaddleback->show();
-    //ui->label_distanceFromSaddlebackPREFIX->setText("Distance From " + currentCollege->name() + ":");
 }
 
 void MainWindow::on_button_go_clicked()
