@@ -19,7 +19,7 @@ MainWindow::MainWindow(QWidget *parent)
     loginDialog = new LoginDialog;
 
     //Hide certain buttons until the user logs in or clicks on the first college-------------------------
-    ui->label_distanceFromSaddleback->hide();
+    //ui->label_distanceFromSaddleback->hide();
     ui->button_addSouvenir->hide();
     ui->button_editSouvenir->hide();
     ui->button_deleteSouvenir->hide();
@@ -37,6 +37,9 @@ MainWindow::MainWindow(QWidget *parent)
     presetsMenu->addAction(ASUTripAct);
     presetsMenu->addAction(SaddlebackTripAct);
     connect(loginAct, &QAction::triggered, this, &MainWindow::login);
+    connect(UCITripAct, &QAction::triggered, this, &MainWindow::tripUCI);
+    connect(ASUTripAct, &QAction::triggered, this, &MainWindow::tripASU);
+    connect(SaddlebackTripAct, &QAction::triggered, this, &MainWindow::tripSaddleback);
 
     //Add dummy test colleges-----------------------------------------------------------------------------
     // QMap<QString, double> dummySouvenirList;
@@ -134,7 +137,7 @@ void MainWindow::displayCollegeInfo(College college)
 
     ui->label_collegeName->setText(college.name());
     if (!TripColleges.empty()) {
-        ui->label_distanceFromSaddleback->setText(
+        ui->label_distanceFromSaddlebackPREFIX->setText("Distance from " + TripColleges[0].name() + ": " +
             QString::number(distanceMap[college.name()][TripColleges[0].name()]));
     }
 
@@ -161,6 +164,49 @@ void MainWindow::login()
         ui->button_editSouvenir->show();
         ui->button_deleteSouvenir->show();
     }
+}
+
+void MainWindow::tripUCI()
+{
+    TripColleges.clear();
+    for (int i = 0; i < Colleges.length(); i++)
+    {
+        if (Colleges[i].name() == "University of California, Irvine (UCI)")
+        {
+            currentCollege = &Colleges[i];
+            on_button_startingCollege_clicked();
+            break;
+        }
+    }
+}
+
+void MainWindow::tripASU()
+{
+
+}
+
+void MainWindow::tripSaddleback()
+{
+    TripColleges.clear();
+    for (int i = 0; i < Colleges.length(); i++)
+    {
+        if (Colleges[i].name() == "Saddleback College")
+        {
+            currentCollege = &Colleges[i];
+            on_button_startingCollege_clicked();
+            break;
+        }
+    }
+
+    for (int i = 0; i < Colleges.length(); i++)
+    {
+        currentCollege = &Colleges[i];
+        if (!currentCollege->isStartingCollege())
+        {
+            on_button_addToTrip_clicked(true);
+        }
+    }
+    ui->list_collegeNames->clearSelection();
 }
 
 //----------------------------Beginning of UI functions (go to slots)-------------------------------------------------
@@ -290,8 +336,8 @@ void MainWindow::on_button_startingCollege_clicked()
     ui->button_startingCollege->hide();
     currentCollege->toggleIsStartingCollege(true);
     ui->button_go->setEnabled(true);
-    ui->label_distanceFromSaddleback->show();
-    ui->label_distanceFromSaddlebackPREFIX->setText("Distance From " + currentCollege->name() + ":");
+    //ui->label_distanceFromSaddleback->show();
+    //ui->label_distanceFromSaddlebackPREFIX->setText("Distance From " + currentCollege->name() + ":");
 }
 
 void MainWindow::on_button_go_clicked()

@@ -26,6 +26,9 @@ public:
     void displayCollegeInfo(College college);
     void addCollege(College college);
     void login();
+    void tripUCI();
+    void tripASU();
+    void tripSaddleback();
 
 private slots:
     void csv_to_df(std::string path, QMap<QString, QMap<QString, double>> &datagframe);
