@@ -40,7 +40,6 @@ public:
     QLabel *label_collegeName;
     QLabel *label_distanceFromSaddlebackPREFIX;
     QListWidget *list_souvenirs;
-    QLabel *label_distanceFromSaddleback;
     QPushButton *button_addSouvenir;
     QPushButton *button_editSouvenir;
     QPushButton *button_deleteSouvenir;
@@ -87,7 +86,7 @@ public:
         label_collegeName->setObjectName("label_collegeName");
         label_collegeName->setGeometry(QRect(20, 30, 461, 40));
         QFont font;
-        font.setPointSize(12);
+        font.setPointSize(14);
         font.setBold(true);
         label_collegeName->setFont(font);
         label_collegeName->setAlignment(Qt::AlignCenter);
@@ -100,11 +99,6 @@ public:
         list_souvenirs = new QListWidget(box_collegeInfo);
         list_souvenirs->setObjectName("list_souvenirs");
         list_souvenirs->setGeometry(QRect(20, 140, 256, 192));
-        label_distanceFromSaddleback = new QLabel(box_collegeInfo);
-        label_distanceFromSaddleback->setObjectName("label_distanceFromSaddleback");
-        label_distanceFromSaddleback->setEnabled(true);
-        label_distanceFromSaddleback->setGeometry(QRect(410, 95, 71, 21));
-        label_distanceFromSaddleback->setFont(font1);
         button_addSouvenir = new QPushButton(box_collegeInfo);
         button_addSouvenir->setObjectName("button_addSouvenir");
         button_addSouvenir->setEnabled(false);
@@ -157,7 +151,6 @@ public:
         box_collegeInfo->setTitle(QCoreApplication::translate("MainWindow", "College Info", nullptr));
         label_collegeName->setText(QString());
         label_distanceFromSaddlebackPREFIX->setText(QString());
-        label_distanceFromSaddleback->setText(QString());
         button_addSouvenir->setText(QCoreApplication::translate("MainWindow", "Add", nullptr));
         button_editSouvenir->setText(QCoreApplication::translate("MainWindow", "Edit", nullptr));
         button_deleteSouvenir->setText(QCoreApplication::translate("MainWindow", "Delete", nullptr));

@@ -10,6 +10,7 @@
 #include "souvenirdialog.h"
 #include "tripdialog.h"
 #include "logindialog.h"
+#include "asudialog.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -26,6 +27,9 @@ public:
     void displayCollegeInfo(College college);
     void addCollege(College college);
     void login();
+    void tripUCI();
+    void tripASU();
+    void tripSaddleback();
 
 private slots:
     void csv_to_df(std::string path, QMap<QString, QMap<QString, double>> &datagframe);
@@ -57,6 +61,7 @@ private:
     SouvenirDialog* souvenirDialog;
     TripDialog* tripDialog;
     LoginDialog* loginDialog;
+    ASUDialog* asuDialog;
     QMap<QString, QMap<QString, double>> distanceMap;
     QMap<QString, QMap<QString, double>> souvenirMap;
 
@@ -65,5 +70,6 @@ private:
     QAction *loginAct;
     QAction *UCITripAct;
     QAction *ASUTripAct;
+    QAction *SaddlebackTripAct;
 };
 #endif // MAINWINDOW_H
