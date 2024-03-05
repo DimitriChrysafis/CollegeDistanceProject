@@ -160,7 +160,7 @@ void MainWindow::addCollege(College college)
 void MainWindow::login()
 {
     loginDialog->exec();
-    if (loginDialog->getOk() && loginDialog->getPassword() == "Test") {
+    if (loginDialog->getOk() && loginDialog->getPassword() == "*Saddleback") {
         ui->button_addSouvenir->show();
         ui->button_editSouvenir->show();
         ui->button_deleteSouvenir->show();
@@ -193,6 +193,7 @@ void MainWindow::tripUCI()
 
 void MainWindow::tripASU()
 {
+    asuDialog->setMax(Colleges.length() - 1);
     asuDialog->exec();
     TripColleges.clear();
     for (int i = 0; i < Colleges.length(); i++)

@@ -17,6 +17,8 @@ int ASUDialog::getNum() { return _num; }
 
 bool ASUDialog::getOk() { return _ok; }
 
+void ASUDialog::setMax(int max) { ui->box_number->setMaximum(max); }
+
 void ASUDialog::reset() { ui->box_number->setValue(1); }
 
 void ASUDialog::on_button_ok_clicked()

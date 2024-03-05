@@ -17,6 +17,7 @@ public:
 
     int getNum();
     bool getOk();
+    void setMax(int max);
     void reset();
 
 private slots:
