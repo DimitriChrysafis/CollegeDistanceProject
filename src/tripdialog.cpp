@@ -6,6 +6,15 @@ TripDialog::TripDialog(QWidget *parent)
     , ui(new Ui::TripDialog)
 {
     ui->setupUi(this);
+
+    collegeName = new QLabel();
+    collegeName->setStyleSheet("font-weight: bold; font-size: 15pt; text-decoration: underline");
+    QGridLayout* layout_ = new QGridLayout(this);
+    storesHolder = new QStackedWidget(this);
+    layout_->addWidget(collegeName, 0, 0, 1, 2, Qt::AlignCenter);
+    layout_->addWidget(storesHolder, 1, 0, 1, 2, Qt::AlignCenter);
+    layout_->addWidget(new QPushButton("mPrevious"), 2, 0, Qt::AlignLeft);
+    layout_->addWidget(new QPushButton("mNext"), 2, 1, Qt::AlignLeft);
 }
 
 TripDialog::~TripDialog()
@@ -28,9 +37,19 @@ void TripDialog::getDistances(QVector<int> vector)
     distances = vector;
 }
 
+void TripDialog::getSouvenirs(const QMap<QString, QMap<QString, double>>& souvenirs) {
+  for(auto& college: colleges) {
+    CampusStore* newStore = new CampusStore(college.name(), this);
+    for(auto [key, value]: souvenirs[college.name()].asKeyValueRange()) {
+      newStore->addItem(key, "", value);
+    }
+    storesHolder->addWidget(newStore);
+  }
+}
+
 void TripDialog::displayName(int index)
 {
-    ui->label_collegeName->setText(colleges[index].name());
+    collegeName->setText(colleges[index].name());
 }
 
 void TripDialog::displayPreviousDistance(int index)
@@ -55,7 +74,7 @@ void TripDialog::on_button_next_clicked()
     if (index == colleges.size())
     {
         ui->button_next->setText("Finish");
-        ui->label_collegeName->setText("End of the Trip!");
+        collegeName->setText("End of the Trip!");
         ui->label_distance_next->setHidden(true);
         ui->label_distance_previous->setHidden(true);
         ui->label_next->setHidden(true);
@@ -91,6 +110,8 @@ void TripDialog::on_button_previous_clicked()
     displayName(index);
     displayPreviousDistance(index - 1);
     displayNextDistance(index);
+
+    storesHolder->setCurrentIndex(index);
 }
 
 void TripDialog::reset()

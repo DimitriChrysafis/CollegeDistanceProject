@@ -2,11 +2,13 @@
 #define TRIPDIALOG_H
 #include <QAction>
 #include <QListWidgetItem>
+#include <QStackedWidget>
 #include <QMainWindow>
 #include <QVector>
 
 #include "college.h"
 //#include "souvenirdialog.h"
+#include "storewidget.h"
 #include <QDialog>
 
 namespace Ui {
@@ -22,6 +24,7 @@ public:
     ~TripDialog();
     void getColleges(QVector<College> vector);
     void getDistances(QVector<int> vector);
+    void getSouvenirs(const QMap<QString, QMap<QString, double>>&);
     void displayName(int index);
     void displayPreviousDistance(int index);
     void displayNextDistance(int index);
@@ -36,6 +39,9 @@ private:
     int index = 0;
     QVector<College> colleges;
     QVector<int> distances;
+
+    QLabel* collegeName;
+    QStackedWidget* storesHolder;
 };
 
 #endif // TRIPDIALOG_H

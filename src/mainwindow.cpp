@@ -392,6 +392,7 @@ void MainWindow::on_button_go_clicked()
     }
     tripDialog->getColleges(TripColleges);
     tripDialog->getDistances(distances);
+    tripDialog->getSouvenirs(souvenirMap);
     tripDialog->displayName(0);
     tripDialog->displayNextDistance(0);
     tripDialog->displayPreviousDistance(-1);
