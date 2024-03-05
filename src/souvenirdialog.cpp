@@ -20,7 +20,7 @@ SouvenirDialog::~SouvenirDialog()
 void SouvenirDialog::editSouvenir(QString name, double price)
 {
     ui->lineEdit_item->setText(name);
-    ui->lineEdit_price->setText(QString::number(price));
+    ui->lineEdit_price->setValue(price);
 }
 
 void SouvenirDialog::on_button_cancel_clicked()

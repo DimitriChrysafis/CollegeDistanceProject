@@ -78,7 +78,7 @@
      </property>
      <property name="font">
       <font>
-       <pointsize>12</pointsize>
+       <pointsize>14</pointsize>
        <bold>true</bold>
       </font>
      </property>
@@ -115,27 +115,6 @@
        <width>256</width>
        <height>192</height>
       </rect>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_distanceFromSaddleback">
-     <property name="enabled">
-      <bool>true</bool>
-     </property>
-     <property name="geometry">
-      <rect>
-       <x>410</x>
-       <y>95</y>
-       <width>71</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string/>
      </property>
     </widget>
     <widget class="QPushButton" name="button_addSouvenir">
