@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'tripdialog.ui'
 **
-** Created by: Qt User Interface Compiler version 6.6.2
+** Created by: Qt User Interface Compiler version 6.4.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -22,7 +22,6 @@ class Ui_TripDialog
 public:
     QPushButton *button_previous;
     QPushButton *button_next;
-    QLabel *label_collegeName;
     QLabel *label_distance_next;
     QLabel *label_next;
     QLabel *label_previous;
@@ -40,40 +39,31 @@ public:
         button_next = new QPushButton(TripDialog);
         button_next->setObjectName("button_next");
         button_next->setGeometry(QRect(420, 440, 101, 21));
-        label_collegeName = new QLabel(TripDialog);
-        label_collegeName->setObjectName("label_collegeName");
-        label_collegeName->setGeometry(QRect(40, 30, 521, 41));
-        QFont font;
-        font.setPointSize(15);
-        font.setBold(true);
-        font.setUnderline(true);
-        label_collegeName->setFont(font);
-        label_collegeName->setAlignment(Qt::AlignCenter);
         label_distance_next = new QLabel(TripDialog);
         label_distance_next->setObjectName("label_distance_next");
         label_distance_next->setGeometry(QRect(550, 410, 51, 21));
-        QFont font1;
-        font1.setBold(false);
-        font1.setUnderline(false);
-        label_distance_next->setFont(font1);
+        QFont font;
+        font.setBold(false);
+        font.setUnderline(false);
+        label_distance_next->setFont(font);
         label_distance_next->setAlignment(Qt::AlignCenter);
         label_next = new QLabel(TripDialog);
         label_next->setObjectName("label_next");
         label_next->setGeometry(QRect(390, 410, 151, 20));
-        QFont font2;
-        font2.setBold(true);
-        font2.setUnderline(true);
-        label_next->setFont(font2);
+        QFont font1;
+        font1.setBold(true);
+        font1.setUnderline(true);
+        label_next->setFont(font1);
         label_next->setAlignment(Qt::AlignCenter);
         label_previous = new QLabel(TripDialog);
         label_previous->setObjectName("label_previous");
         label_previous->setGeometry(QRect(20, 410, 181, 20));
-        label_previous->setFont(font2);
+        label_previous->setFont(font1);
         label_previous->setAlignment(Qt::AlignCenter);
         label_distance_previous = new QLabel(TripDialog);
         label_distance_previous->setObjectName("label_distance_previous");
         label_distance_previous->setGeometry(QRect(190, 410, 61, 21));
-        label_distance_previous->setFont(font1);
+        label_distance_previous->setFont(font);
         label_distance_previous->setAlignment(Qt::AlignCenter);
 
         retranslateUi(TripDialog);
@@ -86,7 +76,6 @@ public:
         TripDialog->setWindowTitle(QCoreApplication::translate("TripDialog", "Dialog", nullptr));
         button_previous->setText(QCoreApplication::translate("TripDialog", "Previous", nullptr));
         button_next->setText(QCoreApplication::translate("TripDialog", "Next", nullptr));
-        label_collegeName->setText(QString());
         label_distance_next->setText(QString());
         label_next->setText(QCoreApplication::translate("TripDialog", "Distance To Next College:", nullptr));
         label_previous->setText(QCoreApplication::translate("TripDialog", "Distance From Previous College:", nullptr));

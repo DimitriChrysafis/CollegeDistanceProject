@@ -14,6 +14,13 @@ int Souvenir::getQuantity() const { return cartQuantity; }
 double Souvenir::getPrice() const { return itemPrice * cartQuantity; }
 bool Souvenir::isInCart() const { return inCart; }
 
+QString Souvenir::getInfo() const {
+  QString info = itemName + ": " + QString::number(cartQuantity) + "*";
+  info.append(QString::number(itemPrice) + " = " + QString::number(getPrice()));
+  info.append("\n");
+  return info;
+}
+
 //"AddToCart" and "Remove From Cart" button handler
 void Souvenir::cartClicked() {
   inCart = !inCart;
@@ -99,6 +106,17 @@ void CampusStore::addItem(QString name, QString desc, double price) {
   Souvenir* item = new Souvenir(name, desc, price); //create new souvenir
   storeItems->insertWidget(storeShelf->layout()->count() - 1, item); //insert before empty stretch
   connect(item, &Souvenir::moveMe, this, &CampusStore::moveToCart);
+}
+
+QString CampusStore::getCartInfo() const {
+  QString info = name;
+  info.append("\n");
+  for(auto& item: cart)
+    info.append(item->getInfo());
+  if(cart.empty()) info.append("Nothing Bought Here\n");
+  else info.append("Total: " + QString::number(getCartTotal()) + "\n");
+  info.append("\n");
+  return info;
 }
 
 double CampusStore::getCartTotal() const {

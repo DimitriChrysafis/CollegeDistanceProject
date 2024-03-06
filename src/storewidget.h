@@ -1,7 +1,6 @@
 #ifndef STORE_H
 #define STORE_H
 
-#include <memory>
 #include <QWidget>
 #include <QListView>
 #include <QGridLayout>
@@ -21,6 +20,8 @@ class Souvenir: public QWidget {
   int getQuantity() const;
   double getPrice() const;
   bool isInCart() const;
+
+  QString getInfo() const;
 
   public slots:
   void cartClicked();
@@ -51,6 +52,7 @@ class CampusStore: public QWidget {
 
   void addItem(QString name, QString desc, double price);
 
+  QString getCartInfo() const;
   double getCartTotal() const;
 
   public slots:
@@ -58,8 +60,6 @@ class CampusStore: public QWidget {
 
   protected:
   void updateCart();
-
-
 
   private:
   void createLayout();

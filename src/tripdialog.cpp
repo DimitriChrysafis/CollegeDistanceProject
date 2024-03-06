@@ -1,25 +1,38 @@
 #include "tripdialog.h"
-#include "ui_tripdialog.h"
+//#include "ui_tripdialog.h"
 
 TripDialog::TripDialog(QWidget *parent)
     : QDialog(parent)
-    , ui(new Ui::TripDialog)
+    //, ui(new Ui::TripDialog)
 {
-    ui->setupUi(this);
+    //ui->setupUi(this);
 
-    collegeName = new QLabel();
-    collegeName->setStyleSheet("font-weight: bold; font-size: 15pt; text-decoration: underline");
-    QGridLayout* layout_ = new QGridLayout(this);
+    //Widgets declaration
+    collegeName = new QLabel(this);
     storesHolder = new QStackedWidget(this);
+    distToPrev = new QLabel(this);
+    distToNext = new QLabel(this);
+    previous = new QPushButton("Previous", this);
+    next = new QPushButton("Next", this);
+    QGridLayout* layout_ = new QGridLayout(this);
+    tripOverview = new QLabel("Trip Over!!", this);
+    
+    collegeName->setStyleSheet("font-weight: bold; font-size: 15pt; text-decoration: underline");
+    collegeName->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
+    connect(previous, &QPushButton::clicked, this, &TripDialog::on_button_previous_clicked);
+    connect(next, &QPushButton::clicked, this, &TripDialog::on_button_next_clicked);
+
     layout_->addWidget(collegeName, 0, 0, 1, 2, Qt::AlignCenter);
     layout_->addWidget(storesHolder, 1, 0, 1, 2, Qt::AlignCenter);
-    layout_->addWidget(new QPushButton("mPrevious"), 2, 0, Qt::AlignLeft);
-    layout_->addWidget(new QPushButton("mNext"), 2, 1, Qt::AlignLeft);
+    layout_->addWidget(distToPrev, 2, 0, Qt::AlignCenter);
+    layout_->addWidget(distToNext, 2, 1, Qt::AlignCenter);
+    layout_->addWidget(previous, 3, 0, Qt::AlignCenter);
+    layout_->addWidget(next, 3, 1, Qt::AlignCenter);
 }
 
 TripDialog::~TripDialog()
 {
-    delete ui;
+    //delete ui;
 }
 
 void TripDialog::getColleges(QVector<College> vector)
@@ -45,6 +58,7 @@ void TripDialog::getSouvenirs(const QMap<QString, QMap<QString, double>>& souven
     }
     storesHolder->addWidget(newStore);
   }
+  storesHolder->addWidget(tripOverview);
 }
 
 void TripDialog::displayName(int index)
@@ -54,18 +68,18 @@ void TripDialog::displayName(int index)
 
 void TripDialog::displayPreviousDistance(int index)
 {
-    if (index >= 0 && index < distances.size())
-        ui->label_distance_previous->setText(QString::number(distances[index]));
-    else
-        ui->label_distance_previous->setText("N/A");
+    if (index >= 0 && index < distances.size()) {
+      distToPrev->setText("Distance From Previous College: " + QString::number(distances[index]));
+    } else
+        distToPrev->setText("N/A");
 }
 
 void TripDialog::displayNextDistance(int index)
 {
-    if (index >= 0 && index < distances.size())
-        ui->label_distance_next->setText(QString::number(distances[index]));
-    else
-        ui->label_distance_next->setText("N/A");
+    if (index >= 0 && index < distances.size()) {
+      distToNext->setText("Distance To Next College: " + QString::number(distances[index]));
+    } else
+        distToNext->setText("N/A");
 }
 
 void TripDialog::on_button_next_clicked()
@@ -73,12 +87,11 @@ void TripDialog::on_button_next_clicked()
     index++;
     if (index == colleges.size())
     {
-        ui->button_next->setText("Finish");
+        next->setText("Finish");
         collegeName->setText("End of the Trip!");
-        ui->label_distance_next->setHidden(true);
-        ui->label_distance_previous->setHidden(true);
-        ui->label_next->setHidden(true);
-        ui->label_previous->setHidden(true);
+        calculateTripDetails();
+        distToPrev->setHidden(true);
+        distToNext->setHidden(true);
     }
     else if (index > colleges.size())
     {
@@ -90,22 +103,20 @@ void TripDialog::on_button_next_clicked()
         displayPreviousDistance(index - 1);
         displayNextDistance(index);
     }
-    ui->button_previous->setEnabled(true);
-
+    previous->setEnabled(true);
+    storesHolder->setCurrentIndex(index);
 }
 
 void TripDialog::on_button_previous_clicked()
 {
     index--;
     if (index == 0)
-        ui->button_previous->setEnabled(false);
+        previous->setEnabled(false);
     if (index < colleges.size())
     {
-        ui->label_distance_next->setHidden(false);
-        ui->label_distance_previous->setHidden(false);
-        ui->label_next->setHidden(false);
-        ui->label_previous->setHidden(false);
-        ui->button_next->setText("Next");
+        distToPrev->setHidden(false);
+        distToNext->setHidden(false);
+        next->setText("Next");
     }
     displayName(index);
     displayPreviousDistance(index - 1);
@@ -114,14 +125,31 @@ void TripDialog::on_button_previous_clicked()
     storesHolder->setCurrentIndex(index);
 }
 
+void TripDialog::calculateTripDetails() {
+  int totalDistance = 0;
+  for(auto& dist: distances)
+    totalDistance += dist;
+
+  double totalSpend = 0;
+  
+  QString details = "Total Distance: " + QString::number(totalDistance) + "\n";
+
+  for(int i = 0; i < storesHolder->count() - 1; ++i) {
+    details.append(qobject_cast<CampusStore*>(storesHolder->widget(i))->getCartInfo());
+    totalSpend += qobject_cast<CampusStore*>(storesHolder->widget(i))->getCartTotal();
+  }
+  
+  details.append("Total Spent: " + QString::number(totalSpend));
+
+  tripOverview->setText(details);
+}
+
 void TripDialog::reset()
 {
     index = 0;
-    ui->button_next->setText("Next");
-    ui->button_next->setEnabled(true);
-    ui->button_previous->setEnabled(false);
-    ui->label_distance_next->setHidden(false);
-    ui->label_distance_previous->setHidden(false);
-    ui->label_next->setHidden(false);
-    ui->label_previous->setHidden(false);
+    next->setText("Next");
+    next->setEnabled(true);
+    previous->setEnabled(false);
+    distToPrev->setHidden(false);
+    distToNext->setHidden(false);
 }

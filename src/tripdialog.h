@@ -11,10 +11,6 @@
 #include "storewidget.h"
 #include <QDialog>
 
-namespace Ui {
-class TripDialog;
-}
-
 class TripDialog : public QDialog
 {
     Q_OBJECT
@@ -34,14 +30,25 @@ private slots:
     void on_button_next_clicked();
     void on_button_previous_clicked();
 
+protected:
+    void calculateTripDetails();
+
 private:
-    Ui::TripDialog *ui;
+    //Ui::TripDialog *ui;
     int index = 0;
     QVector<College> colleges;
-    QVector<int> distances;
+    QVector<int> distances; 
 
     QLabel* collegeName;
     QStackedWidget* storesHolder;
+    QLabel* distToPrev;
+    QLabel* distToNext;
+    QPushButton* previous;
+    QPushButton* next;
+    QLabel* tripOverview;
+
+    //QString previousText = "<span style=\"font-weight: bold; text-decoration: underline;\">Distance From Previous College</span";
+    //QString nextText = "<span style=\"font-weight: bold; text-decoration: underline;\">Distance To Next College</span";
 };
 
 #endif // TRIPDIALOG_H
