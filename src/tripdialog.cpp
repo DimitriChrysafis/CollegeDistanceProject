@@ -152,4 +152,11 @@ void TripDialog::reset()
     previous->setEnabled(false);
     distToPrev->setHidden(false);
     distToNext->setHidden(false);
+
+    storesHolder->removeWidget(tripOverview);
+    for(int i = storesHolder->count() - 1; i >= 0; --i) {
+      QWidget* widge = storesHolder->widget(i);
+      storesHolder->removeWidget(widge);
+      widge->deleteLater();
+    }
 }
