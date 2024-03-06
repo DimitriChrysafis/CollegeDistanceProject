@@ -7,7 +7,6 @@
 #include <QVector>
 
 #include "college.h"
-//#include "souvenirdialog.h"
 #include "storewidget.h"
 #include <QDialog>
 
@@ -34,7 +33,6 @@ protected:
     void calculateTripDetails();
 
 private:
-    //Ui::TripDialog *ui;
     int index = 0;
     QVector<College> colleges;
     QVector<int> distances; 
@@ -46,9 +44,6 @@ private:
     QPushButton* previous;
     QPushButton* next;
     QLabel* tripOverview;
-
-    //QString previousText = "<span style=\"font-weight: bold; text-decoration: underline;\">Distance From Previous College</span";
-    //QString nextText = "<span style=\"font-weight: bold; text-decoration: underline;\">Distance To Next College</span";
 };
 
 #endif // TRIPDIALOG_H

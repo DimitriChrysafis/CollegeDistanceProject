@@ -1,12 +1,7 @@
 #include "tripdialog.h"
-//#include "ui_tripdialog.h"
 
-TripDialog::TripDialog(QWidget *parent)
-    : QDialog(parent)
-    //, ui(new Ui::TripDialog)
+TripDialog::TripDialog(QWidget *parent): QDialog(parent)
 {
-    //ui->setupUi(this);
-
     //Widgets declaration
     collegeName = new QLabel(this);
     storesHolder = new QStackedWidget(this);
@@ -32,7 +27,6 @@ TripDialog::TripDialog(QWidget *parent)
 
 TripDialog::~TripDialog()
 {
-    //delete ui;
 }
 
 void TripDialog::getColleges(QVector<College> vector)

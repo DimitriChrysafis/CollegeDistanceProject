@@ -26,7 +26,6 @@ HEADERS += src/mainwindow.h \
     src/storewidget.h
 
 FORMS += forms/mainwindow.ui \
-    forms/tripdialog.ui \
     src/asudialog.ui \
     src/logindialog.ui \
     src/souvenirdialog.ui \
