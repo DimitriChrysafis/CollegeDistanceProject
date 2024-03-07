@@ -15,6 +15,7 @@ SOURCES += src/mainwindow.cpp \
     src/main.cpp \
     src/souvenirdialog.cpp \
     src/tripdialog.cpp \
+    src/storewidget.cpp
 
 HEADERS += src/mainwindow.h \
     src/asudialog.h \
@@ -22,9 +23,9 @@ HEADERS += src/mainwindow.h \
     src/logindialog.h \
     src/souvenirdialog.h \
     src/tripdialog.h \
+    src/storewidget.h
 
 FORMS += forms/mainwindow.ui \
-    forms/tripdialog.ui \
     src/asudialog.ui \
     src/logindialog.ui \
     src/souvenirdialog.ui \
