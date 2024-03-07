@@ -295,7 +295,10 @@ void MainWindow::on_button_addSouvenir_clicked()
     souvenirDialog->exec();
     if (souvenirDialog->getOk()) {
         currentCollege->addSouvenir(souvenirDialog->getItem(), souvenirDialog->getPrice());
+        souvenirMap[currentCollege->name()][souvenirDialog->getItem()] = souvenirDialog->getPrice();
         displayCollegeInfo(*currentCollege);
+    }
+    if(souvenirDialog->getOk()) {
     }
 }
 
@@ -318,6 +321,11 @@ void MainWindow::on_button_editSouvenir_clicked()
     if (souvenirDialog->getOk()) {
         currentCollege->removeSouvenir(key);
         currentCollege->addSouvenir(souvenirDialog->getItem(), souvenirDialog->getPrice());
+        
+        auto iter = souvenirMap[currentCollege->name()].find(key);
+        souvenirMap[currentCollege->name()].erase(iter);
+        souvenirMap[currentCollege->name()][souvenirDialog->getItem()] = souvenirDialog->getPrice();
+
         displayCollegeInfo(*currentCollege);
     }
 }
@@ -337,6 +345,8 @@ void MainWindow::on_button_deleteSouvenir_clicked()
     }
 
     currentCollege->removeSouvenir(key);
+    auto iter = souvenirMap[currentCollege->name()].find(key);
+    souvenirMap[currentCollege->name()].erase(iter);
     displayCollegeInfo(*currentCollege);
 }
 
