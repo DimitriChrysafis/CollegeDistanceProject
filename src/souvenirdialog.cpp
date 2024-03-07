@@ -34,6 +34,12 @@ void SouvenirDialog::on_button_cancel_clicked()
 
 void SouvenirDialog::on_button_ok_clicked()
 {
+    if (ui->lineEdit_item->text() == "")
+    {
+        QMessageBox::warning(this, "Error", "Item must have a name.");
+        return;
+    }
+
     _item = ui->lineEdit_item->text();
     _price = ui->lineEdit_price->text().toDouble();
     ui->lineEdit_item->clear();
