@@ -2,6 +2,7 @@
 #define SOUVENIRDIALOG_H
 
 #include <QDialog>
+#include <QMessageBox>
 
 namespace Ui {
 class SouvenirDialog;
