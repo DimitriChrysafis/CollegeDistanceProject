@@ -248,32 +248,35 @@ void MainWindow::tripASU()
 {
     asuDialog->setMax(Colleges.length() - 1);
     asuDialog->exec();
-    TripColleges.clear();
-    for (int i = 0; i < Colleges.length(); i++) {
-        Colleges[i].toggleIsStartingCollege(false);
-        if (Colleges[i].name() == "Arizona State University") {
-            currentCollege = &Colleges[i];
-            on_button_startingCollege_clicked();
-        }
-    }
-
-    for (int i = 0; i < Colleges.length(); i++) {
-        currentCollege = &Colleges[i];
-        if (!currentCollege->isStartingCollege()) {
-            on_button_addToTrip_clicked(true);
-        }
-    }
-
-    for (int i = 0; i < Colleges.length(); i++) {
-        for (int x = TripColleges.length() - 1; x > asuDialog->getNum(); x--) {
-            if (Colleges[i].name() == TripColleges[x].name()) {
+    if (asuDialog->getOk())
+    {
+        TripColleges.clear();
+        for (int i = 0; i < Colleges.length(); i++) {
+            Colleges[i].toggleIsStartingCollege(false);
+            if (Colleges[i].name() == "Arizona State University") {
                 currentCollege = &Colleges[i];
-                on_button_addToTrip_clicked(false);
+                on_button_startingCollege_clicked();
             }
         }
-    }
 
-    ui->list_collegeNames->clearSelection();
+        for (int i = 0; i < Colleges.length(); i++) {
+            currentCollege = &Colleges[i];
+            if (!currentCollege->isStartingCollege()) {
+                on_button_addToTrip_clicked(true);
+            }
+        }
+
+        for (int i = 0; i < Colleges.length(); i++) {
+            for (int x = TripColleges.length() - 1; x > asuDialog->getNum(); x--) {
+                if (Colleges[i].name() == TripColleges[x].name()) {
+                    currentCollege = &Colleges[i];
+                    on_button_addToTrip_clicked(false);
+                }
+            }
+        }
+
+        ui->list_collegeNames->clearSelection();
+    }
     asuDialog->reset();
 }
 
