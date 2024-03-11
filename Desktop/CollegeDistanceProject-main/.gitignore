@@ -1,0 +1,10 @@
+*.user
+*.exe
+*.swp
+*.o
+*.out
+.qmake.stash
+CollegeProject
+Makefile
+moc_*
+ui_*
