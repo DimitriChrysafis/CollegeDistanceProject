@@ -1,7 +1,7 @@
 #ifndef COLLEGE_H
 #define COLLEGE_H
-#include <QString>
 #include <QMap>
+#include <QString>
 
 /*---------
 College class. Contains a QString for its name and a QMap for all its souvenirs.
@@ -10,7 +10,6 @@ Each element in the map contains a QString for the souvenir name and a double fo
 class College
 {
 public:
-
     College(QString name);
     College(QString name, QMap<QString, double> souvenirList);
 
