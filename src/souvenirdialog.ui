@@ -70,7 +70,11 @@
      <widget class="QLineEdit" name="lineEdit_item"/>
     </item>
     <item row="1" column="1">
-     <widget class="QDoubleSpinBox" name="lineEdit_price"/>
+     <widget class="QDoubleSpinBox" name="lineEdit_price">
+      <property name="maximum">
+       <double>999.990000000000009</double>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>
