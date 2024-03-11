@@ -16,7 +16,7 @@ bool Souvenir::isInCart() const { return inCart; }
 
 QString Souvenir::getInfo() const {
   QString info = itemName + ": " + QString::number(cartQuantity) + "*";
-  info.append(QString::number(itemPrice) + " = " + QString::number(getPrice()));
+  info.append(QString::number(itemPrice, 'f', 2) + " = " + QString::number(getPrice(), 'f', 2));
   info.append("\n");
   return info;
 }
@@ -56,7 +56,7 @@ void Souvenir::createLayout() {
   connect(moveCart, &QPushButton::clicked, this, &Souvenir::cartClicked);
   amountInCart->setRange(0, 99);
 
-  QLabel* price = new QLabel("$" + QString::number(itemPrice));
+  QLabel* price = new QLabel("$" + QString::number(itemPrice, 'f', 2));
   price->setMinimumWidth(40);
 
   layout_->addWidget(name);
@@ -114,7 +114,7 @@ QString CampusStore::getCartInfo() const {
   for(auto& item: cart)
     info.append(item->getInfo());
   if(cart.empty()) info.append("Nothing Bought Here\n");
-  else info.append("Total: " + QString::number(getCartTotal()) + "\n");
+  else info.append("Total: " + QString::number(getCartTotal(), 'f', 2) + "\n");
   info.append("\n");
   return info;
 }
