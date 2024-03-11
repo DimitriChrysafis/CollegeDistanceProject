@@ -13,13 +13,25 @@ ASUDialog::~ASUDialog()
     delete ui;
 }
 
-int ASUDialog::getNum() { return _num; }
+int ASUDialog::getNum()
+{
+    return _num;
+}
 
-bool ASUDialog::getOk() { return _ok; }
+bool ASUDialog::getOk()
+{
+    return _ok;
+}
 
-void ASUDialog::setMax(int max) { ui->box_number->setMaximum(max); }
+void ASUDialog::setMax(int max)
+{
+    ui->box_number->setMaximum(max);
+}
 
-void ASUDialog::reset() { ui->box_number->setValue(1); }
+void ASUDialog::reset()
+{
+    ui->box_number->setValue(1);
+}
 
 void ASUDialog::on_button_ok_clicked()
 {
@@ -28,10 +40,8 @@ void ASUDialog::on_button_ok_clicked()
     close();
 }
 
-
 void ASUDialog::on_button_cancel_clicked()
 {
     _ok = false;
     close();
 }
-

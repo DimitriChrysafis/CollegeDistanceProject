@@ -1,19 +1,21 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-#include <QVector>
-#include <QMainWindow>
-#include <QListWidgetItem>
 #include <QAction>
+#include <QListWidgetItem>
+#include <QMainWindow>
+#include <QVector>
 #include <string>
 
+#include "asudialog.h"
 #include "college.h"
+#include "logindialog.h"
 #include "souvenirdialog.h"
 #include "tripdialog.h"
-#include "logindialog.h"
-#include "asudialog.h"
 
 QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
+namespace Ui {
+class MainWindow;
+}
 QT_END_NAMESPACE
 
 class MainWindow : public QMainWindow
@@ -30,9 +32,12 @@ public:
     void tripUCI();
     void tripASU();
     void tripSaddleback();
+    void saveToCsv();
 
 private slots:
     void csv_to_df(std::string path, QMap<QString, QMap<QString, double>> &datagframe);
+
+    void df_to_csv(std::string path, QMap<QString, QMap<QString, double>> const dataframe, QString labels);
 
     void on_list_collegeNames_itemClicked(QListWidgetItem *item);
 
@@ -57,19 +62,21 @@ private:
     QVector<College> Colleges;
     QVector<College> TripColleges;
     QVector<College> shortestPath;
-    College* currentCollege;
-    SouvenirDialog* souvenirDialog;
-    TripDialog* tripDialog;
-    LoginDialog* loginDialog;
-    ASUDialog* asuDialog;
+    College *currentCollege;
+    SouvenirDialog *souvenirDialog;
+    TripDialog *tripDialog;
+    LoginDialog *loginDialog;
+    ASUDialog *asuDialog;
     QMap<QString, QMap<QString, double>> distanceMap;
     QMap<QString, QMap<QString, double>> souvenirMap;
 
     QMenu *loginMenu;
     QMenu *presetsMenu;
+    QMenu *fileMenu;
     QAction *loginAct;
     QAction *UCITripAct;
     QAction *ASUTripAct;
     QAction *SaddlebackTripAct;
+    QAction *SaveToCsv;
 };
 #endif // MAINWINDOW_H

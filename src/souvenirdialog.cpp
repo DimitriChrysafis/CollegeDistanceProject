@@ -1,16 +1,25 @@
 #include "souvenirdialog.h"
 #include "ui_souvenirdialog.h"
 
-SouvenirDialog::SouvenirDialog(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::SouvenirDialog)
+SouvenirDialog::SouvenirDialog(QWidget *parent)
+    : QDialog(parent)
+    , ui(new Ui::SouvenirDialog)
 {
     ui->setupUi(this);
 }
 
-QString SouvenirDialog::getItem() { return _item; }
-double SouvenirDialog::getPrice() { return _price; }
-bool SouvenirDialog::getOk() { return _ok; }
+QString SouvenirDialog::getItem()
+{
+    return _item;
+}
+double SouvenirDialog::getPrice()
+{
+    return _price;
+}
+bool SouvenirDialog::getOk()
+{
+    return _ok;
+}
 
 SouvenirDialog::~SouvenirDialog()
 {
@@ -31,7 +40,6 @@ void SouvenirDialog::on_button_cancel_clicked()
     close();
 }
 
-
 void SouvenirDialog::on_button_ok_clicked()
 {
     if (ui->lineEdit_item->text() == "")
@@ -48,4 +56,3 @@ void SouvenirDialog::on_button_ok_clicked()
     _ok = true;
     close();
 }
-
