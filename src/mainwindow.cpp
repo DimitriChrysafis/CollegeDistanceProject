@@ -30,6 +30,8 @@ MainWindow::MainWindow(QWidget *parent)
     UCITripAct = new QAction("Preset Trip from UCI", this);
     ASUTripAct = new QAction("Preset Trip from ASU", this);
     SaddlebackTripAct = new QAction("Preset Trip from Saddleback", this);
+    SaveToCsv = new QAction ("Save changes", this);
+    // SaveCsv = new QA
 
     loginMenu = menuBar()->addMenu("&Login");
     loginMenu->addAction(loginAct);
@@ -37,10 +39,13 @@ MainWindow::MainWindow(QWidget *parent)
     presetsMenu->addAction(UCITripAct);
     presetsMenu->addAction(ASUTripAct);
     presetsMenu->addAction(SaddlebackTripAct);
+    fileMenu = menuBar()->addMenu("File");
+    fileMenu->addAction(SaveToCsv);
     connect(loginAct, &QAction::triggered, this, &MainWindow::login);
     connect(UCITripAct, &QAction::triggered, this, &MainWindow::tripUCI);
     connect(ASUTripAct, &QAction::triggered, this, &MainWindow::tripASU);
     connect(SaddlebackTripAct, &QAction::triggered, this, &MainWindow::tripSaddleback);
+    connect(SaveToCsv, &QAction::triggered, this, &MainWindow::saveToCsv);
 
     //Add dummy test colleges-----------------------------------------------------------------------------
     // QMap<QString, double> dummySouvenirList;
@@ -71,11 +76,12 @@ MainWindow::MainWindow(QWidget *parent)
     path = souvPath.path().toStdString() + "/CollegeDistanceProject/College Campus Souvenirs.csv";
     cout << "Path: " << path << endl;
     csv_to_df(path, souvenirMap);
-    // cout << souvenirMap["Arizona State University"]["Football Jersey"] << endl;
+    cout << souvenirMap["Arizona State University"]["Football Jersey"] << endl;
 
     for (auto i = distanceMap.cbegin(); i != distanceMap.cend(); i++) {
         addCollege(College(i.key(), souvenirMap[i.key()]));
     }
+
 }
 
 MainWindow::~MainWindow()
@@ -98,24 +104,26 @@ void MainWindow::csv_to_df(string path, QMap<QString, QMap<QString, double>> &da
     csv.ignore(1000, '\n');
     while ((ch = csv.get()) != EOF) {
         if (ch == ',' && quotes % 2 == 0) {
-            switch (count % 3) {
+            switch (count % 2) {
             case 0:
                 row.assign(buffer);
                 break;
             case 1:
                 col.assign(buffer);
                 break;
-            case 2:
-                val.assign(buffer);
-                // cout << row << " " << col << " " << val << endl;
-                break;
+                // case 2:
+                //     val.assign(buffer);
+                //     // cout << row << " " << col << " " << val << endl;
+                //     break;
             }
             count += 1;
             buffer.assign("");
         }
 
         else if (ch == '\n') {
-            // cout << row << " " << col << " " << val << endl;
+            val.assign(buffer);
+            buffer.assign("");
+            // cout << row << " - " << col << " - " << val << endl;
             dataframe[QString::fromStdString(row)][QString::fromStdString(col)] = std::stof(val);
         }
 
@@ -129,6 +137,54 @@ void MainWindow::csv_to_df(string path, QMap<QString, QMap<QString, double>> &da
     }
 }
 
+void MainWindow::df_to_csv(string path, QMap<QString, QMap<QString, double>> const dataframe, QString label){
+    ofstream csv;
+    cout << path << endl;
+    csv.open(path);
+
+    if (!csv) {
+        cout << "Could not open file! :(" << endl;
+        return;
+    }
+
+    csv << label.toStdString() << "\n";
+
+    for (auto i = dataframe.begin(); i != dataframe.end(); i++){
+        for (auto j = i->begin(); j != i->end(); j++){
+
+
+            bool flag = false;
+            foreach(QChar c, i.key()){
+                if(c == ','){
+                    flag = true;
+                }
+            }
+
+            if (flag){
+                csv << "\"" << i.key().toStdString() << "\"" << ",";
+            }
+            else{
+                csv << i.key().toStdString() << ",";
+            }
+
+            flag = false;
+
+            foreach(QChar c, j.key()){
+                if(c == ','){
+                    flag = true;
+                }
+            }
+
+            if (flag)
+                csv << "\"" << j.key().toStdString() << "\"" << ",";
+            else
+                csv << j.key().toStdString() << ",";
+
+            csv << fixed << setprecision(2) << j.value() << "\n";
+        }
+    }
+}
+
 //Displays all college info within the UI, including name, distance from starting college, and all souvenirs.
 void MainWindow::displayCollegeInfo(College college)
 {
@@ -138,8 +194,9 @@ void MainWindow::displayCollegeInfo(College college)
 
     ui->label_collegeName->setText(college.name());
     if (!TripColleges.empty()) {
-        ui->label_distanceFromSaddlebackPREFIX->setText("Distance from " + TripColleges[0].name() + ": " +
-            QString::number(distanceMap[college.name()][TripColleges[0].name()]));
+        ui->label_distanceFromSaddlebackPREFIX->setText(
+            "Distance from " + TripColleges[0].name() + ": "
+            + QString::number(distanceMap[college.name()][TripColleges[0].name()]));
     }
 
     while (it.hasNext()) {
@@ -170,21 +227,17 @@ void MainWindow::login()
 void MainWindow::tripUCI()
 {
     TripColleges.clear();
-    for (int i = 0; i < Colleges.length(); i++)
-    {
+    for (int i = 0; i < Colleges.length(); i++) {
         Colleges[i].toggleIsStartingCollege(false);
-        if (Colleges[i].name() == "University of California, Irvine (UCI)")
-        {
+        if (Colleges[i].name() == "University of California, Irvine (UCI)") {
             currentCollege = &Colleges[i];
             on_button_startingCollege_clicked();
         }
     }
 
-    for (int i = 0; i < Colleges.length(); i++)
-    {
+    for (int i = 0; i < Colleges.length(); i++) {
         currentCollege = &Colleges[i];
-        if (!currentCollege->isStartingCollege())
-        {
+        if (!currentCollege->isStartingCollege()) {
             on_button_addToTrip_clicked(true);
         }
     }
@@ -196,31 +249,24 @@ void MainWindow::tripASU()
     asuDialog->setMax(Colleges.length() - 1);
     asuDialog->exec();
     TripColleges.clear();
-    for (int i = 0; i < Colleges.length(); i++)
-    {
+    for (int i = 0; i < Colleges.length(); i++) {
         Colleges[i].toggleIsStartingCollege(false);
-        if (Colleges[i].name() == "Arizona State University")
-        {
+        if (Colleges[i].name() == "Arizona State University") {
             currentCollege = &Colleges[i];
             on_button_startingCollege_clicked();
         }
     }
 
-    for (int i = 0; i < Colleges.length(); i++)
-    {
+    for (int i = 0; i < Colleges.length(); i++) {
         currentCollege = &Colleges[i];
-        if (!currentCollege->isStartingCollege())
-        {
+        if (!currentCollege->isStartingCollege()) {
             on_button_addToTrip_clicked(true);
         }
     }
 
-    for (int i = 0; i < Colleges.length(); i++)
-    {
-        for (int x = TripColleges.length() - 1; x > asuDialog->getNum(); x--)
-        {
-            if (Colleges[i].name() == TripColleges[x].name())
-            {
+    for (int i = 0; i < Colleges.length(); i++) {
+        for (int x = TripColleges.length() - 1; x > asuDialog->getNum(); x--) {
+            if (Colleges[i].name() == TripColleges[x].name()) {
                 currentCollege = &Colleges[i];
                 on_button_addToTrip_clicked(false);
             }
@@ -234,25 +280,33 @@ void MainWindow::tripASU()
 void MainWindow::tripSaddleback()
 {
     TripColleges.clear();
-    for (int i = 0; i < Colleges.length(); i++)
-    {
+    for (int i = 0; i < Colleges.length(); i++) {
         Colleges[i].toggleIsStartingCollege(false);
-        if (Colleges[i].name() == "Saddleback College")
-        {
+        if (Colleges[i].name() == "Saddleback College") {
             currentCollege = &Colleges[i];
             on_button_startingCollege_clicked();
         }
     }
 
-    for (int i = 0; i < Colleges.length(); i++)
-    {
+    for (int i = 0; i < Colleges.length(); i++) {
         currentCollege = &Colleges[i];
-        if (!currentCollege->isStartingCollege())
-        {
+        if (!currentCollege->isStartingCollege()) {
             on_button_addToTrip_clicked(true);
         }
     }
     ui->list_collegeNames->clearSelection();
+}
+
+void MainWindow::saveToCsv()
+{
+    cout << "AAAAAAAAA" << endl;
+    QDir souvPath = QDir::current();
+    cout << QDir::current().path().toStdString() << endl;
+    souvPath.cdUp();
+    // cout << souvPath.path().toStdString() << endl;
+    string path = souvPath.path().toStdString() + "/CollegeDistanceProject/College Campus Souvenirs.csv";
+    // cout << "Path: " << path << endl;
+    df_to_csv(path, souvenirMap, "College,Traditional Souvenirs,Cost");
 }
 
 //----------------------------Beginning of UI functions (go to slots)-------------------------------------------------

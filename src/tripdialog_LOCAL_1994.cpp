@@ -33,9 +33,9 @@ void TripDialog::getColleges(QVector<College> vector)
 {
     colleges = vector;
     //if (colleges.size() <= 1) {
-    //ui->button_next->setEnabled(false);
+        //ui->button_next->setEnabled(false);
     //} else {
-    //ui->button_next->setEnabled(true);
+        //ui->button_next->setEnabled(true);
     //}
 }
 
@@ -79,7 +79,6 @@ void TripDialog::displayNextDistance(int index)
 void TripDialog::on_button_next_clicked()
 {
     index++;
-
     if (index == colleges.size())
     {
         next->setText("Finish");
@@ -90,14 +89,14 @@ void TripDialog::on_button_next_clicked()
     }
     else if (index > colleges.size())
     {
-
         close();
-    } else {
+    }
+    else
+    {
         displayName(index);
         displayPreviousDistance(index - 1);
         displayNextDistance(index);
     }
-
     previous->setEnabled(true);
     storesHolder->setCurrentIndex(index);
 }
