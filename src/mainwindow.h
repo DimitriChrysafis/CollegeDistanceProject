@@ -3,9 +3,9 @@
 #include <QAction>
 #include <QListWidgetItem>
 #include <QMainWindow>
+#include <QPixmap>
 #include <QVector>
 #include <string>
-#include <QPixmap>
 
 #include "asudialog.h"
 #include "college.h"
@@ -38,7 +38,9 @@ public:
 private slots:
     void csv_to_df(std::string path, QMap<QString, QMap<QString, double>> &datagframe);
 
-    void df_to_csv(std::string path, QMap<QString, QMap<QString, double>> const dataframe, QString labels);
+    void df_to_csv(std::string path,
+                   QMap<QString, QMap<QString, double>> const dataframe,
+                   QString labels);
 
     void on_list_collegeNames_itemClicked(QListWidgetItem *item);
 
