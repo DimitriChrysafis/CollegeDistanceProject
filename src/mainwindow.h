@@ -57,6 +57,8 @@ private slots:
 
     QVector<College> *find_shortest_path(QString location, int n, QVector<College> *trip = nullptr);
 
+    void on_button_reset_clicked();
+
 private:
     Ui::MainWindow *ui;
     QVector<College> Colleges;

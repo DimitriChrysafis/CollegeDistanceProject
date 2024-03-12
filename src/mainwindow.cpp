@@ -21,6 +21,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     //Hide certain buttons until the user logs in or clicks on the first college-------------------------
     //ui->label_distanceFromSaddleback->hide();
+    ui->button_addToTrip->hide();
     ui->button_addSouvenir->hide();
     ui->button_editSouvenir->hide();
     ui->button_deleteSouvenir->hide();
@@ -267,7 +268,7 @@ void MainWindow::tripASU()
         }
 
         for (int i = 0; i < Colleges.length(); i++) {
-            for (int x = TripColleges.length() - 1; x > asuDialog->getNum(); x--) {
+            for (int x = TripColleges.length() - 1; x > asuDialog->getNum() - 1; x--) {
                 if (Colleges[i].name() == TripColleges[x].name()) {
                     currentCollege = &Colleges[i];
                     on_button_addToTrip_clicked(false);
@@ -448,6 +449,7 @@ void MainWindow::on_button_startingCollege_clicked()
     TripColleges.append(*currentCollege);
     ui->label_tripColleges->setText(currentCollege->name());
     ui->button_startingCollege->hide();
+    ui->button_addToTrip->show();
     ui->button_go->setEnabled(true);
 }
 
@@ -492,3 +494,20 @@ QVector<College> *MainWindow::find_shortest_path(QString location, int n, QVecto
         return trip;
     }
 }
+
+void MainWindow::on_button_reset_clicked()
+{
+    TripColleges.clear();
+    for (int i = 0; i < Colleges.length(); i++) {
+        Colleges[i].toggleIsStartingCollege(false);
+        Colleges[i].toggleInTrip(false);
+    }
+    //currentCollege = nullptr;
+    ui->button_addToTrip->setEnabled(false);
+    ui->label_tripColleges->clear();
+    ui->label_totalDistance->clear();
+    ui->button_addToTrip->hide();
+    ui->button_startingCollege->show();
+    ui->button_go->setEnabled(false);
+}
+

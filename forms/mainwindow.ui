@@ -21,7 +21,7 @@
     <property name="geometry">
      <rect>
       <x>680</x>
-      <y>550</y>
+      <y>520</y>
       <width>80</width>
       <height>24</height>
      </rect>
@@ -225,6 +225,22 @@
     </property>
     <property name="text">
      <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="button_reset">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>680</x>
+      <y>560</y>
+      <width>80</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Reset</string>
     </property>
    </widget>
   </widget>
