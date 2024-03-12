@@ -20,19 +20,71 @@ MainWindow::MainWindow(QWidget *parent)
     asuDialog = new ASUDialog;
 
     //Hide certain buttons until the user logs in or clicks on the first college-------------------------
-    //ui->label_distanceFromSaddleback->hide();
+    ui->button_addToTrip->hide();
     ui->button_addSouvenir->hide();
     ui->button_editSouvenir->hide();
     ui->button_deleteSouvenir->hide();
+
+    //Add college logos to logoMap
+    int w = ui->label_collegeLogo->width();
+    int h = ui->label_collegeLogo->height();
+    logoMap["Arizona State University"]
+        = QPixmap(":/img/ASU.png").scaled(w, h, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    logoMap["California State University, Fullerton"] = QPixmap(":/img/Cal State Fullerton.png")
+                                                            .scaled(w,
+                                                                    h,
+                                                                    Qt::KeepAspectRatio,
+                                                                    Qt::SmoothTransformation);
+    logoMap["Massachusetts Institute of Technology (MIT)"]
+        = QPixmap(":/img/MIT.png").scaled(w, h, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    logoMap["Northwestern"] = QPixmap(":/img/Northwestern.png")
+                                  .scaled(w, h, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    logoMap["Ohio State University"] = QPixmap(":/img/Ohio State University.png")
+                                           .scaled(w,
+                                                   h,
+                                                   Qt::KeepAspectRatio,
+                                                   Qt::SmoothTransformation);
+    logoMap["Saddleback College"] = QPixmap(":/img/Saddleback.png")
+                                        .scaled(w, h, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    logoMap["University of California, Irvine (UCI)"]
+        = QPixmap(":/img/UCI.png").scaled(w, h, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    logoMap["University of California, Los Angeles (UCLA)"]
+        = QPixmap(":/img/UCLA.png").scaled(w, h, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    logoMap["University of  Michigan"] = QPixmap(":/img/University of Michigan.png")
+                                             .scaled(w,
+                                                     h,
+                                                     Qt::KeepAspectRatio,
+                                                     Qt::SmoothTransformation);
+    logoMap["University of Oregon"] = QPixmap(":/img/University of Oregon.png")
+                                          .scaled(w,
+                                                  h,
+                                                  Qt::KeepAspectRatio,
+                                                  Qt::SmoothTransformation);
+    logoMap["University of Texas"] = QPixmap(":/img/University of Texas.png")
+                                         .scaled(w,
+                                                 h,
+                                                 Qt::KeepAspectRatio,
+                                                 Qt::SmoothTransformation);
+    logoMap["University of the Pacific"] = QPixmap(":/img/University of the Pacific.png")
+                                               .scaled(w,
+                                                       h,
+                                                       Qt::KeepAspectRatio,
+                                                       Qt::SmoothTransformation);
+    logoMap["University of Wisconsin"] = QPixmap(":/img/University of Wisconsin.png")
+                                             .scaled(w,
+                                                     h,
+                                                     Qt::KeepAspectRatio,
+                                                     Qt::SmoothTransformation);
 
     //Set up menu and actions----------------------------------------------------------------------------
     loginAct = new QAction("Login to Admin", this);
     UCITripAct = new QAction("Preset Trip from UCI", this);
     ASUTripAct = new QAction("Preset Trip from ASU", this);
     SaddlebackTripAct = new QAction("Preset Trip from Saddleback", this);
+
     SaveToCsv = new QAction ("Save changes", this);
     LoadCsv = new QAction ("Load CSV", this);
-    // SaveCsv = new QA
+
 
     loginMenu = menuBar()->addMenu("&Login");
     loginMenu->addAction(loginAct);
@@ -51,6 +103,25 @@ MainWindow::MainWindow(QWidget *parent)
     connect(LoadCsv, &QAction::triggered, this, &MainWindow::loadCsv);
     loadCsv();
 
+    //Read CSV to data-------------------------------------------------------------------------------
+    QDir distPath;
+    distPath.cdUp();
+    string path = distPath.path().toStdString()
+                  + "/CollegeDistanceProject/College Campus Distances.csv";
+    csv_to_df(path, distanceMap);
+
+    QDir souvPath = QDir::current();
+    cout << QDir::current().path().toStdString() << endl;
+    souvPath.cdUp();
+    cout << souvPath.path().toStdString() << endl;
+    path = souvPath.path().toStdString() + "/CollegeDistanceProject/College Campus Souvenirs.csv";
+    cout << "Path: " << path << endl;
+    csv_to_df(path, souvenirMap);
+    cout << souvenirMap["Arizona State University"]["Football Jersey"] << endl;
+
+    for (auto i = distanceMap.cbegin(); i != distanceMap.cend(); i++) {
+        addCollege(College(i.key(), souvenirMap[i.key()]));
+    }
 }
 
 MainWindow::~MainWindow()
@@ -102,7 +173,10 @@ void MainWindow::csv_to_df(string path, QMap<QString, QMap<QString, double>> &da
     }
 }
 
-void MainWindow::df_to_csv(string path, QMap<QString, QMap<QString, double>> const dataframe, QString label){
+void MainWindow::df_to_csv(string path,
+                           QMap<QString, QMap<QString, double>> const dataframe,
+                           QString label)
+{
     ofstream csv;
     cout << path << endl;
     csv.open(path);
@@ -114,34 +188,33 @@ void MainWindow::df_to_csv(string path, QMap<QString, QMap<QString, double>> con
 
     csv << label.toStdString() << "\n";
 
-    for (auto i = dataframe.begin(); i != dataframe.end(); i++){
-        for (auto j = i->begin(); j != i->end(); j++){
-
-
+    for (auto i = dataframe.begin(); i != dataframe.end(); i++) {
+        for (auto j = i->begin(); j != i->end(); j++) {
             bool flag = false;
-            foreach(QChar c, i.key()){
-                if(c == ','){
+            foreach (QChar c, i.key()) {
+                if (c == ',') {
                     flag = true;
                 }
             }
 
-            if (flag){
-                csv << "\"" << i.key().toStdString() << "\"" << ",";
-            }
-            else{
+            if (flag) {
+                csv << "\"" << i.key().toStdString() << "\""
+                    << ",";
+            } else {
                 csv << i.key().toStdString() << ",";
             }
 
             flag = false;
 
-            foreach(QChar c, j.key()){
-                if(c == ','){
+            foreach (QChar c, j.key()) {
+                if (c == ',') {
                     flag = true;
                 }
             }
 
             if (flag)
-                csv << "\"" << j.key().toStdString() << "\"" << ",";
+                csv << "\"" << j.key().toStdString() << "\""
+                    << ",";
             else
                 csv << j.key().toStdString() << ",";
 
@@ -170,6 +243,9 @@ void MainWindow::displayCollegeInfo(College college)
         souvenir = it.key() + " - $" + QString::number(it.value(), 'f', 2);
         ui->list_souvenirs->addItem(souvenir);
     }
+
+    //Display college logo using its name
+    ui->label_collegeLogo->setPixmap(logoMap[college.name()]);
 }
 
 //Adds the college to the "Colleges" vector within MainWindow. Also adds the college name to the UI.
@@ -213,8 +289,7 @@ void MainWindow::tripASU()
 {
     asuDialog->setMax(Colleges.length() - 1);
     asuDialog->exec();
-    if (asuDialog->getOk())
-    {
+    if (asuDialog->getOk()) {
         TripColleges.clear();
         for (int i = 0; i < Colleges.length(); i++) {
             Colleges[i].toggleIsStartingCollege(false);
@@ -232,7 +307,7 @@ void MainWindow::tripASU()
         }
 
         for (int i = 0; i < Colleges.length(); i++) {
-            for (int x = TripColleges.length() - 1; x > asuDialog->getNum(); x--) {
+            for (int x = TripColleges.length() - 1; x > asuDialog->getNum() - 1; x--) {
                 if (Colleges[i].name() == TripColleges[x].name()) {
                     currentCollege = &Colleges[i];
                     on_button_addToTrip_clicked(false);
@@ -271,7 +346,8 @@ void MainWindow::saveToCsv()
     cout << QDir::current().path().toStdString() << endl;
     souvPath.cdUp();
     // cout << souvPath.path().toStdString() << endl;
-    string path = souvPath.path().toStdString() + "/CollegeDistanceProject/College Campus Souvenirs.csv";
+    string path = souvPath.path().toStdString()
+                  + "/CollegeDistanceProject/College Campus Souvenirs.csv";
     // cout << "Path: " << path << endl;
     df_to_csv(path, souvenirMap, "College,Traditional Souvenirs,Cost");
 }
@@ -346,7 +422,7 @@ void MainWindow::on_button_addSouvenir_clicked()
         souvenirMap[currentCollege->name()][souvenirDialog->getItem()] = souvenirDialog->getPrice();
         displayCollegeInfo(*currentCollege);
     }
-    if(souvenirDialog->getOk()) {
+    if (souvenirDialog->getOk()) {
     }
 }
 
@@ -369,7 +445,7 @@ void MainWindow::on_button_editSouvenir_clicked()
     if (souvenirDialog->getOk()) {
         currentCollege->removeSouvenir(key);
         currentCollege->addSouvenir(souvenirDialog->getItem(), souvenirDialog->getPrice());
-        
+
         auto iter = souvenirMap[currentCollege->name()].find(key);
         souvenirMap[currentCollege->name()].erase(iter);
         souvenirMap[currentCollege->name()][souvenirDialog->getItem()] = souvenirDialog->getPrice();
@@ -439,6 +515,7 @@ void MainWindow::on_button_startingCollege_clicked()
     TripColleges.append(*currentCollege);
     ui->label_tripColleges->setText(currentCollege->name());
     ui->button_startingCollege->hide();
+    ui->button_addToTrip->show();
     ui->button_go->setEnabled(true);
 }
 
@@ -482,4 +559,20 @@ QVector<College> *MainWindow::find_shortest_path(QString location, int n, QVecto
     } else {
         return trip;
     }
+}
+
+void MainWindow::on_button_reset_clicked()
+{
+    TripColleges.clear();
+    for (int i = 0; i < Colleges.length(); i++) {
+        Colleges[i].toggleIsStartingCollege(false);
+        Colleges[i].toggleInTrip(false);
+    }
+    //currentCollege = nullptr;
+    ui->button_addToTrip->setEnabled(false);
+    ui->label_tripColleges->clear();
+    ui->label_totalDistance->clear();
+    ui->button_addToTrip->hide();
+    ui->button_startingCollege->show();
+    ui->button_go->setEnabled(false);
 }

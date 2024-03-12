@@ -3,6 +3,7 @@
 #include <QAction>
 #include <QListWidgetItem>
 #include <QMainWindow>
+#include <QPixmap>
 #include <QVector>
 #include <string>
 
@@ -38,7 +39,9 @@ public:
 private slots:
     void csv_to_df(std::string path, QMap<QString, QMap<QString, double>> &datagframe);
 
-    void df_to_csv(std::string path, QMap<QString, QMap<QString, double>> const dataframe, QString labels);
+    void df_to_csv(std::string path,
+                   QMap<QString, QMap<QString, double>> const dataframe,
+                   QString labels);
 
     void on_list_collegeNames_itemClicked(QListWidgetItem *item);
 
@@ -58,6 +61,8 @@ private slots:
 
     QVector<College> *find_shortest_path(QString location, int n, QVector<College> *trip = nullptr);
 
+    void on_button_reset_clicked();
+
 private:
     Ui::MainWindow *ui;
     QVector<College> Colleges;
@@ -70,6 +75,7 @@ private:
     ASUDialog *asuDialog;
     QMap<QString, QMap<QString, double>> distanceMap;
     QMap<QString, QMap<QString, double>> souvenirMap;
+    QMap<QString, QPixmap> logoMap;
 
     QMenu *loginMenu;
     QMenu *presetsMenu;

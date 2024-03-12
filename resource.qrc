@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/img"/>
+    <qresource prefix="/">
+        <file>img/UCI.png</file>
+        <file>img/Saddleback.png</file>
+        <file>img/ASU.png</file>
+        <file>img/Cal State Fullerton.png</file>
+        <file>img/MIT.png</file>
+        <file>img/Northwestern.png</file>
+        <file>img/Ohio State University.png</file>
+        <file>img/UCLA.png</file>
+        <file>img/University of Michigan.png</file>
+        <file>img/University of Oregon.png</file>
+        <file>img/University of Texas.png</file>
+        <file>img/University of the Pacific.png</file>
+        <file>img/University of Wisconsin.png</file>
+    </qresource>
+</RCC>

@@ -1,78 +1,80 @@
 #ifndef STORE_H
 #define STORE_H
 
-#include <QWidget>
-#include <QListView>
 #include <QGridLayout>
-#include <QPushButton>
+#include <QGroupBox>
 #include <QLabel>
+#include <QListView>
+#include <QPushButton>
+#include <QScrollArea>
 #include <QSpinBox>
 #include <QString>
-#include <QGroupBox>
-#include <QScrollArea>
+#include <QWidget>
 #include <iostream>
 
-class Souvenir: public QWidget {
-  Q_OBJECT;
+class Souvenir : public QWidget
+{
+    Q_OBJECT;
 
-  public:
-  explicit Souvenir(QString name, QString desc, double price, QWidget* parent = nullptr);
-  int getQuantity() const;
-  double getPrice() const;
-  bool isInCart() const;
+public:
+    explicit Souvenir(QString name, QString desc, double price, QWidget *parent = nullptr);
+    int getQuantity() const;
+    double getPrice() const;
+    bool isInCart() const;
 
-  QString getInfo() const;
+    QString getInfo() const;
 
-  public slots:
-  void cartClicked();
-  void amtChanged(int newVal);
+public slots:
+    void cartClicked();
+    void amtChanged(int newVal);
 
-  signals:
-  void moveMe(Souvenir* me);
+signals:
+    void moveMe(Souvenir *me);
 
-  private:
-  void createLayout();
+private:
+    void createLayout();
 
-  QString itemName;
-  QString itemDescription;
-  
-  QLabel* price;
-  QSpinBox* amountInCart;
-  QPushButton* moveCart;
-  double itemPrice;
-  int cartQuantity;
-  bool inCart = false;
+    QString itemName;
+    QString itemDescription;
+
+    QLabel *price;
+    QSpinBox *amountInCart;
+    QPushButton *moveCart;
+    double itemPrice;
+    int cartQuantity;
+    bool inCart = false;
 };
 
-class CampusStore: public QWidget {
-  Q_OBJECT;
+class CampusStore : public QWidget
+{
+    Q_OBJECT;
 
-  public:
-  explicit CampusStore(QString collegeName, QWidget* parent = nullptr);
+public:
+    explicit CampusStore(QString collegeName, QWidget *parent = nullptr);
 
-  void addItem(QString name, QString desc, double price);
+    void addItem(QString name, QString desc, double price);
 
-  QString getCartInfo() const;
-  double getCartTotal() const;
+    QString getCartInfo() const;
+    double getCartTotal() const;
 
-  public slots:
-  void moveToCart(Souvenir* guyToMove);
+public slots:
+    void moveToCart(Souvenir *guyToMove);
 
-  protected:
-  void updateCart();
+protected:
+    void updateCart();
 
-  private:
-  void createLayout();
-  
-  QString name;
-  std::vector<Souvenir*> cart;
-  QLabel receipt;
+private:
+    void createLayout();
 
-  QVBoxLayout* storeItems;
-  QVBoxLayout* cartItems;
+    QString name;
+    std::vector<Souvenir *> cart;
+    QLabel receipt;
 
-  QGroupBox* storeShelf;
-  QGroupBox* cartShelf;
+    QVBoxLayout *storeItems;
+    QVBoxLayout *cartItems;
+
+    QGroupBox *storeShelf;
+    QGroupBox *cartShelf;
 };
 
 #endif
