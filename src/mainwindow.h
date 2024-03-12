@@ -5,6 +5,7 @@
 #include <QMainWindow>
 #include <QVector>
 #include <string>
+#include <QPixmap>
 
 #include "asudialog.h"
 #include "college.h"
@@ -71,6 +72,7 @@ private:
     ASUDialog *asuDialog;
     QMap<QString, QMap<QString, double>> distanceMap;
     QMap<QString, QMap<QString, double>> souvenirMap;
+    QMap<QString, QPixmap> logoMap;
 
     QMenu *loginMenu;
     QMenu *presetsMenu;

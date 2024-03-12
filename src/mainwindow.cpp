@@ -20,11 +20,27 @@ MainWindow::MainWindow(QWidget *parent)
     asuDialog = new ASUDialog;
 
     //Hide certain buttons until the user logs in or clicks on the first college-------------------------
-    //ui->label_distanceFromSaddleback->hide();
     ui->button_addToTrip->hide();
     ui->button_addSouvenir->hide();
     ui->button_editSouvenir->hide();
     ui->button_deleteSouvenir->hide();
+
+    //Add college logos to logoMap
+    int w = ui->label_collegeLogo->width();
+    int h = ui->label_collegeLogo->height();
+    logoMap["Arizona State University"] = QPixmap(":/img/ASU.png").scaled(w, h, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    logoMap["California State Univeristy, Fullerton"] = QPixmap(":/img/Cal State Fullerton.png").scaled(w, h, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    logoMap["Massachusetts Institute of Technology (MIT)"] = QPixmap(":/img/MIT.png").scaled(w, h, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    logoMap["Northwestern"] = QPixmap(":/img/Northwestern.png").scaled(w, h, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    logoMap["Ohio State University"] = QPixmap(":/img/Ohio State University.png").scaled(w, h, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    logoMap["Saddleback College"] = QPixmap(":/img/Saddleback.png").scaled(w, h, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    logoMap["University of California, Irvine (UCI)"] = QPixmap(":/img/UCI.png").scaled(w, h, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    logoMap["University of California, Los Angeles (UCLA)"] = QPixmap(":/img/UCLA.png").scaled(w, h, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    logoMap["University of  Michigan"] = QPixmap(":/img/University of Michigan.png").scaled(w, h, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    logoMap["University of Oregon"] = QPixmap(":/img/University of Oregon.png").scaled(w, h, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    logoMap["University of Texas"] = QPixmap(":/img/University of Texas.png").scaled(w, h, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    logoMap["University of the Pacific"] = QPixmap(":/img/University of the Pacific.png").scaled(w, h, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    logoMap["University of Wisconsin"] = QPixmap(":/img/University of Wisconsin.png").scaled(w, h, Qt::KeepAspectRatio, Qt::SmoothTransformation);
 
     //Set up menu and actions----------------------------------------------------------------------------
     loginAct = new QAction("Login to Admin", this);
@@ -206,6 +222,9 @@ void MainWindow::displayCollegeInfo(College college)
         souvenir = it.key() + " - $" + QString::number(it.value(), 'f', 2);
         ui->list_souvenirs->addItem(souvenir);
     }
+
+    //Display college logo using its name
+    ui->label_collegeLogo->setPixmap(logoMap[college.name()]);
 }
 
 //Adds the college to the "Colleges" vector within MainWindow. Also adds the college name to the UI.
