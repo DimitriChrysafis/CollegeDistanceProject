@@ -33,6 +33,7 @@ public:
     void tripASU();
     void tripSaddleback();
     void saveToCsv();
+    void loadCsv();
 
 private slots:
     void csv_to_df(std::string path, QMap<QString, QMap<QString, double>> &datagframe);
@@ -78,5 +79,6 @@ private:
     QAction *ASUTripAct;
     QAction *SaddlebackTripAct;
     QAction *SaveToCsv;
+    QAction *LoadCsv;
 };
 #endif // MAINWINDOW_H
