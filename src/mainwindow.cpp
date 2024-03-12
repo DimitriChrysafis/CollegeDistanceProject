@@ -81,8 +81,10 @@ MainWindow::MainWindow(QWidget *parent)
     UCITripAct = new QAction("Preset Trip from UCI", this);
     ASUTripAct = new QAction("Preset Trip from ASU", this);
     SaddlebackTripAct = new QAction("Preset Trip from Saddleback", this);
-    SaveToCsv = new QAction("Save changes", this);
-    // SaveCsv = new QA
+
+    SaveToCsv = new QAction ("Save changes", this);
+    LoadCsv = new QAction ("Load CSV", this);
+
 
     loginMenu = menuBar()->addMenu("&Login");
     loginMenu->addAction(loginAct);
@@ -92,26 +94,14 @@ MainWindow::MainWindow(QWidget *parent)
     presetsMenu->addAction(SaddlebackTripAct);
     fileMenu = menuBar()->addMenu("File");
     fileMenu->addAction(SaveToCsv);
+    fileMenu->addAction(LoadCsv);
     connect(loginAct, &QAction::triggered, this, &MainWindow::login);
     connect(UCITripAct, &QAction::triggered, this, &MainWindow::tripUCI);
     connect(ASUTripAct, &QAction::triggered, this, &MainWindow::tripASU);
     connect(SaddlebackTripAct, &QAction::triggered, this, &MainWindow::tripSaddleback);
     connect(SaveToCsv, &QAction::triggered, this, &MainWindow::saveToCsv);
-
-    //Add dummy test colleges-----------------------------------------------------------------------------
-    // QMap<QString, double> dummySouvenirList;
-    // dummySouvenirList["Shirt"] = 15.50;
-    // dummySouvenirList["Lanyard"] = 4.00;
-    // dummySouvenirList["Hoodie"] = 25.00;
-
-    // addCollege(College("Saddleback College", dummySouvenirList));
-    // dummySouvenirList.remove("Shirt");
-    // dummySouvenirList.remove("Lanyard");
-    // dummySouvenirList["Water Flask"] = 8.25;
-    // addCollege(College("Arizona State University", dummySouvenirList));
-
-    // dummySouvenirList["Sweater"] = 18.00;
-    // addCollege(College("University of California, Irvine (UCI)", dummySouvenirList));
+    connect(LoadCsv, &QAction::triggered, this, &MainWindow::loadCsv);
+    loadCsv();
 
     //Read CSV to data-------------------------------------------------------------------------------
     QDir distPath;
@@ -161,10 +151,6 @@ void MainWindow::csv_to_df(string path, QMap<QString, QMap<QString, double>> &da
             case 1:
                 col.assign(buffer);
                 break;
-                // case 2:
-                //     val.assign(buffer);
-                //     // cout << row << " " << col << " " << val << endl;
-                //     break;
             }
             count += 1;
             buffer.assign("");
@@ -356,7 +342,6 @@ void MainWindow::tripSaddleback()
 
 void MainWindow::saveToCsv()
 {
-    cout << "AAAAAAAAA" << endl;
     QDir souvPath = QDir::current();
     cout << QDir::current().path().toStdString() << endl;
     souvPath.cdUp();
@@ -365,6 +350,33 @@ void MainWindow::saveToCsv()
                   + "/CollegeDistanceProject/College Campus Souvenirs.csv";
     // cout << "Path: " << path << endl;
     df_to_csv(path, souvenirMap, "College,Traditional Souvenirs,Cost");
+}
+
+void MainWindow::loadCsv(){
+    distanceMap = {};
+    souvenirMap = {};
+
+    Colleges = {};
+    ui->list_collegeNames->clear();
+
+    QDir distPath;
+    distPath.cdUp();
+    string path = distPath.path().toStdString()
+                  + "/CollegeDistanceProject/College Campus Distances.csv";
+    csv_to_df(path, distanceMap);
+
+    QDir souvPath = QDir::current();
+    cout << QDir::current().path().toStdString() << endl;
+    souvPath.cdUp();
+    cout << souvPath.path().toStdString() << endl;
+    path = souvPath.path().toStdString() + "/CollegeDistanceProject/College Campus Souvenirs.csv";
+    cout << "Path: " << path << endl;
+    csv_to_df(path, souvenirMap);
+    cout << souvenirMap["Arizona State University"]["Football Jersey"] << endl;
+
+    for (auto i = distanceMap.cbegin(); i != distanceMap.cend(); i++) {
+        addCollege(College(i.key(), souvenirMap[i.key()]));
+    }
 }
 
 //----------------------------Beginning of UI functions (go to slots)-------------------------------------------------
