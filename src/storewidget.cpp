@@ -28,7 +28,7 @@ bool Souvenir::isInCart() const
 QString Souvenir::getInfo() const
 {
     QString info = itemName + ": " + QString::number(cartQuantity) + "*";
-    info.append(QString::number(itemPrice, 'f', 2) + " = " + QString::number(getPrice(), 'f', 2));
+    info.append(QString::number(itemPrice, 'f', 2) + " = $" + QString::number(getPrice(), 'f', 2));
     info.append("\n");
     return info;
 }
@@ -139,7 +139,7 @@ QString CampusStore::getCartInfo() const
     if (cart.empty())
         info.append("Nothing Bought Here\n");
     else
-        info.append("Total: " + QString::number(getCartTotal(), 'f', 2) + "\n");
+        info.append("Total: $" + QString::number(getCartTotal(), 'f', 2) + "\n");
     info.append("\n");
     return info;
 }

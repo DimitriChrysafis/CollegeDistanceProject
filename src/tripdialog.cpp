@@ -130,7 +130,7 @@ void TripDialog::calculateTripDetails()
         totalSpend += qobject_cast<CampusStore *>(storesHolder->widget(i))->getCartTotal();
     }
 
-    details.append("Total Spent: " + QString::number(totalSpend, 'f', 2));
+    details.append("Total Spent: $" + QString::number(totalSpend, 'f', 2));
 
     tripOverview->setText(details);
 }
