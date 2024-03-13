@@ -101,7 +101,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(SaddlebackTripAct, &QAction::triggered, this, &MainWindow::tripSaddleback);
     connect(SaveToCsv, &QAction::triggered, this, &MainWindow::saveToCsv);
     connect(LoadCsv, &QAction::triggered, this, &MainWindow::loadCsv);
-    loadCsv();
+    //loadCsv();
 
     //Read CSV to data-------------------------------------------------------------------------------
     QDir distPath;
@@ -462,7 +462,11 @@ void MainWindow::on_button_deleteSouvenir_clicked()
     for (int i = 0; i < souvenir.length(); i++) {
         if (souvenir[i] != '-') {
             key.append(souvenir[i]);
-        } else {
+        }
+        else if (souvenir[i + 1] != ' ') {
+            key.append(souvenir[i]);
+        }
+        else {
             key.chop(1);
             break;
         }
