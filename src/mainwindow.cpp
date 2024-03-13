@@ -122,7 +122,7 @@ MainWindow::MainWindow(QWidget *parent)
     path = souvPath.path().toStdString() + "/CollegeDistanceProject/College Campus Souvenirs.csv";
     cout << "Path: " << path << endl;
     csv_to_df(path, souvenirMap);
-    cout << souvenirMap["Arizona State University"]["Football Jersey"] << endl;
+    //cout << souvenirMap["Arizona State University"]["Football Jersey"] << endl;
 
     for (auto i = distanceMap.cbegin(); i != distanceMap.cend(); i++) {
         addCollege(College(i.key(), souvenirMap[i.key()]));
@@ -500,11 +500,9 @@ void MainWindow::on_button_editSouvenir_clicked()
     for (int i = 0; i < souvenir.length(); i++) {
         if (souvenir[i] != '-') {
             key.append(souvenir[i]);
-        }
-        else if (souvenir[i + 1] != ' ') {
+        } else if (souvenir[i + 1] != ' ') {
             key.append(souvenir[i]);
-        }
-        else {
+        } else {
             key.chop(1);
             break;
         }
@@ -588,7 +586,7 @@ void MainWindow::on_button_addToTrip_clicked(bool checked)
     if (TripColleges.length() != 0)
         text += TripColleges[TripColleges.length() - 1].name();
     ui->label_tripColleges->setText(text);
-    ui->label_totalDistance->setText("Total Distance: " + QString::number(totalDistance));
+    ui->label_totalDistance->setText("Total Distance: " + QString::number(totalDistance) + " miles");
 }
 
 /**

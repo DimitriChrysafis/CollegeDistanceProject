@@ -24,7 +24,7 @@ TripDialog::TripDialog(QWidget *parent)
 
     layout_->addWidget(collegeName, 0, 0, 1, 2, Qt::AlignCenter);
     layout_->addWidget(storesHolder, 1, 0, 1, 2, Qt::AlignCenter);
-    
+
     layout_->addWidget(cartTotal, 2, 1, 1, 2, Qt::AlignRight);
     layout_->addWidget(distToPrev, 3, 0, Qt::AlignCenter);
     layout_->addWidget(distToNext, 3, 1, Qt::AlignCenter);
@@ -193,17 +193,19 @@ void TripDialog::reset()
         widge->deleteLater();
     }
 }
+
 /**
  * @brief Handles the paint event.
  * @param event The paint event.
  */
-void TripDialog::paintEvent(QPaintEvent*) {
-  QString total = "Cart Total:  $";
-  double cart = 0;
+void TripDialog::paintEvent(QPaintEvent *)
+{
+    QString total = "Cart Total:  $";
+    double cart = 0;
 
-  if(index != storesHolder->count() - 1) 
-    cart = qobject_cast<CampusStore*>(storesHolder->widget(index))->getCartTotal();
-  
-  total.append(QString::number(cart,'f', 2));
-  cartTotal->setText(total);
+    if (index != storesHolder->count() - 1)
+        cart = qobject_cast<CampusStore *>(storesHolder->widget(index))->getCartTotal();
+
+    total.append(QString::number(cart, 'f', 2));
+    cartTotal->setText(total);
 }

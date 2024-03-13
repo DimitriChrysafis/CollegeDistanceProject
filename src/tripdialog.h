@@ -89,11 +89,12 @@ protected:
      */
     void updateCartTotal();
 
+
     /**
      * @brief Handles the paint event.
      * @param event The paint event.
      */
-    void paintEvent(QPaintEvent* event) override;
+    void paintEvent(QPaintEvent *event) override;
 
 private:
     int index = 0; /**< Index of the current college in the trip. */
