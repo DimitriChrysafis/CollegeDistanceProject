@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['retranslateui_0',['retranslateUi',['../class_ui___a_s_u_dialog.html#a7ec1548e64892a6fcf6b9ddc7d06b350',1,'Ui_ASUDialog::retranslateUi()'],['../class_ui___login_dialog.html#ad2d7bb901a56825e13e265a08cab0820',1,'Ui_LoginDialog::retranslateUi()'],['../class_ui___main_window.html#a097dd160c3534a204904cb374412c618',1,'Ui_MainWindow::retranslateUi()'],['../class_ui___souvenir_dialog.html#a7adbc39627054a1f095067c6018344ad',1,'Ui_SouvenirDialog::retranslateUi()'],['../class_ui___trip_dialog.html#a1ec984468fc50c33243005f16f71bcf9',1,'Ui_TripDialog::retranslateUi()']]]
+  ['mainwindow_0',['MainWindow',['../class_main_window.html',1,'MainWindow'],['../class_main_window.html#a996c5a2b6f77944776856f08ec30858d',1,'MainWindow::MainWindow()']]],
+  ['moveme_1',['moveMe',['../class_souvenir.html#a0cf27c0955dba1e9982a081ccb3ace9a',1,'Souvenir']]],
+  ['movetocart_2',['moveToCart',['../class_campus_store.html#a2374bf8a49108ee11643a64a8af945b1',1,'CampusStore']]]
 ];

@@ -21,7 +21,7 @@ public:
     QLabel *label_number; /**< Pointer to the label indicating the number of colleges to visit. */
     QSpinBox *box_number; /**< Pointer to the spin box for entering the number of colleges. */
     QPushButton *button_cancel; /**< Pointer to the Cancel button. */
-    QPushButton *button_ok; /**< Pointer to the OK button. */
+    QPushButton *button_ok;     /**< Pointer to the OK button. */
 
     /**
      * @brief setupUi initializes the UI components for the ASUDialog.
@@ -58,18 +58,20 @@ public:
     void retranslateUi(QDialog *ASUDialog)
     {
         ASUDialog->setWindowTitle(QCoreApplication::translate("ASUDialog", "Dialog", nullptr));
-        label_number->setText(QCoreApplication::translate("ASUDialog", "Enter the number of colleges to visit:", nullptr));
+        label_number->setText(QCoreApplication::translate("ASUDialog",
+                                                          "Enter the number of colleges to visit:",
+                                                          nullptr));
         button_cancel->setText(QCoreApplication::translate("ASUDialog", "Cancel", nullptr));
         button_ok->setText(QCoreApplication::translate("ASUDialog", "Ok", nullptr));
     } // retranslateUi
-
 };
 
 namespace Ui {
 /**
      * @brief The ASUDialog class provides access to the UI elements and setup methods for the ASUDialog.
      */
-class ASUDialog: public Ui_ASUDialog {};
+class ASUDialog : public Ui_ASUDialog
+{};
 } // namespace Ui
 
 QT_END_NAMESPACE

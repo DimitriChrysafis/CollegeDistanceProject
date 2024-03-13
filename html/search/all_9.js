@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['tripdialog_0',['TripDialog',['../class_ui_1_1_trip_dialog.html',1,'Ui']]]
+  ['paintevent_0',['paintEvent',['../class_trip_dialog.html#a85fecd348e7276ce8ed9680e3173a06d',1,'TripDialog']]]
 ];

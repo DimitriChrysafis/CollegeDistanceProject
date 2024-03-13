@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['setupui_0',['setupUi',['../class_ui___a_s_u_dialog.html#a9b4992f0c5e78bc5a1c8305f8b3d6779',1,'Ui_ASUDialog::setupUi()'],['../class_ui___login_dialog.html#a6e84935444cddd461a31d264cc42f30c',1,'Ui_LoginDialog::setupUi()'],['../class_ui___main_window.html#acf4a0872c4c77d8f43a2ec66ed849b58',1,'Ui_MainWindow::setupUi()'],['../class_ui___souvenir_dialog.html#ac10433a5ba634155d519979f348dfdc3',1,'Ui_SouvenirDialog::setupUi()'],['../class_ui___trip_dialog.html#a19ca38730f9350f2caf1f7dde843c7de',1,'Ui_TripDialog::setupUi()']]]
+  ['calculatetripdetails_0',['calculateTripDetails',['../class_trip_dialog.html#ad72cff787135e4d84470278036d47496',1,'TripDialog']]],
+  ['campusstore_1',['CampusStore',['../class_campus_store.html#a1845fce3a7a146dd6d32561603a784c8',1,'CampusStore']]],
+  ['cartclicked_2',['cartClicked',['../class_souvenir.html#a9288967f4999711f9a3462e8e48d16bf',1,'Souvenir']]],
+  ['college_3',['College',['../class_college.html#a64e8476aff2e3353a5c03b5004c6dbd9',1,'College::College(QString name)'],['../class_college.html#a1d74ecb64436e9380a77ca47f59a531f',1,'College::College(QString name, QMap&lt; QString, double &gt; souvenirList)'],['../class_college.html#a64e8476aff2e3353a5c03b5004c6dbd9',1,'College::College(QString name)'],['../class_college.html#a1d74ecb64436e9380a77ca47f59a531f',1,'College::College(QString name, QMap&lt; QString, double &gt; souvenirList)']]]
 ];

@@ -4,7 +4,7 @@
 #include <QDialog>
 
 namespace Ui {
-    class ASUDialog;
+class ASUDialog;
 }
 
 /**
@@ -56,13 +56,13 @@ public:
     void reset();
 
 private slots:
-            /**
+    /**
              * @brief Handles the click event of the OK button.
              *
              * Sets the number of colleges to visit and closes the dialog.
              * This function is called when the user clicks the OK button to confirm the input in the college distance project.
              */
-            void on_button_ok_clicked();
+    void on_button_ok_clicked();
 
     /**
      * @brief Handles the click event of the Cancel button.
@@ -74,8 +74,8 @@ private slots:
 
 private:
     Ui::ASUDialog *ui; /**< UI object for ASUDialog. */
-    int _num; /**< Number of colleges to visit. */
-    bool _ok; /**< Status of the dialog (OK or Cancel). */
+    int _num;          /**< Number of colleges to visit. */
+    bool _ok;          /**< Status of the dialog (OK or Cancel). */
 };
 
 #endif // ASUDIALOG_H

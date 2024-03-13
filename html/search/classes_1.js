@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['logindialog_0',['LoginDialog',['../class_ui_1_1_login_dialog.html',1,'Ui']]]
+  ['campusstore_0',['CampusStore',['../class_campus_store.html',1,'']]],
+  ['college_1',['College',['../class_college.html',1,'']]]
 ];

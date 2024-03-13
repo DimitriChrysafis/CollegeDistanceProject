@@ -1,8 +1,8 @@
 #ifndef COLLEGE_H
 #define COLLEGE_H
 
-#include <QString>
 #include <QMap>
+#include <QString>
 
 /**
  * @brief The College class represents a college in the college trip project.
@@ -86,10 +86,11 @@ public:
     void toggleIsStartingCollege(bool isStarting);
 
 private:
-    QString _name; /**< The name of the college. */
+    QString _name;                       /**< The name of the college. */
     QMap<QString, double> _souvenirList; /**< The list of souvenirs available at the college. */
     bool _isInTrip = false; /**< Indicates whether the college is included in the trip. */
-    bool _isStartingCollege = false; /**< Indicates whether the college is the starting point of the trip. */
+    bool _isStartingCollege
+        = false; /**< Indicates whether the college is the starting point of the trip. */
 };
 
 #endif // COLLEGE_H

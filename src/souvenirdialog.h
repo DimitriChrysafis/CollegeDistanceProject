@@ -5,7 +5,7 @@
 #include <QMessageBox>
 
 namespace Ui {
-    class SouvenirDialog;
+class SouvenirDialog;
 }
 
 /**
@@ -59,10 +59,10 @@ public:
     bool getOk();
 
 private slots:
-            /**
+    /**
              * @brief Handles the Cancel button click event.
              */
-            void on_button_cancel_clicked();
+    void on_button_cancel_clicked();
 
     /**
      * @brief Handles the OK button click event.
@@ -73,9 +73,9 @@ private slots:
 
 private:
     Ui::SouvenirDialog *ui; /**< Pointer to the UI object. */
-    QString _item; /**< Stores the item name. */
-    double _price; /**< Stores the item price. */
-    bool _ok; /**< Stores the status of the dialog (OK or not). */
+    QString _item;          /**< Stores the item name. */
+    double _price;          /**< Stores the item price. */
+    bool _ok;               /**< Stores the status of the dialog (OK or not). */
 };
 
 #endif // SOUVENIRDIALOG_H

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mainwindow_0',['MainWindow',['../class_ui_1_1_main_window.html',1,'Ui']]]
+  ['logindialog_0',['LoginDialog',['../class_login_dialog.html',1,'']]]
 ];

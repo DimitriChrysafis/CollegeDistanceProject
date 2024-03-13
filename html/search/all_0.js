@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['actionadmin_0',['actionAdmin',['../class_ui___main_window.html#ac0587ac848f7b5aa868187e04e2d8a91',1,'Ui_MainWindow']]],
-  ['actionarizona_5fstate_5funiversity_1',['actionArizona_State_University',['../class_ui___main_window.html#a16ef42cf56907c6d865bb442d57fc1d8',1,'Ui_MainWindow']]],
-  ['actionuniversity_5fof_5fcalifornia_5firvine_2',['actionUniversity_Of_California_Irvine',['../class_ui___main_window.html#a54589beb444706a44ed34a44a8d991a3',1,'Ui_MainWindow']]],
-  ['asudialog_3',['ASUDialog',['../class_ui_1_1_a_s_u_dialog.html',1,'Ui']]]
+  ['addcollege_0',['addCollege',['../class_main_window.html#afab176c2de7d5c9e6aa55d32ae561dfe',1,'MainWindow']]],
+  ['additem_1',['addItem',['../class_campus_store.html#a25c2e07a8a5ac3a4e0535db7688939a0',1,'CampusStore']]],
+  ['addsouvenir_2',['addSouvenir',['../class_college.html#a7f593e645484e49539c4b6cf4ed45663',1,'College::addSouvenir(QString name, double price)'],['../class_college.html#a7f593e645484e49539c4b6cf4ed45663',1,'College::addSouvenir(QString name, double price)']]],
+  ['amtchanged_3',['amtChanged',['../class_souvenir.html#affa00b56db538fcd4f168d470df96367',1,'Souvenir']]],
+  ['asudialog_4',['ASUDialog',['../class_a_s_u_dialog.html',1,'ASUDialog'],['../class_a_s_u_dialog.html#aa218b5811af69fc3a6c81119450fa791',1,'ASUDialog::ASUDialog()']]],
+  ['asudialog_2ecpp_5',['asudialog.cpp',['../asudialog_8cpp.html',1,'']]]
 ];

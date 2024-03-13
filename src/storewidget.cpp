@@ -122,8 +122,8 @@ void Souvenir::createLayout()
  * @param parent The parent widget.
  */
 CampusStore::CampusStore(QString collegeName, QWidget *parent)
-        : QWidget(parent)
-        , name(collegeName)
+    : QWidget(parent)
+    , name(collegeName)
 {
     createLayout();
 }

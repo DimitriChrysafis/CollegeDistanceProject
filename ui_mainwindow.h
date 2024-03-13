@@ -24,28 +24,29 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
-    QAction *actionUniversity_Of_California_Irvine; /**< Pointer to the action for University of California Irvine. */
+    QAction *
+        actionUniversity_Of_California_Irvine; /**< Pointer to the action for University of California Irvine. */
     QAction *actionArizona_State_University; /**< Pointer to the action for Arizona State University. */
-    QAction *actionAdmin; /**< Pointer to the action for Admin. */
-    QWidget *centralwidget; /**< Pointer to the central widget. */
-    QPushButton *button_go; /**< Pointer to the Go button. */
-    QGroupBox *box_collegeNames; /**< Pointer to the group box for college names. */
-    QVBoxLayout *verticalLayout; /**< Pointer to the vertical layout. */
-    QListWidget *list_collegeNames; /**< Pointer to the list widget for college names. */
-    QGroupBox *box_collegeInfo; /**< Pointer to the group box for college info. */
-    QLabel *label_collegeName; /**< Pointer to the label for college name. */
+    QAction *actionAdmin;                    /**< Pointer to the action for Admin. */
+    QWidget *centralwidget;                  /**< Pointer to the central widget. */
+    QPushButton *button_go;                  /**< Pointer to the Go button. */
+    QGroupBox *box_collegeNames;             /**< Pointer to the group box for college names. */
+    QVBoxLayout *verticalLayout;             /**< Pointer to the vertical layout. */
+    QListWidget *list_collegeNames;          /**< Pointer to the list widget for college names. */
+    QGroupBox *box_collegeInfo;              /**< Pointer to the group box for college info. */
+    QLabel *label_collegeName;               /**< Pointer to the label for college name. */
     QLabel *label_distanceFromSaddlebackPREFIX; /**< Pointer to the label for distance from Saddleback. */
-    QListWidget *list_souvenirs; /**< Pointer to the list widget for souvenirs. */
-    QPushButton *button_addSouvenir; /**< Pointer to the Add Souvenir button. */
-    QPushButton *button_editSouvenir; /**< Pointer to the Edit Souvenir button. */
-    QPushButton *button_deleteSouvenir; /**< Pointer to the Delete Souvenir button. */
-    QRadioButton *button_addToTrip; /**< Pointer to the Add to Trip radio button. */
-    QPushButton *button_startingCollege; /**< Pointer to the Starting College button. */
-    QLabel *label_tripColleges; /**< Pointer to the label for trip colleges. */
-    QLabel *label_totalDistance; /**< Pointer to the label for total distance. */
-    QMenuBar *menubar; /**< Pointer to the menu bar. */
-    QStatusBar *statusbar; /**< Pointer to the status bar. */
-    
+    QListWidget *list_souvenirs;                /**< Pointer to the list widget for souvenirs. */
+    QPushButton *button_addSouvenir;            /**< Pointer to the Add Souvenir button. */
+    QPushButton *button_editSouvenir;           /**< Pointer to the Edit Souvenir button. */
+    QPushButton *button_deleteSouvenir;         /**< Pointer to the Delete Souvenir button. */
+    QRadioButton *button_addToTrip;             /**< Pointer to the Add to Trip radio button. */
+    QPushButton *button_startingCollege;        /**< Pointer to the Starting College button. */
+    QLabel *label_tripColleges;                 /**< Pointer to the label for trip colleges. */
+    QLabel *label_totalDistance;                /**< Pointer to the label for total distance. */
+    QMenuBar *menubar;                          /**< Pointer to the menu bar. */
+    QStatusBar *statusbar;                      /**< Pointer to the status bar. */
+
     /**
      * @brief setupUi initializes the UI components for the MainWindow.
      * @param MainWindow Pointer to the MainWindow object.
@@ -56,7 +57,8 @@ public:
             MainWindow->setObjectName("MainWindow");
         MainWindow->resize(800, 643);
         actionUniversity_Of_California_Irvine = new QAction(MainWindow);
-        actionUniversity_Of_California_Irvine->setObjectName("actionUniversity_Of_California_Irvine");
+        actionUniversity_Of_California_Irvine->setObjectName(
+            "actionUniversity_Of_California_Irvine");
         actionArizona_State_University = new QAction(MainWindow);
         actionArizona_State_University->setObjectName("actionArizona_State_University");
         actionAdmin = new QAction(MainWindow);
@@ -75,9 +77,9 @@ public:
         list_collegeNames = new QListWidget(box_collegeNames);
         list_collegeNames->setObjectName("list_collegeNames");
         list_collegeNames->setWordWrap(true);
-        
+
         verticalLayout->addWidget(list_collegeNames);
-        
+
         box_collegeInfo = new QGroupBox(centralwidget);
         box_collegeInfo->setObjectName("box_collegeInfo");
         box_collegeInfo->setEnabled(true);
@@ -134,12 +136,12 @@ public:
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
         MainWindow->setStatusBar(statusbar);
-        
+
         retranslateUi(MainWindow);
-        
+
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi
-    
+
     /**
      * @brief retranslateUi translates the UI components for the MainWindow.
      * @param MainWindow Pointer to the MainWindow object.
@@ -147,30 +149,34 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        actionUniversity_Of_California_Irvine->setText(QCoreApplication::translate("MainWindow", "University Of California Irvine", nullptr));
-        actionArizona_State_University->setText(QCoreApplication::translate("MainWindow", "Arizona State University", nullptr));
+        actionUniversity_Of_California_Irvine->setText(
+            QCoreApplication::translate("MainWindow", "University Of California Irvine", nullptr));
+        actionArizona_State_University->setText(
+            QCoreApplication::translate("MainWindow", "Arizona State University", nullptr));
         actionAdmin->setText(QCoreApplication::translate("MainWindow", "Admin", nullptr));
         button_go->setText(QCoreApplication::translate("MainWindow", "Go!", nullptr));
         box_collegeNames->setTitle(QCoreApplication::translate("MainWindow", "Colleges", nullptr));
-        box_collegeInfo->setTitle(QCoreApplication::translate("MainWindow", "College Info", nullptr));
+        box_collegeInfo->setTitle(
+            QCoreApplication::translate("MainWindow", "College Info", nullptr));
         label_collegeName->setText(QString());
         label_distanceFromSaddlebackPREFIX->setText(QString());
         button_addSouvenir->setText(QCoreApplication::translate("MainWindow", "Add", nullptr));
         button_editSouvenir->setText(QCoreApplication::translate("MainWindow", "Edit", nullptr));
         button_deleteSouvenir->setText(QCoreApplication::translate("MainWindow", "Delete", nullptr));
         button_addToTrip->setText(QCoreApplication::translate("MainWindow", "Add to Trip", nullptr));
-        button_startingCollege->setText(QCoreApplication::translate("MainWindow", "Starting College", nullptr));
+        button_startingCollege->setText(
+            QCoreApplication::translate("MainWindow", "Starting College", nullptr));
         label_tripColleges->setText(QString());
         label_totalDistance->setText(QString());
     } // retranslateUi
-    
 };
 
 namespace Ui {
 /**
      * @brief The MainWindow class provides access to the UI elements and setup methods for the MainWindow.
      */
-class MainWindow: public Ui_MainWindow {};
+class MainWindow : public Ui_MainWindow
+{};
 } // namespace Ui
 
 QT_END_NAMESPACE

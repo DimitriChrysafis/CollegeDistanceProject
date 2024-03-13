@@ -1,4 +1,8 @@
 var searchData=
 [
-  ['retranslateui_0',['retranslateUi',['../class_ui___a_s_u_dialog.html#a7ec1548e64892a6fcf6b9ddc7d06b350',1,'Ui_ASUDialog::retranslateUi()'],['../class_ui___login_dialog.html#ad2d7bb901a56825e13e265a08cab0820',1,'Ui_LoginDialog::retranslateUi()'],['../class_ui___main_window.html#a097dd160c3534a204904cb374412c618',1,'Ui_MainWindow::retranslateUi()'],['../class_ui___souvenir_dialog.html#a7adbc39627054a1f095067c6018344ad',1,'Ui_SouvenirDialog::retranslateUi()'],['../class_ui___trip_dialog.html#a1ec984468fc50c33243005f16f71bcf9',1,'Ui_TripDialog::retranslateUi()']]]
+  ['addcollege_0',['addCollege',['../class_main_window.html#afab176c2de7d5c9e6aa55d32ae561dfe',1,'MainWindow']]],
+  ['additem_1',['addItem',['../class_campus_store.html#a25c2e07a8a5ac3a4e0535db7688939a0',1,'CampusStore']]],
+  ['addsouvenir_2',['addSouvenir',['../class_college.html#a7f593e645484e49539c4b6cf4ed45663',1,'College::addSouvenir(QString name, double price)'],['../class_college.html#a7f593e645484e49539c4b6cf4ed45663',1,'College::addSouvenir(QString name, double price)']]],
+  ['amtchanged_3',['amtChanged',['../class_souvenir.html#affa00b56db538fcd4f168d470df96367',1,'Souvenir']]],
+  ['asudialog_4',['ASUDialog',['../class_a_s_u_dialog.html#aa218b5811af69fc3a6c81119450fa791',1,'ASUDialog']]]
 ];

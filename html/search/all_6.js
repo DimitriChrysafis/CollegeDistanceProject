@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['mainwindow_0',['MainWindow',['../class_ui_1_1_main_window.html',1,'Ui']]],
-  ['menubar_1',['menubar',['../class_ui___main_window.html#adf43d9a67adaec750aaa956b5e082f09',1,'Ui_MainWindow']]]
+  ['loadcsv_0',['loadCsv',['../class_main_window.html#abe8b1f494ca2bd28a0b3b28098cb7208',1,'MainWindow']]],
+  ['login_1',['login',['../class_main_window.html#a029b6eb53463549c71d759f884f1e7eb',1,'MainWindow']]],
+  ['logindialog_2',['LoginDialog',['../class_login_dialog.html',1,'LoginDialog'],['../class_login_dialog.html#a7456f32deb63b8d3fb66b76f1e97977e',1,'LoginDialog::LoginDialog()']]]
 ];

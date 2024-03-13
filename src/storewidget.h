@@ -30,7 +30,7 @@ public:
     explicit Souvenir(QString name, QString desc, double price, QWidget *parent = nullptr);
     int getQuantity() const; /**< Get the quantity of the souvenir item. */
     double getPrice() const; /**< Get the total price of the souvenir item. */
-    bool isInCart() const; /**< Check if the souvenir item is in the cart. */
+    bool isInCart() const;   /**< Check if the souvenir item is in the cart. */
 
     /**
      * @brief Get information about the souvenir item.
@@ -39,11 +39,11 @@ public:
     QString getInfo() const;
 
 public slots:
-            /**
+    /**
              * @brief Handles the "Add To Cart" and "Remove From Cart" button clicks.
              * Toggles the item's status in the cart, updates UI accordingly, and emits a signal.
              */
-            void cartClicked();
+    void cartClicked();
 
     /**
      * @brief Handles the change in the quantity of the souvenir item.
@@ -51,12 +51,12 @@ public slots:
      */
     void amtChanged(int newVal);
 
-    signals:
-            /**
+signals:
+    /**
              * @brief Signal emitted when the item needs to be moved to/from the cart.
              * @param me Pointer to the Souvenir object.
              */
-            void moveMe(Souvenir *me);
+    void moveMe(Souvenir *me);
 
 private:
     /**
@@ -112,11 +112,11 @@ public:
     double getCartTotal() const;
 
 public slots:
-            /**
+    /**
              * @brief Moves an item to/from the cart.
              * @param guyToMove Pointer to the Souvenir object to be moved.
              */
-            void moveToCart(Souvenir *guyToMove);
+    void moveToCart(Souvenir *guyToMove);
 
 protected:
     /**

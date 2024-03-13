@@ -18,11 +18,11 @@ class Ui_TripDialog
 {
 public:
     QPushButton *button_previous; /**< Pointer to the Previous button. */
-    QPushButton *button_next; /**< Pointer to the Next button. */
-    QLabel *label_collegeName; /**< Pointer to the label for college name. */
-    QLabel *label_distance_next; /**< Pointer to the label for the distance to the next college. */
-    QLabel *label_next; /**< Pointer to the label for the next college. */
-    QLabel *label_previous; /**< Pointer to the label for the previous college. */
+    QPushButton *button_next;     /**< Pointer to the Next button. */
+    QLabel *label_collegeName;    /**< Pointer to the label for college name. */
+    QLabel *label_distance_next;  /**< Pointer to the label for the distance to the next college. */
+    QLabel *label_next;           /**< Pointer to the label for the next college. */
+    QLabel *label_previous;       /**< Pointer to the label for the previous college. */
     QLabel *label_distance_previous; /**< Pointer to the label for the distance from the previous college. */
 
     /**
@@ -93,18 +93,20 @@ public:
         button_next->setText(QCoreApplication::translate("TripDialog", "Next", nullptr));
         label_collegeName->setText(QString());
         label_distance_next->setText(QString());
-        label_next->setText(QCoreApplication::translate("TripDialog", "Distance To Next College:", nullptr));
-        label_previous->setText(QCoreApplication::translate("TripDialog", "Distance From Previous College:", nullptr));
+        label_next->setText(
+            QCoreApplication::translate("TripDialog", "Distance To Next College:", nullptr));
+        label_previous->setText(
+            QCoreApplication::translate("TripDialog", "Distance From Previous College:", nullptr));
         label_distance_previous->setText(QString());
     } // retranslateUi
-
 };
 
 namespace Ui {
 /**
      * @brief The TripDialog class provides access to the UI elements and setup methods for the TripDialog.
      */
-class TripDialog: public Ui_TripDialog {};
+class TripDialog : public Ui_TripDialog
+{};
 } // namespace Ui
 
 QT_END_NAMESPACE

@@ -11,8 +11,8 @@
  * @param parent Pointer to the parent widget.
  */
 ASUDialog::ASUDialog(QWidget *parent)
-        : QDialog(parent)
-        , ui(new Ui::ASUDialog)
+    : QDialog(parent)
+    , ui(new Ui::ASUDialog)
 {
     ui->setupUi(this);
 }

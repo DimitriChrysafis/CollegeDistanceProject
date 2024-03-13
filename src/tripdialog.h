@@ -68,10 +68,10 @@ public:
     void reset();
 
 private slots:
-            /**
+    /**
              * @brief Handles the "Next" button click.
              */
-            void on_button_next_clicked();
+    void on_button_next_clicked();
 
     /**
      * @brief Handles the "Previous" button click.
@@ -89,7 +89,6 @@ protected:
      */
     void updateCartTotal();
 
-
     /**
      * @brief Handles the paint event.
      * @param event The paint event.
@@ -97,18 +96,18 @@ protected:
     void paintEvent(QPaintEvent *event) override;
 
 private:
-    int index = 0; /**< Index of the current college in the trip. */
+    int index = 0;             /**< Index of the current college in the trip. */
     QVector<College> colleges; /**< Vector containing information about colleges in the trip. */
-    QVector<int> distances; /**< Vector containing distances between colleges. */
+    QVector<int> distances;    /**< Vector containing distances between colleges. */
 
-    QLabel *collegeName; /**< Label for displaying the name of the college. */
+    QLabel *collegeName;          /**< Label for displaying the name of the college. */
     QStackedWidget *storesHolder; /**< Stacked widget for displaying stores at each college. */
-    QLabel *distToPrev; /**< Label for displaying distance from the previous college. */
-    QLabel *distToNext; /**< Label for displaying distance to the next college. */
-    QLabel *cartTotal; /**< Label for displaying the total cart amount. */
-    QPushButton *previous; /**< Button for navigating to the previous college. */
-    QPushButton *next; /**< Button for navigating to the next college. */
-    QLabel *tripOverview; /**< Label for displaying trip overview. */
+    QLabel *distToPrev;           /**< Label for displaying distance from the previous college. */
+    QLabel *distToNext;           /**< Label for displaying distance to the next college. */
+    QLabel *cartTotal;            /**< Label for displaying the total cart amount. */
+    QPushButton *previous;        /**< Button for navigating to the previous college. */
+    QPushButton *next;            /**< Button for navigating to the next college. */
+    QLabel *tripOverview;         /**< Label for displaying trip overview. */
 };
 
 #endif // TRIPDIALOG_H

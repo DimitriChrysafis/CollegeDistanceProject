@@ -21,13 +21,13 @@ class Ui_SouvenirDialog
 {
 public:
     QPushButton *button_cancel; /**< Pointer to the Cancel button. */
-    QPushButton *button_ok; /**< Pointer to the Ok button. */
-    QGroupBox *groupBox; /**< Pointer to the group box. */
-    QFormLayout *formLayout; /**< Pointer to the form layout. */
-    QLabel *label_item; /**< Pointer to the label for the item. */
-    QLineEdit *lineEdit_price; /**< Pointer to the line edit for the price. */
-    QLabel *label_price; /**< Pointer to the label for the price. */
-    QLineEdit *lineEdit_item; /**< Pointer to the line edit for the item. */
+    QPushButton *button_ok;     /**< Pointer to the Ok button. */
+    QGroupBox *groupBox;        /**< Pointer to the group box. */
+    QFormLayout *formLayout;    /**< Pointer to the form layout. */
+    QLabel *label_item;         /**< Pointer to the label for the item. */
+    QLineEdit *lineEdit_price;  /**< Pointer to the line edit for the price. */
+    QLabel *label_price;        /**< Pointer to the label for the price. */
+    QLineEdit *lineEdit_item;   /**< Pointer to the line edit for the item. */
 
     /**
      * @brief setupUi initializes the UI components for the SouvenirDialog.
@@ -69,7 +69,6 @@ public:
 
         formLayout->setWidget(0, QFormLayout::FieldRole, lineEdit_item);
 
-
         retranslateUi(SouvenirDialog);
 
         QMetaObject::connectSlotsByName(SouvenirDialog);
@@ -81,21 +80,22 @@ public:
      */
     void retranslateUi(QDialog *SouvenirDialog)
     {
-        SouvenirDialog->setWindowTitle(QCoreApplication::translate("SouvenirDialog", "Dialog", nullptr));
+        SouvenirDialog->setWindowTitle(
+            QCoreApplication::translate("SouvenirDialog", "Dialog", nullptr));
         button_cancel->setText(QCoreApplication::translate("SouvenirDialog", "Cancel", nullptr));
         button_ok->setText(QCoreApplication::translate("SouvenirDialog", "Ok", nullptr));
         groupBox->setTitle(QCoreApplication::translate("SouvenirDialog", "Souvenir", nullptr));
         label_item->setText(QCoreApplication::translate("SouvenirDialog", "Item", nullptr));
         label_price->setText(QCoreApplication::translate("SouvenirDialog", "Price", nullptr));
     } // retranslateUi
-
 };
 
 namespace Ui {
 /**
      * @brief The SouvenirDialog class provides access to the UI elements and setup methods for the SouvenirDialog.
      */
-class SouvenirDialog: public Ui_SouvenirDialog {};
+class SouvenirDialog : public Ui_SouvenirDialog
+{};
 } // namespace Ui
 
 QT_END_NAMESPACE

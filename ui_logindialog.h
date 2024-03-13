@@ -19,9 +19,9 @@ class Ui_LoginDialog
 {
 public:
     QPushButton *button_cancel; /**< Pointer to the Cancel button. */
-    QPushButton *button_ok; /**< Pointer to the OK button. */
-    QLabel *label_password; /**< Pointer to the password label. */
-    QLineEdit *line_password; /**< Pointer to the password line edit field. */
+    QPushButton *button_ok;     /**< Pointer to the OK button. */
+    QLabel *label_password;     /**< Pointer to the password label. */
+    QLineEdit *line_password;   /**< Pointer to the password line edit field. */
 
     /**
      * @brief setupUi initializes the UI components for the LoginDialog.
@@ -61,14 +61,14 @@ public:
         button_ok->setText(QCoreApplication::translate("LoginDialog", "Ok", nullptr));
         label_password->setText(QCoreApplication::translate("LoginDialog", "Password", nullptr));
     } // retranslateUi
-
 };
 
 namespace Ui {
 /**
      * @brief The LoginDialog class provides access to the UI elements and setup methods for the LoginDialog.
      */
-class LoginDialog: public Ui_LoginDialog {};
+class LoginDialog : public Ui_LoginDialog
+{};
 } // namespace Ui
 
 QT_END_NAMESPACE

@@ -4,7 +4,7 @@
 #include <QDialog>
 
 namespace Ui {
-    class LoginDialog;
+class LoginDialog;
 }
 
 /**
@@ -41,12 +41,12 @@ public:
     QString getPassword();
 
 private slots:
-            /**
+    /**
              * @brief Handles the click event of the Cancel button.
              *
              * Sets the login status to false, clears the password field, and closes the dialog.
              */
-            void on_button_cancel_clicked();
+    void on_button_cancel_clicked();
 
     /**
      * @brief Handles the click event of the OK button.
@@ -58,8 +58,8 @@ private slots:
 
 private:
     Ui::LoginDialog *ui; /**< UI object for LoginDialog. */
-    QString _password; /**< The password entered by the user. */
-    bool _ok = false; /**< Login status (true if successful, false otherwise). */
+    QString _password;   /**< The password entered by the user. */
+    bool _ok = false;    /**< Login status (true if successful, false otherwise). */
 };
 
 #endif // LOGINDIALOG_H

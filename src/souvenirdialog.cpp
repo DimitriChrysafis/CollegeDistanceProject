@@ -7,8 +7,8 @@
  * @param parent The parent widget.
  */
 SouvenirDialog::SouvenirDialog(QWidget *parent)
-        : QDialog(parent)
-        , ui(new Ui::SouvenirDialog)
+    : QDialog(parent)
+    , ui(new Ui::SouvenirDialog)
 {
     ui->setupUi(this);
 }

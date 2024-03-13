@@ -9,8 +9,8 @@
  * @param parent Pointer to the parent widget.
  */
 LoginDialog::LoginDialog(QWidget *parent)
-        : QDialog(parent)
-        , ui(new Ui::LoginDialog)
+    : QDialog(parent)
+    , ui(new Ui::LoginDialog)
 {
     ui->setupUi(this);
 }
