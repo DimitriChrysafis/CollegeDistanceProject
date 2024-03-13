@@ -9,12 +9,6 @@
 
 using namespace std;
 
-/**
- * @brief MainWindow constructor.
- *
- * @param parent The parent widget.
- */
-
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -129,20 +123,11 @@ MainWindow::MainWindow(QWidget *parent)
     }
 }
 
-/**
- * @brief Destructor for the MainWindow class.
- */
 MainWindow::~MainWindow()
 {
     delete ui;
 }
 
-/**
- * @brief Parses a CSV file and populates a QMap data structure.
- *
- * @param path The path to the CSV file.
- * @param dataframe The QMap to store the data.
- */
 void MainWindow::csv_to_df(string path, QMap<QString, QMap<QString, double>> &dataframe)
 {
     ifstream csv(path);
@@ -187,13 +172,6 @@ void MainWindow::csv_to_df(string path, QMap<QString, QMap<QString, double>> &da
     }
 }
 
-/**
- * @brief Converts a QMap data structure to a CSV file.
- *
- * @param path The path to the CSV file.
- * @param dataframe The QMap containing the data.
- * @param label The label to include in the CSV file.
- */
 void MainWindow::df_to_csv(string path,
                            QMap<QString, QMap<QString, double>> const dataframe,
                            QString label)
@@ -244,13 +222,6 @@ void MainWindow::df_to_csv(string path,
     }
 }
 
-/**
- * @brief Displays all information about a college within the UI.
- *
- * This function displays the college name, distance from the starting college (if applicable), and all souvenirs associated with the college.
- *
- * @param college The College object to display information about.
- */
 //Displays all college info within the UI, including name, distance from starting college, and all souvenirs.
 void MainWindow::displayCollegeInfo(College college)
 {
@@ -276,13 +247,6 @@ void MainWindow::displayCollegeInfo(College college)
     ui->label_collegeLogo->setPixmap(logoMap[college.name()]);
 }
 
-/**
- * @brief Adds a college to the MainWindow and updates the UI.
- *
- * This function adds a college to the "Colleges" vector within MainWindow and updates the UI by adding the college name to the list of colleges.
- *
- * @param college The College object to add.
- */
 //Adds the college to the "Colleges" vector within MainWindow. Also adds the college name to the UI.
 void MainWindow::addCollege(College college)
 {
@@ -290,9 +254,6 @@ void MainWindow::addCollege(College college)
     ui->list_collegeNames->addItem(college.name());
 }
 
-/**
- * @brief Opens the login dialog and displays certain buttons if login is successful.
- */
 void MainWindow::login()
 {
     loginDialog->exec();
@@ -303,9 +264,6 @@ void MainWindow::login()
     }
 }
 
-/**
- * @brief Initiates a trip from University of California, Irvine (UCI).
- */
 void MainWindow::tripUCI()
 {
     TripColleges.clear();
@@ -325,9 +283,7 @@ void MainWindow::tripUCI()
     }
     ui->list_collegeNames->clearSelection();
 }
-/**
- * @brief Initiates a trip from Arizona State University (ASU).
- */
+
 void MainWindow::tripASU()
 {
     asuDialog->setMax(Colleges.length() - 1);
@@ -362,9 +318,7 @@ void MainWindow::tripASU()
     }
     asuDialog->reset();
 }
-/**
- * @brief Initiates a trip from Saddleback College.
- */
+
 void MainWindow::tripSaddleback()
 {
     TripColleges.clear();
@@ -384,9 +338,7 @@ void MainWindow::tripSaddleback()
     }
     ui->list_collegeNames->clearSelection();
 }
-/**
- * @brief Saves the souvenir data to a CSV file.
- */
+
 void MainWindow::saveToCsv()
 {
     QDir souvPath = QDir::current();
@@ -398,11 +350,7 @@ void MainWindow::saveToCsv()
     // cout << "Path: " << path << endl;
     df_to_csv(path, souvenirMap, "College,Traditional Souvenirs,Cost");
 }
-/**
- * @brief Loads data from CSV files.
- *
- * This function loads distance and souvenir data from CSV files and updates the UI accordingly.
- */
+
 void MainWindow::loadCsv()
 {
     distanceMap = {};
@@ -433,13 +381,7 @@ void MainWindow::loadCsv()
 
 //----------------------------Beginning of UI functions (go to slots)-------------------------------------------------
 
-/**
- * @brief Handles the event when a college is clicked in the UI list.
- *
- * This function enables/disables certain buttons based on the selected college.
- *
- * @param item The QListWidgetItem representing the clicked college.
- */
+//Enable/disable certain buttons when a new college is clicked
 void MainWindow::on_list_collegeNames_itemClicked(QListWidgetItem *item)
 {
     QString collegeName = item->text();
@@ -460,11 +402,7 @@ void MainWindow::on_list_collegeNames_itemClicked(QListWidgetItem *item)
         ui->button_addToTrip->setEnabled(false);
 }
 
-/**
- * @brief Enables/disables "edit" and "delete" buttons when a souvenir is clicked/unclicked.
- *
- * @param currentText The text of the currently selected souvenir.
- */
+//Enable/disable "edit" and "delete" buttons when a souvenir is clicked/unclicked
 void MainWindow::on_list_souvenirs_currentTextChanged(const QString &currentText)
 {
     if (currentText != "") {
@@ -475,9 +413,7 @@ void MainWindow::on_list_souvenirs_currentTextChanged(const QString &currentText
         ui->button_deleteSouvenir->setEnabled(false);
     }
 }
-/**
- * @brief Adds a souvenir to the current college.
- */
+
 void MainWindow::on_button_addSouvenir_clicked()
 {
     souvenirDialog->exec();
@@ -489,9 +425,7 @@ void MainWindow::on_button_addSouvenir_clicked()
     if (souvenirDialog->getOk()) {
     }
 }
-/**
- * @brief Edits a souvenir of the current college.
- */
+
 void MainWindow::on_button_editSouvenir_clicked()
 {
     QString key;
@@ -522,9 +456,6 @@ void MainWindow::on_button_editSouvenir_clicked()
     }
 }
 
-/**
- * @brief Deletes a souvenir from the current college.
- */
 void MainWindow::on_button_deleteSouvenir_clicked()
 {
     QString key;
@@ -547,13 +478,6 @@ void MainWindow::on_button_deleteSouvenir_clicked()
     displayCollegeInfo(*currentCollege);
 }
 
-/**
- * @brief Adds or removes the currently selected college to/from the trip.
- *
- * Also updates trip colleges label and total distance label.
- *
- * @param checked True if the college is added to the trip, false if removed.
- */
 //Add the currently selected college to the trip OR remove it. Also, update trip colleges label and total distance label.
 void MainWindow::on_button_addToTrip_clicked(bool checked)
 {
@@ -589,9 +513,6 @@ void MainWindow::on_button_addToTrip_clicked(bool checked)
     ui->label_totalDistance->setText("Total Distance: " + QString::number(totalDistance) + " miles");
 }
 
-/**
- * @brief Sets the current college as the starting point of the trip.
- */
 void MainWindow::on_button_startingCollege_clicked()
 {
     currentCollege->toggleIsStartingCollege(true);
@@ -601,9 +522,7 @@ void MainWindow::on_button_startingCollege_clicked()
     ui->button_addToTrip->show();
     ui->button_go->setEnabled(true);
 }
-/**
- * @brief Initiates the trip with the selected colleges and displays the trip dialog.
- */
+
 void MainWindow::on_button_go_clicked()
 {
     QVector<int> distances;
@@ -619,14 +538,7 @@ void MainWindow::on_button_go_clicked()
     tripDialog->exec();
     tripDialog->reset();
 }
-/**
- * @brief Finds the shortest path for the trip.
- *
- * @param location The starting location.
- * @param n The number of colleges in the trip.
- * @param trip Pointer to a vector containing the trip colleges.
- * @return Pointer to a vector containing the ordered list of colleges in the most efficient path.
- */
+
 //Returns a pointer to a new vector containing a list of college objects ordered in the most efficient path
 QVector<College> *MainWindow::find_shortest_path(QString location, int n, QVector<College> *trip)
 {
@@ -652,9 +564,7 @@ QVector<College> *MainWindow::find_shortest_path(QString location, int n, QVecto
         return trip;
     }
 }
-/**
- * @brief Resets the trip.
- */
+
 void MainWindow::on_button_reset_clicked()
 {
     TripColleges.clear();

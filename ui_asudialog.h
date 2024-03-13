@@ -1,4 +1,10 @@
-
+/********************************************************************************
+** Form generated from reading UI file 'asudialog.ui'
+**
+** Created by: Qt User Interface Compiler version 6.6.2
+**
+** WARNING! All changes made in this file will be lost when recompiling UI file!
+********************************************************************************/
 
 #ifndef UI_ASUDIALOG_H
 #define UI_ASUDIALOG_H
@@ -12,21 +18,14 @@
 
 QT_BEGIN_NAMESPACE
 
-/**
- * @brief The Ui_ASUDialog class contains the UI elements and setup methods for the ASUDialog.
- */
 class Ui_ASUDialog
 {
 public:
-    QLabel *label_number; /**< Pointer to the label indicating the number of colleges to visit. */
-    QSpinBox *box_number; /**< Pointer to the spin box for entering the number of colleges. */
-    QPushButton *button_cancel; /**< Pointer to the Cancel button. */
-    QPushButton *button_ok;     /**< Pointer to the OK button. */
+    QLabel *label_number;
+    QSpinBox *box_number;
+    QPushButton *button_cancel;
+    QPushButton *button_ok;
 
-    /**
-     * @brief setupUi initializes the UI components for the ASUDialog.
-     * @param ASUDialog Pointer to the ASUDialog object.
-     */
     void setupUi(QDialog *ASUDialog)
     {
         if (ASUDialog->objectName().isEmpty())
@@ -41,42 +40,30 @@ public:
         box_number->setMinimum(1);
         button_cancel = new QPushButton(ASUDialog);
         button_cancel->setObjectName("button_cancel");
-        button_cancel->setGeometry(QRect(160, 70, 93, 30));
+        button_cancel->setGeometry(QRect(171, 70, 80, 24));
         button_ok = new QPushButton(ASUDialog);
         button_ok->setObjectName("button_ok");
-        button_ok->setGeometry(QRect(270, 70, 93, 30));
+        button_ok->setGeometry(QRect(281, 70, 80, 24));
 
         retranslateUi(ASUDialog);
 
         QMetaObject::connectSlotsByName(ASUDialog);
     } // setupUi
 
-    /**
-     * @brief retranslateUi translates the UI components for the ASUDialog.
-     * @param ASUDialog Pointer to the ASUDialog object.
-     */
     void retranslateUi(QDialog *ASUDialog)
     {
         ASUDialog->setWindowTitle(QCoreApplication::translate("ASUDialog", "Dialog", nullptr));
-        label_number->setText(QCoreApplication::translate("ASUDialog",
-                                                          "Enter the number of colleges to visit:",
-                                                          nullptr));
+        label_number->setText(QCoreApplication::translate("ASUDialog", "Enter the number of colleges to visit:", nullptr));
         button_cancel->setText(QCoreApplication::translate("ASUDialog", "Cancel", nullptr));
         button_ok->setText(QCoreApplication::translate("ASUDialog", "Ok", nullptr));
     } // retranslateUi
+
 };
 
 namespace Ui {
-/**
-     * @brief The ASUDialog class provides access to the UI elements and setup methods for the ASUDialog.
-     */
-class ASUDialog : public Ui_ASUDialog
-{};
+    class ASUDialog: public Ui_ASUDialog {};
 } // namespace Ui
 
 QT_END_NAMESPACE
 
 #endif // UI_ASUDIALOG_H
-// End of file
-
-// /Users/dimitri.chrysafis/Repos/CollegeDistanceProject/ui_asudialog.h
