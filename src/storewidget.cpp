@@ -44,6 +44,7 @@ void Souvenir::cartClicked()
         amountInCart->setValue(0);
     }
     emit moveMe(this);
+    parentWidget()->update();
 }
 
 void Souvenir::amtChanged(int newVal)
@@ -169,6 +170,7 @@ void CampusStore::moveToCart(Souvenir *guyToMove)
         storeItems->insertWidget(storeItems->count() - 1, guyToMove);
     }
     updateCart();
+    parentWidget()->update();
 }
 
 //Update total receipt price

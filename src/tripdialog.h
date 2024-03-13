@@ -31,6 +31,9 @@ private slots:
 
 protected:
     void calculateTripDetails();
+    void updateCartTotal();
+
+    void paintEvent(QPaintEvent* event) override;
 
 private:
     int index = 0;
@@ -41,6 +44,7 @@ private:
     QStackedWidget *storesHolder;
     QLabel *distToPrev;
     QLabel *distToNext;
+    QLabel *cartTotal;
     QPushButton *previous;
     QPushButton *next;
     QLabel *tripOverview;

@@ -8,6 +8,7 @@ TripDialog::TripDialog(QWidget *parent)
     storesHolder = new QStackedWidget(this);
     distToPrev = new QLabel(this);
     distToNext = new QLabel(this);
+    cartTotal = new QLabel(this);
     previous = new QPushButton("Previous", this);
     next = new QPushButton("Next", this);
     QGridLayout *layout_ = new QGridLayout(this);
@@ -20,10 +21,12 @@ TripDialog::TripDialog(QWidget *parent)
 
     layout_->addWidget(collegeName, 0, 0, 1, 2, Qt::AlignCenter);
     layout_->addWidget(storesHolder, 1, 0, 1, 2, Qt::AlignCenter);
-    layout_->addWidget(distToPrev, 2, 0, Qt::AlignCenter);
-    layout_->addWidget(distToNext, 2, 1, Qt::AlignCenter);
-    layout_->addWidget(previous, 3, 0, Qt::AlignCenter);
-    layout_->addWidget(next, 3, 1, Qt::AlignCenter);
+    
+    layout_->addWidget(cartTotal, 2, 1, 1, 2, Qt::AlignRight);
+    layout_->addWidget(distToPrev, 3, 0, Qt::AlignCenter);
+    layout_->addWidget(distToNext, 3, 1, Qt::AlignCenter);
+    layout_->addWidget(previous, 4, 0, Qt::AlignCenter);
+    layout_->addWidget(next, 4, 1, Qt::AlignCenter);
 }
 
 TripDialog::~TripDialog() {}
@@ -86,6 +89,7 @@ void TripDialog::on_button_next_clicked()
         calculateTripDetails();
         distToPrev->setHidden(true);
         distToNext->setHidden(true);
+        cartTotal->setHidden(true);
     } else if (index > colleges.size()) {
         close();
     } else {
@@ -106,6 +110,7 @@ void TripDialog::on_button_previous_clicked()
     if (index < colleges.size()) {
         distToPrev->setHidden(false);
         distToNext->setHidden(false);
+        cartTotal->setHidden(false);
         next->setText("Next");
     }
     displayName(index);
@@ -143,6 +148,7 @@ void TripDialog::reset()
     previous->setEnabled(false);
     distToPrev->setHidden(false);
     distToNext->setHidden(false);
+    cartTotal->setHidden(false);
 
     storesHolder->removeWidget(tripOverview);
     for (int i = storesHolder->count() - 1; i >= 0; --i) {
@@ -150,4 +156,15 @@ void TripDialog::reset()
         storesHolder->removeWidget(widge);
         widge->deleteLater();
     }
+}
+
+void TripDialog::paintEvent(QPaintEvent*) {
+  QString total = "Cart Total:  $";
+  double cart = 0;
+
+  if(index != storesHolder->count() - 1) 
+    cart = qobject_cast<CampusStore*>(storesHolder->widget(index))->getCartTotal();
+  
+  total.append(QString::number(cart,'f', 2));
+  cartTotal->setText(total);
 }
