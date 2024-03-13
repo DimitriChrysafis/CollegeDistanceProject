@@ -1,12 +1,6 @@
 #include "storewidget.h"
 
-/**
-    * @brief Souvenir Constructor for creating a souvenir item.
-    * @param name The name of the souvenir item.
-    * @param desc The description of the souvenir item.
-    * @param price The price of the souvenir item.
-    * @param parent The parent widget.
-    */
+//Overloaded Constructor
 Souvenir::Souvenir(QString name, QString desc, double price, QWidget *parent)
     : QWidget(parent)
 {
@@ -17,34 +11,20 @@ Souvenir::Souvenir(QString name, QString desc, double price, QWidget *parent)
     createLayout();
 }
 
-/**
-    * @brief getQuantity Get the quantity of the souvenir item.
-    * @return The quantity of the souvenir item.
-    */
+//Accessor functions
 int Souvenir::getQuantity() const
 {
     return cartQuantity;
 }
-/**
-     * @brief getPrice Get the total price of the souvenir item.
-     * @return The total price of the souvenir item.
-     */
 double Souvenir::getPrice() const
 {
     return itemPrice * cartQuantity;
 }
-/**
-   * @brief isInCart Check if the souvenir item is in the cart.
-   * @return True if the item is in the cart, otherwise false.
-   */
 bool Souvenir::isInCart() const
 {
     return inCart;
 }
-/**
-    * @brief getInfo Get information about the souvenir item.
-    * @return Information about the souvenir item.
-    */
+
 QString Souvenir::getInfo() const
 {
     QString info = itemName + ": " + QString::number(cartQuantity) + "*";
@@ -54,10 +34,6 @@ QString Souvenir::getInfo() const
 }
 
 //"AddToCart" and "Remove From Cart" button handler
-/**
- * @brief Souvenir::cartClicked Handles the "Add To Cart" and "Remove From Cart" button clicks.
- * Toggles the item's status in the cart, updates UI accordingly, and emits a signal.
- */
 void Souvenir::cartClicked()
 {
     inCart = !inCart;
@@ -71,10 +47,6 @@ void Souvenir::cartClicked()
     parentWidget()->update();
 }
 
-/**
- * @brief Souvenir::amtChanged Handles the change in the quantity of the souvenir item.
- * @param newVal The new value of the quantity.
- */
 void Souvenir::amtChanged(int newVal)
 {
     cartQuantity = newVal;
@@ -86,10 +58,7 @@ void Souvenir::amtChanged(int newVal)
         moveCart->setEnabled(true);
 }
 
-/**
- * @brief Souvenir::createLayout Constructs the layout of the souvenir item.
- * Creates and configures the UI components for the item, such as labels and buttons.
- */
+//Called on Construction, builds layout of item
 void Souvenir::createLayout()
 {
     QHBoxLayout *layout_ = new QHBoxLayout(this);
@@ -116,21 +85,15 @@ void Souvenir::createLayout()
     setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
 }
 
-/**
- * @brief CampusStore::CampusStore Constructor for creating a campus store.
- * @param collegeName The name of the college associated with the store.
- * @param parent The parent widget.
- */
+//Default Constructor
 CampusStore::CampusStore(QString collegeName, QWidget *parent)
-        : QWidget(parent)
-        , name(collegeName)
+    : QWidget(parent)
+    , name(collegeName)
 {
     createLayout();
 }
 
-/**
- * @brief CampusStore::createLayout Called on construction, builds layout of store.
- */
+//Called on construction, builds layout of store
 void CampusStore::createLayout()
 {
     storeShelf = new QGroupBox("Souvenirs Store");
@@ -152,15 +115,15 @@ void CampusStore::createLayout()
     cartItems->addStretch();
     cartShelf->setLayout(cartItems);
     storeShelf->setLayout(storeItems);
+
+    //addItem("License plate cover", "", 11.85);
+    //addItem("License plate cover", "", 11.85);
+    //addItem("socks", "", 70);
+    //addItem("t-shirt", "", 70);
+    //addItem("socks", "", 70);
 }
 
-// Add item to store shelf
-/**
- * @brief CampusStore::addItem Add item to store shelf.
- * @param name The name of the souvenir item.
- * @param desc The description of the souvenir item.
- * @param price The price of the souvenir item.
- */
+//Add item to store shelf
 void CampusStore::addItem(QString name, QString desc, double price)
 {
     Souvenir *item = new Souvenir(name, desc, price);                  //create new souvenir
@@ -168,11 +131,29 @@ void CampusStore::addItem(QString name, QString desc, double price)
     connect(item, &Souvenir::moveMe, this, &CampusStore::moveToCart);
 }
 
-// Called in Souvenir::cartClicked, moved item from ui storeshelf to cartshelf
-/**
- * @brief CampusStore::moveToCart Called in Souvenir::cartClicked, moved item from ui storeshelf to cartshelf.
- * @param guyToMove Pointer to the souvenir item to be moved.
- */
+QString CampusStore::getCartInfo() const
+{
+    QString info = name;
+    info.append("\n");
+    for (auto &item : cart)
+        info.append(item->getInfo());
+    if (cart.empty())
+        info.append("Nothing Bought Here\n");
+    else
+        info.append("Total: $" + QString::number(getCartTotal(), 'f', 2) + "\n");
+    info.append("\n");
+    return info;
+}
+
+double CampusStore::getCartTotal() const
+{
+    double total = 0.0;
+    for (auto &item : cart)
+        total += item->getPrice();
+    return total;
+}
+
+//Called in Souvenir::cartClicked, moved item from ui storeshelf to cartshelf
 void CampusStore::moveToCart(Souvenir *guyToMove)
 {
     if (guyToMove->isInCart()) {
@@ -192,10 +173,7 @@ void CampusStore::moveToCart(Souvenir *guyToMove)
     parentWidget()->update();
 }
 
-// Update total receipt price
-/**
- * @brief CampusStore::updateCart Update total receipt price.
- */
+//Update total receipt price
 void CampusStore::updateCart()
 {
     double sum = 0;
