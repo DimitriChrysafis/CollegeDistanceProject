@@ -1,0 +1,66 @@
+\doxysection{ui\+\_\+logindialog.\+h}
+\hypertarget{ui__logindialog_8h_source}{}\label{ui__logindialog_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#ifndef\ UI\_LOGINDIALOG\_H}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#define\ UI\_LOGINDIALOG\_H}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <QtCore/QVariant>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <QtWidgets/QApplication>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <QtWidgets/QDialog>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <QtWidgets/QLabel>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <QtWidgets/QLineEdit>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <QtWidgets/QPushButton>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ QT\_BEGIN\_NAMESPACE}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_ui___login_dialog}{Ui\_LoginDialog}}}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ \ \ QPushButton\ *\mbox{\hyperlink{class_ui___login_dialog_a18bcfec5d1b1d4d936d5ab9a2f30ecbb}{button\_cancel}};\ }
+\DoxyCodeLine{00022\ \ \ \ \ QPushButton\ *\mbox{\hyperlink{class_ui___login_dialog_a110f9ea5d1f403fd27869a06b02e73ac}{button\_ok}};\ }
+\DoxyCodeLine{00023\ \ \ \ \ QLabel\ *\mbox{\hyperlink{class_ui___login_dialog_ac3a37543b200a83f8c583923db27c536}{label\_password}};\ }
+\DoxyCodeLine{00024\ \ \ \ \ QLineEdit\ *\mbox{\hyperlink{class_ui___login_dialog_a1bc4ec69dccb49f177366c8723a5ae14}{line\_password}};\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_ui___login_dialog_a6e84935444cddd461a31d264cc42f30c}{setupUi}}(QDialog\ *LoginDialog)}
+\DoxyCodeLine{00031\ \ \ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (LoginDialog-\/>objectName().isEmpty())}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ LoginDialog-\/>setObjectName(QString::fromUtf8(\textcolor{stringliteral}{"{}LoginDialog"{}}));}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ LoginDialog-\/>resize(400,\ 112);}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___login_dialog_a18bcfec5d1b1d4d936d5ab9a2f30ecbb}{button\_cancel}}\ =\ \textcolor{keyword}{new}\ QPushButton(LoginDialog);}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___login_dialog_a18bcfec5d1b1d4d936d5ab9a2f30ecbb}{button\_cancel}}-\/>setObjectName(QString::fromUtf8(\textcolor{stringliteral}{"{}button\_cancel"{}}));}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___login_dialog_a18bcfec5d1b1d4d936d5ab9a2f30ecbb}{button\_cancel}}-\/>setGeometry(QRect(200,\ 70,\ 80,\ 24));}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___login_dialog_a110f9ea5d1f403fd27869a06b02e73ac}{button\_ok}}\ =\ \textcolor{keyword}{new}\ QPushButton(LoginDialog);}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___login_dialog_a110f9ea5d1f403fd27869a06b02e73ac}{button\_ok}}-\/>setObjectName(QString::fromUtf8(\textcolor{stringliteral}{"{}button\_ok"{}}));}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___login_dialog_a110f9ea5d1f403fd27869a06b02e73ac}{button\_ok}}-\/>setGeometry(QRect(300,\ 70,\ 80,\ 24));}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___login_dialog_ac3a37543b200a83f8c583923db27c536}{label\_password}}\ =\ \textcolor{keyword}{new}\ QLabel(LoginDialog);}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___login_dialog_ac3a37543b200a83f8c583923db27c536}{label\_password}}-\/>setObjectName(QString::fromUtf8(\textcolor{stringliteral}{"{}label\_password"{}}));}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___login_dialog_ac3a37543b200a83f8c583923db27c536}{label\_password}}-\/>setGeometry(QRect(20,\ 29,\ 61,\ 16));}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___login_dialog_a1bc4ec69dccb49f177366c8723a5ae14}{line\_password}}\ =\ \textcolor{keyword}{new}\ QLineEdit(LoginDialog);}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___login_dialog_a1bc4ec69dccb49f177366c8723a5ae14}{line\_password}}-\/>setObjectName(QString::fromUtf8(\textcolor{stringliteral}{"{}line\_password"{}}));}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___login_dialog_a1bc4ec69dccb49f177366c8723a5ae14}{line\_password}}-\/>setGeometry(QRect(90,\ 24,\ 281,\ 24));}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___login_dialog_ad2d7bb901a56825e13e265a08cab0820}{retranslateUi}}(LoginDialog);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ QMetaObject::connectSlotsByName(LoginDialog);}
+\DoxyCodeLine{00051\ \ \ \ \ \}\ \textcolor{comment}{//\ setupUi}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_ui___login_dialog_ad2d7bb901a56825e13e265a08cab0820}{retranslateUi}}(QDialog\ *LoginDialog)}
+\DoxyCodeLine{00058\ \ \ \ \ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ LoginDialog-\/>setWindowTitle(QCoreApplication::translate(\textcolor{stringliteral}{"{}LoginDialog"{}},\ \textcolor{stringliteral}{"{}Dialog"{}},\ \textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___login_dialog_a18bcfec5d1b1d4d936d5ab9a2f30ecbb}{button\_cancel}}-\/>setText(QCoreApplication::translate(\textcolor{stringliteral}{"{}LoginDialog"{}},\ \textcolor{stringliteral}{"{}Cancel"{}},\ \textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___login_dialog_a110f9ea5d1f403fd27869a06b02e73ac}{button\_ok}}-\/>setText(QCoreApplication::translate(\textcolor{stringliteral}{"{}LoginDialog"{}},\ \textcolor{stringliteral}{"{}Ok"{}},\ \textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___login_dialog_ac3a37543b200a83f8c583923db27c536}{label\_password}}-\/>setText(QCoreApplication::translate(\textcolor{stringliteral}{"{}LoginDialog"{}},\ \textcolor{stringliteral}{"{}Password"{}},\ \textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00063\ \ \ \ \ \}\ \textcolor{comment}{//\ retranslateUi}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{keyword}{namespace\ }Ui\ \{}
+\DoxyCodeLine{00071\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_ui_1_1_login_dialog}{LoginDialog}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_ui___login_dialog}{Ui\_LoginDialog}}\ \{\};}
+\DoxyCodeLine{00072\ \}\ \textcolor{comment}{//\ namespace\ Ui}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ QT\_END\_NAMESPACE}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ UI\_LOGINDIALOG\_H}}
+
+\end{DoxyCode}
