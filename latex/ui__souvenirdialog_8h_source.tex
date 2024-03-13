@@ -1,0 +1,93 @@
+\doxysection{ui\+\_\+souvenirdialog.\+h}
+\hypertarget{ui__souvenirdialog_8h_source}{}\label{ui__souvenirdialog_8h_source}\mbox{\hyperlink{ui__souvenirdialog_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#ifndef\ UI\_SOUVENIRDIALOG\_H}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#define\ UI\_SOUVENIRDIALOG\_H}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <QtCore/QVariant>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <QtWidgets/QApplication>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <QtWidgets/QDialog>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <QtWidgets/QFormLayout>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <QtWidgets/QGroupBox>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <QtWidgets/QLabel>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <QtWidgets/QLineEdit>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <QtWidgets/QPushButton>}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ QT\_BEGIN\_NAMESPACE}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_ui___souvenir_dialog}{Ui\_SouvenirDialog}}}
+\DoxyCodeLine{00021\ \{}
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \ \ QPushButton\ *\mbox{\hyperlink{class_ui___souvenir_dialog_a56080add5f1cf008c02b3bdba43d61af}{button\_cancel}};\ }
+\DoxyCodeLine{00024\ \ \ \ \ QPushButton\ *\mbox{\hyperlink{class_ui___souvenir_dialog_aff05c4058282d0d4cd953f43663a5add}{button\_ok}};\ }
+\DoxyCodeLine{00025\ \ \ \ \ QGroupBox\ *\mbox{\hyperlink{class_ui___souvenir_dialog_ae04b62f59f1131bfa6db0328ac228e75}{groupBox}};\ }
+\DoxyCodeLine{00026\ \ \ \ \ QFormLayout\ *\mbox{\hyperlink{class_ui___souvenir_dialog_a4790986d26395e8ea189768ed374c939}{formLayout}};\ }
+\DoxyCodeLine{00027\ \ \ \ \ QLabel\ *\mbox{\hyperlink{class_ui___souvenir_dialog_a89f33f15345e38c3e80185607785ccc6}{label\_item}};\ }
+\DoxyCodeLine{00028\ \ \ \ \ QLineEdit\ *\mbox{\hyperlink{class_ui___souvenir_dialog_a3499065c8ba96c2fb57c674cc2ef70b4}{lineEdit\_price}};\ }
+\DoxyCodeLine{00029\ \ \ \ \ QLabel\ *\mbox{\hyperlink{class_ui___souvenir_dialog_aca86831d074d4bf0dfd7c459d7c1f1b3}{label\_price}};\ }
+\DoxyCodeLine{00030\ \ \ \ \ QLineEdit\ *\mbox{\hyperlink{class_ui___souvenir_dialog_a9f45500a297e68110cbf4c6c2b484a32}{lineEdit\_item}};\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_ui___souvenir_dialog_ac10433a5ba634155d519979f348dfdc3}{setupUi}}(QDialog\ *SouvenirDialog)}
+\DoxyCodeLine{00037\ \ \ \ \ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (SouvenirDialog-\/>objectName().isEmpty())}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ SouvenirDialog-\/>setObjectName(QString::fromUtf8(\textcolor{stringliteral}{"{}SouvenirDialog"{}}));}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ SouvenirDialog-\/>resize(400,\ 184);}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___souvenir_dialog_a56080add5f1cf008c02b3bdba43d61af}{button\_cancel}}\ =\ \textcolor{keyword}{new}\ QPushButton(SouvenirDialog);}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___souvenir_dialog_a56080add5f1cf008c02b3bdba43d61af}{button\_cancel}}-\/>setObjectName(QString::fromUtf8(\textcolor{stringliteral}{"{}button\_cancel"{}}));}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___souvenir_dialog_a56080add5f1cf008c02b3bdba43d61af}{button\_cancel}}-\/>setGeometry(QRect(210,\ 140,\ 80,\ 24));}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___souvenir_dialog_aff05c4058282d0d4cd953f43663a5add}{button\_ok}}\ =\ \textcolor{keyword}{new}\ QPushButton(SouvenirDialog);}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___souvenir_dialog_aff05c4058282d0d4cd953f43663a5add}{button\_ok}}-\/>setObjectName(QString::fromUtf8(\textcolor{stringliteral}{"{}button\_ok"{}}));}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___souvenir_dialog_aff05c4058282d0d4cd953f43663a5add}{button\_ok}}-\/>setGeometry(QRect(300,\ 140,\ 80,\ 24));}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___souvenir_dialog_ae04b62f59f1131bfa6db0328ac228e75}{groupBox}}\ =\ \textcolor{keyword}{new}\ QGroupBox(SouvenirDialog);}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___souvenir_dialog_ae04b62f59f1131bfa6db0328ac228e75}{groupBox}}-\/>setObjectName(QString::fromUtf8(\textcolor{stringliteral}{"{}groupBox"{}}));}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___souvenir_dialog_ae04b62f59f1131bfa6db0328ac228e75}{groupBox}}-\/>setGeometry(QRect(20,\ 20,\ 351,\ 101));}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___souvenir_dialog_a4790986d26395e8ea189768ed374c939}{formLayout}}\ =\ \textcolor{keyword}{new}\ QFormLayout(\mbox{\hyperlink{class_ui___souvenir_dialog_ae04b62f59f1131bfa6db0328ac228e75}{groupBox}});}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___souvenir_dialog_a4790986d26395e8ea189768ed374c939}{formLayout}}-\/>setObjectName(QString::fromUtf8(\textcolor{stringliteral}{"{}formLayout"{}}));}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___souvenir_dialog_a89f33f15345e38c3e80185607785ccc6}{label\_item}}\ =\ \textcolor{keyword}{new}\ QLabel(\mbox{\hyperlink{class_ui___souvenir_dialog_ae04b62f59f1131bfa6db0328ac228e75}{groupBox}});}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___souvenir_dialog_a89f33f15345e38c3e80185607785ccc6}{label\_item}}-\/>setObjectName(QString::fromUtf8(\textcolor{stringliteral}{"{}label\_item"{}}));}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___souvenir_dialog_a4790986d26395e8ea189768ed374c939}{formLayout}}-\/>setWidget(0,\ QFormLayout::LabelRole,\ \mbox{\hyperlink{class_ui___souvenir_dialog_a89f33f15345e38c3e80185607785ccc6}{label\_item}});}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___souvenir_dialog_a3499065c8ba96c2fb57c674cc2ef70b4}{lineEdit\_price}}\ =\ \textcolor{keyword}{new}\ QLineEdit(\mbox{\hyperlink{class_ui___souvenir_dialog_ae04b62f59f1131bfa6db0328ac228e75}{groupBox}});}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___souvenir_dialog_a3499065c8ba96c2fb57c674cc2ef70b4}{lineEdit\_price}}-\/>setObjectName(QString::fromUtf8(\textcolor{stringliteral}{"{}lineEdit\_price"{}}));}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___souvenir_dialog_a4790986d26395e8ea189768ed374c939}{formLayout}}-\/>setWidget(1,\ QFormLayout::FieldRole,\ \mbox{\hyperlink{class_ui___souvenir_dialog_a3499065c8ba96c2fb57c674cc2ef70b4}{lineEdit\_price}});}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___souvenir_dialog_aca86831d074d4bf0dfd7c459d7c1f1b3}{label\_price}}\ =\ \textcolor{keyword}{new}\ QLabel(\mbox{\hyperlink{class_ui___souvenir_dialog_ae04b62f59f1131bfa6db0328ac228e75}{groupBox}});}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___souvenir_dialog_aca86831d074d4bf0dfd7c459d7c1f1b3}{label\_price}}-\/>setObjectName(QString::fromUtf8(\textcolor{stringliteral}{"{}label\_price"{}}));}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___souvenir_dialog_a4790986d26395e8ea189768ed374c939}{formLayout}}-\/>setWidget(1,\ QFormLayout::LabelRole,\ \mbox{\hyperlink{class_ui___souvenir_dialog_aca86831d074d4bf0dfd7c459d7c1f1b3}{label\_price}});}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___souvenir_dialog_a9f45500a297e68110cbf4c6c2b484a32}{lineEdit\_item}}\ =\ \textcolor{keyword}{new}\ QLineEdit(\mbox{\hyperlink{class_ui___souvenir_dialog_ae04b62f59f1131bfa6db0328ac228e75}{groupBox}});}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___souvenir_dialog_a9f45500a297e68110cbf4c6c2b484a32}{lineEdit\_item}}-\/>setObjectName(QString::fromUtf8(\textcolor{stringliteral}{"{}lineEdit\_item"{}}));}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___souvenir_dialog_a4790986d26395e8ea189768ed374c939}{formLayout}}-\/>setWidget(0,\ QFormLayout::FieldRole,\ \mbox{\hyperlink{class_ui___souvenir_dialog_a9f45500a297e68110cbf4c6c2b484a32}{lineEdit\_item}});}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___souvenir_dialog_a7adbc39627054a1f095067c6018344ad}{retranslateUi}}(SouvenirDialog);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ QMetaObject::connectSlotsByName(SouvenirDialog);}
+\DoxyCodeLine{00076\ \ \ \ \ \}\ \textcolor{comment}{//\ setupUi}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_ui___souvenir_dialog_a7adbc39627054a1f095067c6018344ad}{retranslateUi}}(QDialog\ *SouvenirDialog)}
+\DoxyCodeLine{00083\ \ \ \ \ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ SouvenirDialog-\/>setWindowTitle(QCoreApplication::translate(\textcolor{stringliteral}{"{}SouvenirDialog"{}},\ \textcolor{stringliteral}{"{}Dialog"{}},\ \textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___souvenir_dialog_a56080add5f1cf008c02b3bdba43d61af}{button\_cancel}}-\/>setText(QCoreApplication::translate(\textcolor{stringliteral}{"{}SouvenirDialog"{}},\ \textcolor{stringliteral}{"{}Cancel"{}},\ \textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___souvenir_dialog_aff05c4058282d0d4cd953f43663a5add}{button\_ok}}-\/>setText(QCoreApplication::translate(\textcolor{stringliteral}{"{}SouvenirDialog"{}},\ \textcolor{stringliteral}{"{}Ok"{}},\ \textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___souvenir_dialog_ae04b62f59f1131bfa6db0328ac228e75}{groupBox}}-\/>setTitle(QCoreApplication::translate(\textcolor{stringliteral}{"{}SouvenirDialog"{}},\ \textcolor{stringliteral}{"{}Souvenir"{}},\ \textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___souvenir_dialog_a89f33f15345e38c3e80185607785ccc6}{label\_item}}-\/>setText(QCoreApplication::translate(\textcolor{stringliteral}{"{}SouvenirDialog"{}},\ \textcolor{stringliteral}{"{}Item"{}},\ \textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___souvenir_dialog_aca86831d074d4bf0dfd7c459d7c1f1b3}{label\_price}}-\/>setText(QCoreApplication::translate(\textcolor{stringliteral}{"{}SouvenirDialog"{}},\ \textcolor{stringliteral}{"{}Price"{}},\ \textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00090\ \ \ \ \ \}\ \textcolor{comment}{//\ retranslateUi}}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \};}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_ui}{Ui}}\ \{}
+\DoxyCodeLine{00098\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_ui_1_1_souvenir_dialog}{SouvenirDialog}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_ui___souvenir_dialog}{Ui\_SouvenirDialog}}\ \{\};}
+\DoxyCodeLine{00099\ \}\ \textcolor{comment}{//\ namespace\ Ui}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ QT\_END\_NAMESPACE}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ UI\_SOUVENIRDIALOG\_H}}
+
+\end{DoxyCode}
