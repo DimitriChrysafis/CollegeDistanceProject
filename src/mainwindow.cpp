@@ -648,7 +648,6 @@ QVector<College> *MainWindow::find_shortest_path(QString location, int n, QVecto
                 next = i->name();
             }
         }
-        // cout << next.toStdString() << endl;
         return find_shortest_path(next, n - 1, trip);
     } else {
         return trip;
