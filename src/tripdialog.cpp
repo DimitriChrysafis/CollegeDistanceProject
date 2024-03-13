@@ -43,11 +43,6 @@ TripDialog::~TripDialog() {}
 void TripDialog::getColleges(QVector<College> vector)
 {
     colleges = vector;
-    //if (colleges.size() <= 1) {
-    //ui->button_next->setEnabled(false);
-    //} else {
-    //ui->button_next->setEnabled(true);
-    //}
 }
 /**
  * @brief Receives distance data.
