@@ -1,6 +1,13 @@
 #include "storewidget.h"
 
 //Overloaded Constructor
+/**
+    * @brief Souvenir Constructor for creating a souvenir item.
+    * @param name The name of the souvenir item.
+    * @param desc The description of the souvenir item.
+    * @param price The price of the souvenir item.
+    * @param parent The parent widget.
+    */
 Souvenir::Souvenir(QString name, QString desc, double price, QWidget *parent)
     : QWidget(parent)
 {
@@ -12,19 +19,37 @@ Souvenir::Souvenir(QString name, QString desc, double price, QWidget *parent)
 }
 
 //Accessor functions
+/**
+    * @brief getQuantity Get the quantity of the souvenir item.
+    * @return The quantity of the souvenir item.
+    */
 int Souvenir::getQuantity() const
 {
     return cartQuantity;
 }
+
+/**
+     * @brief getPrice Get the total price of the souvenir item.
+     * @return The total price of the souvenir item.
+     */
 double Souvenir::getPrice() const
 {
     return itemPrice * cartQuantity;
 }
+
+/**
+   * @brief isInCart Check if the souvenir item is in the cart.
+   * @return True if the item is in the cart, otherwise false.
+   */
 bool Souvenir::isInCart() const
 {
     return inCart;
 }
 
+/**
+    * @brief getInfo Get information about the souvenir item.
+    * @return Information about the souvenir item.
+    */
 QString Souvenir::getInfo() const
 {
     QString info = itemName + ": " + QString::number(cartQuantity) + "*";
@@ -34,6 +59,10 @@ QString Souvenir::getInfo() const
 }
 
 //"AddToCart" and "Remove From Cart" button handler
+/**
+ * @brief Souvenir::cartClicked Handles the "Add To Cart" and "Remove From Cart" button clicks.
+ * Toggles the item's status in the cart, updates UI accordingly, and emits a signal.
+ */
 void Souvenir::cartClicked()
 {
     inCart = !inCart;
@@ -47,6 +76,10 @@ void Souvenir::cartClicked()
     parentWidget()->update();
 }
 
+/**
+ * @brief Souvenir::amtChanged Handles the change in the quantity of the souvenir item.
+ * @param newVal The new value of the quantity.
+ */
 void Souvenir::amtChanged(int newVal)
 {
     cartQuantity = newVal;
@@ -59,6 +92,10 @@ void Souvenir::amtChanged(int newVal)
 }
 
 //Called on Construction, builds layout of item
+/**
+ * @brief Souvenir::createLayout Constructs the layout of the souvenir item.
+ * Creates and configures the UI components for the item, such as labels and buttons.
+ */
 void Souvenir::createLayout()
 {
     QHBoxLayout *layout_ = new QHBoxLayout(this);
@@ -86,6 +123,11 @@ void Souvenir::createLayout()
 }
 
 //Default Constructor
+/**
+ * @brief CampusStore::CampusStore Constructor for creating a campus store.
+ * @param collegeName The name of the college associated with the store.
+ * @param parent The parent widget.
+ */
 CampusStore::CampusStore(QString collegeName, QWidget *parent)
     : QWidget(parent)
     , name(collegeName)
@@ -94,6 +136,9 @@ CampusStore::CampusStore(QString collegeName, QWidget *parent)
 }
 
 //Called on construction, builds layout of store
+/**
+ * @brief CampusStore::createLayout Called on construction, builds layout of store.
+ */
 void CampusStore::createLayout()
 {
     storeShelf = new QGroupBox("Souvenirs Store");
@@ -124,6 +169,12 @@ void CampusStore::createLayout()
 }
 
 //Add item to store shelf
+/**
+ * @brief CampusStore::addItem Add item to store shelf.
+ * @param name The name of the souvenir item.
+ * @param desc The description of the souvenir item.
+ * @param price The price of the souvenir item.
+ */
 void CampusStore::addItem(QString name, QString desc, double price)
 {
     Souvenir *item = new Souvenir(name, desc, price);                  //create new souvenir
@@ -131,6 +182,9 @@ void CampusStore::addItem(QString name, QString desc, double price)
     connect(item, &Souvenir::moveMe, this, &CampusStore::moveToCart);
 }
 
+/**
+ * @brief CampusStore::getCartInfo Gets the total price of the current college the user is on.
+ */
 QString CampusStore::getCartInfo() const
 {
     QString info = name;
@@ -145,6 +199,9 @@ QString CampusStore::getCartInfo() const
     return info;
 }
 
+/**
+ * @brief CampusStore::getCartTotal Gets the total price spent at all colleges.
+ */
 double CampusStore::getCartTotal() const
 {
     double total = 0.0;
@@ -154,6 +211,10 @@ double CampusStore::getCartTotal() const
 }
 
 //Called in Souvenir::cartClicked, moved item from ui storeshelf to cartshelf
+/**
+ * @brief CampusStore::cartClciked Move an item from the store shelf to the cart.
+ * @param *guyToMove Pointer to the souvenir being moved.
+ */
 void CampusStore::moveToCart(Souvenir *guyToMove)
 {
     if (guyToMove->isInCart()) {
@@ -174,6 +235,9 @@ void CampusStore::moveToCart(Souvenir *guyToMove)
 }
 
 //Update total receipt price
+/**
+ * @brief CampusStore::updateCart Update total receipt price.
+ */
 void CampusStore::updateCart()
 {
     double sum = 0;

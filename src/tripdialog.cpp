@@ -1,5 +1,8 @@
 #include "tripdialog.h"
-
+/**
+ * @brief Constructs a new TripDialog object.
+ * @param parent Pointer to the parent widget.
+ */
 TripDialog::TripDialog(QWidget *parent)
     : QDialog(parent)
 {
@@ -28,9 +31,15 @@ TripDialog::TripDialog(QWidget *parent)
     layout_->addWidget(previous, 4, 0, Qt::AlignCenter);
     layout_->addWidget(next, 4, 1, Qt::AlignCenter);
 }
-
+/**
+ * @brief Destructor for TripDialog.
+ */
 TripDialog::~TripDialog() {}
 
+/**
+ * @brief Receives college data.
+ * @param vector Vector containing College objects.
+ */
 void TripDialog::getColleges(QVector<College> vector)
 {
     colleges = vector;
@@ -40,12 +49,19 @@ void TripDialog::getColleges(QVector<College> vector)
     //ui->button_next->setEnabled(true);
     //}
 }
-
+/**
+ * @brief Receives distance data.
+ * @param vector Vector containing distances.
+ */
 void TripDialog::getDistances(QVector<int> vector)
 {
     distances = vector;
 }
 
+/**
+ * @brief Receives souvenir data.
+ * @param souvenirs Map containing souvenir information.
+ */
 void TripDialog::getSouvenirs(const QMap<QString, QMap<QString, double>> &souvenirs)
 {
     for (auto &college : colleges) {
@@ -58,11 +74,19 @@ void TripDialog::getSouvenirs(const QMap<QString, QMap<QString, double>> &souven
     storesHolder->addWidget(tripOverview);
 }
 
+/**
+ * @brief Displays the name of the college.
+ * @param index The index of the college.
+ */
 void TripDialog::displayName(int index)
 {
     collegeName->setText(colleges[index].name());
 }
 
+/**
+ * @brief Displays the distance from the previous college.
+ * @param index The index of the college.
+ */
 void TripDialog::displayPreviousDistance(int index)
 {
     if (index >= 0 && index < distances.size()) {
@@ -70,7 +94,10 @@ void TripDialog::displayPreviousDistance(int index)
     } else
         distToPrev->setText("N/A");
 }
-
+/**
+ * @brief Displays the distance to the next college.
+ * @param index The index of the college.
+ */
 void TripDialog::displayNextDistance(int index)
 {
     if (index >= 0 && index < distances.size()) {
@@ -79,6 +106,9 @@ void TripDialog::displayNextDistance(int index)
         distToNext->setText("N/A");
 }
 
+/**
+ * @brief Handles the "Next" button click.
+ */
 void TripDialog::on_button_next_clicked()
 {
     index++;
@@ -101,7 +131,9 @@ void TripDialog::on_button_next_clicked()
     previous->setEnabled(true);
     storesHolder->setCurrentIndex(index);
 }
-
+/**
+ * @brief Handles the "Previous" button click.
+ */
 void TripDialog::on_button_previous_clicked()
 {
     index--;
@@ -119,7 +151,9 @@ void TripDialog::on_button_previous_clicked()
 
     storesHolder->setCurrentIndex(index);
 }
-
+/**
+ * @brief Calculates and displays trip details.
+ */
 void TripDialog::calculateTripDetails()
 {
     int totalDistance = 0;
@@ -139,7 +173,9 @@ void TripDialog::calculateTripDetails()
 
     tripOverview->setText(details);
 }
-
+/**
+ * @brief Resets the dialog to its initial state.
+ */
 void TripDialog::reset()
 {
     index = 0;
@@ -157,15 +193,17 @@ void TripDialog::reset()
         widge->deleteLater();
     }
 }
-
-void TripDialog::paintEvent(QPaintEvent *)
-{
+/**
+ * @brief Handles the paint event.
+ * @param event The paint event.
+ */
+void TripDialog::paintEvent(QPaintEvent*) {
     QString total = "Cart Total:  $";
     double cart = 0;
 
-    if (index != storesHolder->count() - 1)
-        cart = qobject_cast<CampusStore *>(storesHolder->widget(index))->getCartTotal();
+    if(index != storesHolder->count() - 1)
+        cart = qobject_cast<CampusStore*>(storesHolder->widget(index))->getCartTotal();
 
-    total.append(QString::number(cart, 'f', 2));
+    total.append(QString::number(cart,'f', 2));
     cartTotal->setText(total);
 }
