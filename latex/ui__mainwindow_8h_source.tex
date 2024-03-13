@@ -1,0 +1,168 @@
+\doxysection{ui\+\_\+mainwindow.\+h}
+\hypertarget{ui__mainwindow_8h_source}{}\label{ui__mainwindow_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#ifndef\ UI\_MAINWINDOW\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#define\ UI\_MAINWINDOW\_H}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QtCore/QVariant>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <QtGui/QAction>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <QtWidgets/QApplication>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <QtWidgets/QGroupBox>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <QtWidgets/QLabel>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <QtWidgets/QListWidget>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <QtWidgets/QMainWindow>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <QtWidgets/QMenuBar>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <QtWidgets/QPushButton>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <QtWidgets/QRadioButton>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <QtWidgets/QStatusBar>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <QtWidgets/QVBoxLayout>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <QtWidgets/QWidget>}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ QT\_BEGIN\_NAMESPACE}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_ui___main_window}{Ui\_MainWindow}}}
+\DoxyCodeLine{00025\ \{}
+\DoxyCodeLine{00026\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00027\ \ \ \ \ QAction\ *\mbox{\hyperlink{class_ui___main_window_a54589beb444706a44ed34a44a8d991a3}{actionUniversity\_Of\_California\_Irvine}};\ }
+\DoxyCodeLine{00028\ \ \ \ \ QAction\ *\mbox{\hyperlink{class_ui___main_window_a16ef42cf56907c6d865bb442d57fc1d8}{actionArizona\_State\_University}};\ }
+\DoxyCodeLine{00029\ \ \ \ \ QAction\ *\mbox{\hyperlink{class_ui___main_window_ac0587ac848f7b5aa868187e04e2d8a91}{actionAdmin}};\ }
+\DoxyCodeLine{00030\ \ \ \ \ QWidget\ *\mbox{\hyperlink{class_ui___main_window_a356f1cf3ebda15f1fac59467ee081b74}{centralwidget}};\ }
+\DoxyCodeLine{00031\ \ \ \ \ QPushButton\ *\mbox{\hyperlink{class_ui___main_window_acc6c5cffe23e9eeb02abb48d3df95b1f}{button\_go}};\ }
+\DoxyCodeLine{00032\ \ \ \ \ QGroupBox\ *\mbox{\hyperlink{class_ui___main_window_a19b7ef90577c731a8abf0990e9097edd}{box\_collegeNames}};\ }
+\DoxyCodeLine{00033\ \ \ \ \ QVBoxLayout\ *\mbox{\hyperlink{class_ui___main_window_aecd96a04789fcfec3f98d80390ad8184}{verticalLayout}};\ }
+\DoxyCodeLine{00034\ \ \ \ \ QListWidget\ *\mbox{\hyperlink{class_ui___main_window_a76d837ccf2203bb018f05beda994fb93}{list\_collegeNames}};\ }
+\DoxyCodeLine{00035\ \ \ \ \ QGroupBox\ *\mbox{\hyperlink{class_ui___main_window_af4e6fdcc5665f4f03a0cadd1cc8cd9f1}{box\_collegeInfo}};\ }
+\DoxyCodeLine{00036\ \ \ \ \ QLabel\ *\mbox{\hyperlink{class_ui___main_window_aeb16c3b358363f42f7038c8d25c8a196}{label\_collegeName}};\ }
+\DoxyCodeLine{00037\ \ \ \ \ QLabel\ *\mbox{\hyperlink{class_ui___main_window_a8f93f0c3f709c1cf01b41f081a0a23c2}{label\_distanceFromSaddlebackPREFIX}};\ }
+\DoxyCodeLine{00038\ \ \ \ \ QListWidget\ *\mbox{\hyperlink{class_ui___main_window_a6e994d55694acf0509995d39a539bb60}{list\_souvenirs}};\ }
+\DoxyCodeLine{00039\ \ \ \ \ QPushButton\ *\mbox{\hyperlink{class_ui___main_window_a16cb28a60f5b33b49570a95af029c8eb}{button\_addSouvenir}};\ }
+\DoxyCodeLine{00040\ \ \ \ \ QPushButton\ *\mbox{\hyperlink{class_ui___main_window_ae73ac6d2d95d2ed3dfde6b5008171148}{button\_editSouvenir}};\ }
+\DoxyCodeLine{00041\ \ \ \ \ QPushButton\ *\mbox{\hyperlink{class_ui___main_window_a6b8ac607dad35406eb61c9c4bdb864fb}{button\_deleteSouvenir}};\ }
+\DoxyCodeLine{00042\ \ \ \ \ QRadioButton\ *\mbox{\hyperlink{class_ui___main_window_a59a2db3ff4dd2700e5fab9a9b703d908}{button\_addToTrip}};\ }
+\DoxyCodeLine{00043\ \ \ \ \ QPushButton\ *\mbox{\hyperlink{class_ui___main_window_acbc29fa06d5d776ca8a4acf143d3474d}{button\_startingCollege}};\ }
+\DoxyCodeLine{00044\ \ \ \ \ QLabel\ *\mbox{\hyperlink{class_ui___main_window_a4f9d98183bea44de9cd0f4bc1e7c8c89}{label\_tripColleges}};\ }
+\DoxyCodeLine{00045\ \ \ \ \ QLabel\ *\mbox{\hyperlink{class_ui___main_window_ad097055bc00ac8c95df428dd3144f181}{label\_totalDistance}};\ }
+\DoxyCodeLine{00046\ \ \ \ \ QMenuBar\ *\mbox{\hyperlink{class_ui___main_window_adf43d9a67adaec750aaa956b5e082f09}{menubar}};\ }
+\DoxyCodeLine{00047\ \ \ \ \ QStatusBar\ *\mbox{\hyperlink{class_ui___main_window_a1687cceb1e2787aa1f83e50433943a91}{statusbar}};\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_ui___main_window_acf4a0872c4c77d8f43a2ec66ed849b58}{setupUi}}(QMainWindow\ *MainWindow)}
+\DoxyCodeLine{00054\ \ \ \ \ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (MainWindow-\/>objectName().isEmpty())}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ MainWindow-\/>setObjectName(\textcolor{stringliteral}{"{}MainWindow"{}});}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ MainWindow-\/>resize(800,\ 643);}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_a54589beb444706a44ed34a44a8d991a3}{actionUniversity\_Of\_California\_Irvine}}\ =\ \textcolor{keyword}{new}\ QAction(MainWindow);}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_a54589beb444706a44ed34a44a8d991a3}{actionUniversity\_Of\_California\_Irvine}}-\/>setObjectName(\textcolor{stringliteral}{"{}actionUniversity\_Of\_California\_Irvine"{}});}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_a16ef42cf56907c6d865bb442d57fc1d8}{actionArizona\_State\_University}}\ =\ \textcolor{keyword}{new}\ QAction(MainWindow);}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_a16ef42cf56907c6d865bb442d57fc1d8}{actionArizona\_State\_University}}-\/>setObjectName(\textcolor{stringliteral}{"{}actionArizona\_State\_University"{}});}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_ac0587ac848f7b5aa868187e04e2d8a91}{actionAdmin}}\ =\ \textcolor{keyword}{new}\ QAction(MainWindow);}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_ac0587ac848f7b5aa868187e04e2d8a91}{actionAdmin}}-\/>setObjectName(\textcolor{stringliteral}{"{}actionAdmin"{}});}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_a356f1cf3ebda15f1fac59467ee081b74}{centralwidget}}\ =\ \textcolor{keyword}{new}\ QWidget(MainWindow);}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_a356f1cf3ebda15f1fac59467ee081b74}{centralwidget}}-\/>setObjectName(\textcolor{stringliteral}{"{}centralwidget"{}});}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_acc6c5cffe23e9eeb02abb48d3df95b1f}{button\_go}}\ =\ \textcolor{keyword}{new}\ QPushButton(\mbox{\hyperlink{class_ui___main_window_a356f1cf3ebda15f1fac59467ee081b74}{centralwidget}});}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_acc6c5cffe23e9eeb02abb48d3df95b1f}{button\_go}}-\/>setObjectName(\textcolor{stringliteral}{"{}button\_go"{}});}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_acc6c5cffe23e9eeb02abb48d3df95b1f}{button\_go}}-\/>setEnabled(\textcolor{keyword}{false});}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_acc6c5cffe23e9eeb02abb48d3df95b1f}{button\_go}}-\/>setGeometry(QRect(680,\ 550,\ 80,\ 24));}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_a19b7ef90577c731a8abf0990e9097edd}{box\_collegeNames}}\ =\ \textcolor{keyword}{new}\ QGroupBox(\mbox{\hyperlink{class_ui___main_window_a356f1cf3ebda15f1fac59467ee081b74}{centralwidget}});}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_a19b7ef90577c731a8abf0990e9097edd}{box\_collegeNames}}-\/>setObjectName(\textcolor{stringliteral}{"{}box\_collegeNames"{}});}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_a19b7ef90577c731a8abf0990e9097edd}{box\_collegeNames}}-\/>setGeometry(QRect(20,\ 20,\ 241,\ 431));}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_aecd96a04789fcfec3f98d80390ad8184}{verticalLayout}}\ =\ \textcolor{keyword}{new}\ QVBoxLayout(\mbox{\hyperlink{class_ui___main_window_a19b7ef90577c731a8abf0990e9097edd}{box\_collegeNames}});}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_aecd96a04789fcfec3f98d80390ad8184}{verticalLayout}}-\/>setObjectName(\textcolor{stringliteral}{"{}verticalLayout"{}});}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_a76d837ccf2203bb018f05beda994fb93}{list\_collegeNames}}\ =\ \textcolor{keyword}{new}\ QListWidget(\mbox{\hyperlink{class_ui___main_window_a19b7ef90577c731a8abf0990e9097edd}{box\_collegeNames}});}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_a76d837ccf2203bb018f05beda994fb93}{list\_collegeNames}}-\/>setObjectName(\textcolor{stringliteral}{"{}list\_collegeNames"{}});}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_a76d837ccf2203bb018f05beda994fb93}{list\_collegeNames}}-\/>setWordWrap(\textcolor{keyword}{true});}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_aecd96a04789fcfec3f98d80390ad8184}{verticalLayout}}-\/>addWidget(\mbox{\hyperlink{class_ui___main_window_a76d837ccf2203bb018f05beda994fb93}{list\_collegeNames}});}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_af4e6fdcc5665f4f03a0cadd1cc8cd9f1}{box\_collegeInfo}}\ =\ \textcolor{keyword}{new}\ QGroupBox(\mbox{\hyperlink{class_ui___main_window_a356f1cf3ebda15f1fac59467ee081b74}{centralwidget}});}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_af4e6fdcc5665f4f03a0cadd1cc8cd9f1}{box\_collegeInfo}}-\/>setObjectName(\textcolor{stringliteral}{"{}box\_collegeInfo"{}});}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_af4e6fdcc5665f4f03a0cadd1cc8cd9f1}{box\_collegeInfo}}-\/>setEnabled(\textcolor{keyword}{true});}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_af4e6fdcc5665f4f03a0cadd1cc8cd9f1}{box\_collegeInfo}}-\/>setGeometry(QRect(280,\ 20,\ 501,\ 431));}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_aeb16c3b358363f42f7038c8d25c8a196}{label\_collegeName}}\ =\ \textcolor{keyword}{new}\ QLabel(\mbox{\hyperlink{class_ui___main_window_af4e6fdcc5665f4f03a0cadd1cc8cd9f1}{box\_collegeInfo}});}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_aeb16c3b358363f42f7038c8d25c8a196}{label\_collegeName}}-\/>setObjectName(\textcolor{stringliteral}{"{}label\_collegeName"{}});}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_aeb16c3b358363f42f7038c8d25c8a196}{label\_collegeName}}-\/>setGeometry(QRect(20,\ 30,\ 461,\ 40));}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ QFont\ font;}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ font.setPointSize(14);}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ font.setBold(\textcolor{keyword}{true});}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_aeb16c3b358363f42f7038c8d25c8a196}{label\_collegeName}}-\/>setFont(font);}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_aeb16c3b358363f42f7038c8d25c8a196}{label\_collegeName}}-\/>setAlignment(Qt::AlignCenter);}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_a8f93f0c3f709c1cf01b41f081a0a23c2}{label\_distanceFromSaddlebackPREFIX}}\ =\ \textcolor{keyword}{new}\ QLabel(\mbox{\hyperlink{class_ui___main_window_af4e6fdcc5665f4f03a0cadd1cc8cd9f1}{box\_collegeInfo}});}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_a8f93f0c3f709c1cf01b41f081a0a23c2}{label\_distanceFromSaddlebackPREFIX}}-\/>setObjectName(\textcolor{stringliteral}{"{}label\_distanceFromSaddlebackPREFIX"{}});}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_a8f93f0c3f709c1cf01b41f081a0a23c2}{label\_distanceFromSaddlebackPREFIX}}-\/>setGeometry(QRect(20,\ 95,\ 381,\ 21));}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ QFont\ font1;}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ font1.setPointSize(10);}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_a8f93f0c3f709c1cf01b41f081a0a23c2}{label\_distanceFromSaddlebackPREFIX}}-\/>setFont(font1);}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_a6e994d55694acf0509995d39a539bb60}{list\_souvenirs}}\ =\ \textcolor{keyword}{new}\ QListWidget(\mbox{\hyperlink{class_ui___main_window_af4e6fdcc5665f4f03a0cadd1cc8cd9f1}{box\_collegeInfo}});}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_a6e994d55694acf0509995d39a539bb60}{list\_souvenirs}}-\/>setObjectName(\textcolor{stringliteral}{"{}list\_souvenirs"{}});}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_a6e994d55694acf0509995d39a539bb60}{list\_souvenirs}}-\/>setGeometry(QRect(20,\ 140,\ 256,\ 192));}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_a16cb28a60f5b33b49570a95af029c8eb}{button\_addSouvenir}}\ =\ \textcolor{keyword}{new}\ QPushButton(\mbox{\hyperlink{class_ui___main_window_af4e6fdcc5665f4f03a0cadd1cc8cd9f1}{box\_collegeInfo}});}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_a16cb28a60f5b33b49570a95af029c8eb}{button\_addSouvenir}}-\/>setObjectName(\textcolor{stringliteral}{"{}button\_addSouvenir"{}});}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_a16cb28a60f5b33b49570a95af029c8eb}{button\_addSouvenir}}-\/>setEnabled(\textcolor{keyword}{false});}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_a16cb28a60f5b33b49570a95af029c8eb}{button\_addSouvenir}}-\/>setGeometry(QRect(20,\ 350,\ 80,\ 24));}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_ae73ac6d2d95d2ed3dfde6b5008171148}{button\_editSouvenir}}\ =\ \textcolor{keyword}{new}\ QPushButton(\mbox{\hyperlink{class_ui___main_window_af4e6fdcc5665f4f03a0cadd1cc8cd9f1}{box\_collegeInfo}});}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_ae73ac6d2d95d2ed3dfde6b5008171148}{button\_editSouvenir}}-\/>setObjectName(\textcolor{stringliteral}{"{}button\_editSouvenir"{}});}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_ae73ac6d2d95d2ed3dfde6b5008171148}{button\_editSouvenir}}-\/>setEnabled(\textcolor{keyword}{false});}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_ae73ac6d2d95d2ed3dfde6b5008171148}{button\_editSouvenir}}-\/>setGeometry(QRect(109,\ 350,\ 80,\ 24));}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_a6b8ac607dad35406eb61c9c4bdb864fb}{button\_deleteSouvenir}}\ =\ \textcolor{keyword}{new}\ QPushButton(\mbox{\hyperlink{class_ui___main_window_af4e6fdcc5665f4f03a0cadd1cc8cd9f1}{box\_collegeInfo}});}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_a6b8ac607dad35406eb61c9c4bdb864fb}{button\_deleteSouvenir}}-\/>setObjectName(\textcolor{stringliteral}{"{}button\_deleteSouvenir"{}});}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_a6b8ac607dad35406eb61c9c4bdb864fb}{button\_deleteSouvenir}}-\/>setEnabled(\textcolor{keyword}{false});}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_a6b8ac607dad35406eb61c9c4bdb864fb}{button\_deleteSouvenir}}-\/>setGeometry(QRect(197,\ 350,\ 80,\ 24));}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_a59a2db3ff4dd2700e5fab9a9b703d908}{button\_addToTrip}}\ =\ \textcolor{keyword}{new}\ QRadioButton(\mbox{\hyperlink{class_ui___main_window_af4e6fdcc5665f4f03a0cadd1cc8cd9f1}{box\_collegeInfo}});}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_a59a2db3ff4dd2700e5fab9a9b703d908}{button\_addToTrip}}-\/>setObjectName(\textcolor{stringliteral}{"{}button\_addToTrip"{}});}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_a59a2db3ff4dd2700e5fab9a9b703d908}{button\_addToTrip}}-\/>setEnabled(\textcolor{keyword}{false});}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_a59a2db3ff4dd2700e5fab9a9b703d908}{button\_addToTrip}}-\/>setGeometry(QRect(20,\ 390,\ 91,\ 22));}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_acbc29fa06d5d776ca8a4acf143d3474d}{button\_startingCollege}}\ =\ \textcolor{keyword}{new}\ QPushButton(\mbox{\hyperlink{class_ui___main_window_af4e6fdcc5665f4f03a0cadd1cc8cd9f1}{box\_collegeInfo}});}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_acbc29fa06d5d776ca8a4acf143d3474d}{button\_startingCollege}}-\/>setObjectName(\textcolor{stringliteral}{"{}button\_startingCollege"{}});}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_acbc29fa06d5d776ca8a4acf143d3474d}{button\_startingCollege}}-\/>setEnabled(\textcolor{keyword}{false});}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_acbc29fa06d5d776ca8a4acf143d3474d}{button\_startingCollege}}-\/>setGeometry(QRect(19,\ 390,\ 111,\ 24));}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_a4f9d98183bea44de9cd0f4bc1e7c8c89}{label\_tripColleges}}\ =\ \textcolor{keyword}{new}\ QLabel(\mbox{\hyperlink{class_ui___main_window_a356f1cf3ebda15f1fac59467ee081b74}{centralwidget}});}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_a4f9d98183bea44de9cd0f4bc1e7c8c89}{label\_tripColleges}}-\/>setObjectName(\textcolor{stringliteral}{"{}label\_tripColleges"{}});}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_a4f9d98183bea44de9cd0f4bc1e7c8c89}{label\_tripColleges}}-\/>setGeometry(QRect(20,\ 470,\ 641,\ 71));}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_a4f9d98183bea44de9cd0f4bc1e7c8c89}{label\_tripColleges}}-\/>setWordWrap(\textcolor{keyword}{true});}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_ad097055bc00ac8c95df428dd3144f181}{label\_totalDistance}}\ =\ \textcolor{keyword}{new}\ QLabel(\mbox{\hyperlink{class_ui___main_window_a356f1cf3ebda15f1fac59467ee081b74}{centralwidget}});}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_ad097055bc00ac8c95df428dd3144f181}{label\_totalDistance}}-\/>setObjectName(\textcolor{stringliteral}{"{}label\_totalDistance"{}});}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_ad097055bc00ac8c95df428dd3144f181}{label\_totalDistance}}-\/>setGeometry(QRect(20,\ 560,\ 361,\ 20));}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ MainWindow-\/>setCentralWidget(\mbox{\hyperlink{class_ui___main_window_a356f1cf3ebda15f1fac59467ee081b74}{centralwidget}});}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_adf43d9a67adaec750aaa956b5e082f09}{menubar}}\ =\ \textcolor{keyword}{new}\ QMenuBar(MainWindow);}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_adf43d9a67adaec750aaa956b5e082f09}{menubar}}-\/>setObjectName(\textcolor{stringliteral}{"{}menubar"{}});}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_adf43d9a67adaec750aaa956b5e082f09}{menubar}}-\/>setGeometry(QRect(0,\ 0,\ 800,\ 26));}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ MainWindow-\/>setMenuBar(\mbox{\hyperlink{class_ui___main_window_adf43d9a67adaec750aaa956b5e082f09}{menubar}});}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_a1687cceb1e2787aa1f83e50433943a91}{statusbar}}\ =\ \textcolor{keyword}{new}\ QStatusBar(MainWindow);}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_a1687cceb1e2787aa1f83e50433943a91}{statusbar}}-\/>setObjectName(\textcolor{stringliteral}{"{}statusbar"{}});}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ MainWindow-\/>setStatusBar(\mbox{\hyperlink{class_ui___main_window_a1687cceb1e2787aa1f83e50433943a91}{statusbar}});}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_a097dd160c3534a204904cb374412c618}{retranslateUi}}(MainWindow);}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ QMetaObject::connectSlotsByName(MainWindow);}
+\DoxyCodeLine{00141\ \ \ \ \ \}\ \textcolor{comment}{//\ setupUi}}
+\DoxyCodeLine{00142\ \ \ \ \ }
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_ui___main_window_a097dd160c3534a204904cb374412c618}{retranslateUi}}(QMainWindow\ *MainWindow)}
+\DoxyCodeLine{00148\ \ \ \ \ \{}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ MainWindow-\/>setWindowTitle(QCoreApplication::translate(\textcolor{stringliteral}{"{}MainWindow"{}},\ \textcolor{stringliteral}{"{}MainWindow"{}},\ \textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_a54589beb444706a44ed34a44a8d991a3}{actionUniversity\_Of\_California\_Irvine}}-\/>setText(QCoreApplication::translate(\textcolor{stringliteral}{"{}MainWindow"{}},\ \textcolor{stringliteral}{"{}University\ Of\ California\ Irvine"{}},\ \textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_a16ef42cf56907c6d865bb442d57fc1d8}{actionArizona\_State\_University}}-\/>setText(QCoreApplication::translate(\textcolor{stringliteral}{"{}MainWindow"{}},\ \textcolor{stringliteral}{"{}Arizona\ State\ University"{}},\ \textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_ac0587ac848f7b5aa868187e04e2d8a91}{actionAdmin}}-\/>setText(QCoreApplication::translate(\textcolor{stringliteral}{"{}MainWindow"{}},\ \textcolor{stringliteral}{"{}Admin"{}},\ \textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_acc6c5cffe23e9eeb02abb48d3df95b1f}{button\_go}}-\/>setText(QCoreApplication::translate(\textcolor{stringliteral}{"{}MainWindow"{}},\ \textcolor{stringliteral}{"{}Go!"{}},\ \textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_a19b7ef90577c731a8abf0990e9097edd}{box\_collegeNames}}-\/>setTitle(QCoreApplication::translate(\textcolor{stringliteral}{"{}MainWindow"{}},\ \textcolor{stringliteral}{"{}Colleges"{}},\ \textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_af4e6fdcc5665f4f03a0cadd1cc8cd9f1}{box\_collegeInfo}}-\/>setTitle(QCoreApplication::translate(\textcolor{stringliteral}{"{}MainWindow"{}},\ \textcolor{stringliteral}{"{}College\ Info"{}},\ \textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_aeb16c3b358363f42f7038c8d25c8a196}{label\_collegeName}}-\/>setText(QString());}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_a8f93f0c3f709c1cf01b41f081a0a23c2}{label\_distanceFromSaddlebackPREFIX}}-\/>setText(QString());}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_a16cb28a60f5b33b49570a95af029c8eb}{button\_addSouvenir}}-\/>setText(QCoreApplication::translate(\textcolor{stringliteral}{"{}MainWindow"{}},\ \textcolor{stringliteral}{"{}Add"{}},\ \textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_ae73ac6d2d95d2ed3dfde6b5008171148}{button\_editSouvenir}}-\/>setText(QCoreApplication::translate(\textcolor{stringliteral}{"{}MainWindow"{}},\ \textcolor{stringliteral}{"{}Edit"{}},\ \textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_a6b8ac607dad35406eb61c9c4bdb864fb}{button\_deleteSouvenir}}-\/>setText(QCoreApplication::translate(\textcolor{stringliteral}{"{}MainWindow"{}},\ \textcolor{stringliteral}{"{}Delete"{}},\ \textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_a59a2db3ff4dd2700e5fab9a9b703d908}{button\_addToTrip}}-\/>setText(QCoreApplication::translate(\textcolor{stringliteral}{"{}MainWindow"{}},\ \textcolor{stringliteral}{"{}Add\ to\ Trip"{}},\ \textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_acbc29fa06d5d776ca8a4acf143d3474d}{button\_startingCollege}}-\/>setText(QCoreApplication::translate(\textcolor{stringliteral}{"{}MainWindow"{}},\ \textcolor{stringliteral}{"{}Starting\ College"{}},\ \textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_a4f9d98183bea44de9cd0f4bc1e7c8c89}{label\_tripColleges}}-\/>setText(QString());}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___main_window_ad097055bc00ac8c95df428dd3144f181}{label\_totalDistance}}-\/>setText(QString());}
+\DoxyCodeLine{00165\ \ \ \ \ \}\ \textcolor{comment}{//\ retranslateUi}}
+\DoxyCodeLine{00166\ \ \ \ \ }
+\DoxyCodeLine{00167\ \};}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \textcolor{keyword}{namespace\ }Ui\ \{}
+\DoxyCodeLine{00173\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_ui_1_1_main_window}{MainWindow}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_ui___main_window}{Ui\_MainWindow}}\ \{\};}
+\DoxyCodeLine{00174\ \}\ \textcolor{comment}{//\ namespace\ Ui}}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ QT\_END\_NAMESPACE}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ UI\_MAINWINDOW\_H}}
+
+\end{DoxyCode}

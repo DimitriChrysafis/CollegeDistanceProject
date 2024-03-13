@@ -1,0 +1,102 @@
+\doxysection{ui\+\_\+tripdialog.\+h}
+\hypertarget{ui__tripdialog_8h_source}{}\label{ui__tripdialog_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#ifndef\ UI\_TRIPDIALOG\_H}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#define\ UI\_TRIPDIALOG\_H}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <QtCore/QVariant>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <QtWidgets/QApplication>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <QtWidgets/QDialog>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <QtWidgets/QLabel>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <QtWidgets/QPushButton>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ QT\_BEGIN\_NAMESPACE}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_ui___trip_dialog}{Ui\_TripDialog}}}
+\DoxyCodeLine{00018\ \{}
+\DoxyCodeLine{00019\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ \ \ QPushButton\ *\mbox{\hyperlink{class_ui___trip_dialog_a1293de080c215062f025eef7eb078c52}{button\_previous}};\ }
+\DoxyCodeLine{00021\ \ \ \ \ QPushButton\ *\mbox{\hyperlink{class_ui___trip_dialog_a1371a13b6ed7313632f4440175d83648}{button\_next}};\ }
+\DoxyCodeLine{00022\ \ \ \ \ QLabel\ *\mbox{\hyperlink{class_ui___trip_dialog_af129a6e29ddbb712414a9a9c6ab6cbe3}{label\_collegeName}};\ }
+\DoxyCodeLine{00023\ \ \ \ \ QLabel\ *\mbox{\hyperlink{class_ui___trip_dialog_ac5c489db2bbf721c8782d1c97ed7478b}{label\_distance\_next}};\ }
+\DoxyCodeLine{00024\ \ \ \ \ QLabel\ *\mbox{\hyperlink{class_ui___trip_dialog_acf2eed6d9e2573ba2f8ab92a02806cfb}{label\_next}};\ }
+\DoxyCodeLine{00025\ \ \ \ \ QLabel\ *\mbox{\hyperlink{class_ui___trip_dialog_a67614c57330f99d149c11fc1fc985051}{label\_previous}};\ }
+\DoxyCodeLine{00026\ \ \ \ \ QLabel\ *\mbox{\hyperlink{class_ui___trip_dialog_a7e66cf28bd2fffb0686b2dcedf09a127}{label\_distance\_previous}};\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_ui___trip_dialog_a19ca38730f9350f2caf1f7dde843c7de}{setupUi}}(QDialog\ *TripDialog)}
+\DoxyCodeLine{00033\ \ \ \ \ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (TripDialog-\/>objectName().isEmpty())}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ TripDialog-\/>setObjectName(\textcolor{stringliteral}{"{}TripDialog"{}});}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ TripDialog-\/>resize(603,\ 513);}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___trip_dialog_a1293de080c215062f025eef7eb078c52}{button\_previous}}\ =\ \textcolor{keyword}{new}\ QPushButton(TripDialog);}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___trip_dialog_a1293de080c215062f025eef7eb078c52}{button\_previous}}-\/>setObjectName(\textcolor{stringliteral}{"{}button\_previous"{}});}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___trip_dialog_a1293de080c215062f025eef7eb078c52}{button\_previous}}-\/>setEnabled(\textcolor{keyword}{false});}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___trip_dialog_a1293de080c215062f025eef7eb078c52}{button\_previous}}-\/>setGeometry(QRect(60,\ 440,\ 101,\ 21));}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___trip_dialog_a1371a13b6ed7313632f4440175d83648}{button\_next}}\ =\ \textcolor{keyword}{new}\ QPushButton(TripDialog);}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___trip_dialog_a1371a13b6ed7313632f4440175d83648}{button\_next}}-\/>setObjectName(\textcolor{stringliteral}{"{}button\_next"{}});}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___trip_dialog_a1371a13b6ed7313632f4440175d83648}{button\_next}}-\/>setGeometry(QRect(420,\ 440,\ 101,\ 21));}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___trip_dialog_af129a6e29ddbb712414a9a9c6ab6cbe3}{label\_collegeName}}\ =\ \textcolor{keyword}{new}\ QLabel(TripDialog);}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___trip_dialog_af129a6e29ddbb712414a9a9c6ab6cbe3}{label\_collegeName}}-\/>setObjectName(\textcolor{stringliteral}{"{}label\_collegeName"{}});}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___trip_dialog_af129a6e29ddbb712414a9a9c6ab6cbe3}{label\_collegeName}}-\/>setGeometry(QRect(40,\ 30,\ 521,\ 41));}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ QFont\ font;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ font.setPointSize(15);}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ font.setBold(\textcolor{keyword}{true});}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ font.setUnderline(\textcolor{keyword}{true});}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___trip_dialog_af129a6e29ddbb712414a9a9c6ab6cbe3}{label\_collegeName}}-\/>setFont(font);}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___trip_dialog_af129a6e29ddbb712414a9a9c6ab6cbe3}{label\_collegeName}}-\/>setAlignment(Qt::AlignCenter);}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___trip_dialog_ac5c489db2bbf721c8782d1c97ed7478b}{label\_distance\_next}}\ =\ \textcolor{keyword}{new}\ QLabel(TripDialog);}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___trip_dialog_ac5c489db2bbf721c8782d1c97ed7478b}{label\_distance\_next}}-\/>setObjectName(\textcolor{stringliteral}{"{}label\_distance\_next"{}});}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___trip_dialog_ac5c489db2bbf721c8782d1c97ed7478b}{label\_distance\_next}}-\/>setGeometry(QRect(550,\ 410,\ 51,\ 21));}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ QFont\ font1;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ font1.setBold(\textcolor{keyword}{false});}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ font1.setUnderline(\textcolor{keyword}{false});}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___trip_dialog_ac5c489db2bbf721c8782d1c97ed7478b}{label\_distance\_next}}-\/>setFont(font1);}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___trip_dialog_ac5c489db2bbf721c8782d1c97ed7478b}{label\_distance\_next}}-\/>setAlignment(Qt::AlignCenter);}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___trip_dialog_acf2eed6d9e2573ba2f8ab92a02806cfb}{label\_next}}\ =\ \textcolor{keyword}{new}\ QLabel(TripDialog);}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___trip_dialog_acf2eed6d9e2573ba2f8ab92a02806cfb}{label\_next}}-\/>setObjectName(\textcolor{stringliteral}{"{}label\_next"{}});}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___trip_dialog_acf2eed6d9e2573ba2f8ab92a02806cfb}{label\_next}}-\/>setGeometry(QRect(390,\ 410,\ 151,\ 20));}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ QFont\ font2;}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ font2.setBold(\textcolor{keyword}{true});}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ font2.setUnderline(\textcolor{keyword}{true});}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___trip_dialog_acf2eed6d9e2573ba2f8ab92a02806cfb}{label\_next}}-\/>setFont(font2);}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___trip_dialog_acf2eed6d9e2573ba2f8ab92a02806cfb}{label\_next}}-\/>setAlignment(Qt::AlignCenter);}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___trip_dialog_a67614c57330f99d149c11fc1fc985051}{label\_previous}}\ =\ \textcolor{keyword}{new}\ QLabel(TripDialog);}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___trip_dialog_a67614c57330f99d149c11fc1fc985051}{label\_previous}}-\/>setObjectName(\textcolor{stringliteral}{"{}label\_previous"{}});}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___trip_dialog_a67614c57330f99d149c11fc1fc985051}{label\_previous}}-\/>setGeometry(QRect(20,\ 410,\ 181,\ 20));}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___trip_dialog_a67614c57330f99d149c11fc1fc985051}{label\_previous}}-\/>setFont(font2);}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___trip_dialog_a67614c57330f99d149c11fc1fc985051}{label\_previous}}-\/>setAlignment(Qt::AlignCenter);}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___trip_dialog_a7e66cf28bd2fffb0686b2dcedf09a127}{label\_distance\_previous}}\ =\ \textcolor{keyword}{new}\ QLabel(TripDialog);}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___trip_dialog_a7e66cf28bd2fffb0686b2dcedf09a127}{label\_distance\_previous}}-\/>setObjectName(\textcolor{stringliteral}{"{}label\_distance\_previous"{}});}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___trip_dialog_a7e66cf28bd2fffb0686b2dcedf09a127}{label\_distance\_previous}}-\/>setGeometry(QRect(190,\ 410,\ 61,\ 21));}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___trip_dialog_a7e66cf28bd2fffb0686b2dcedf09a127}{label\_distance\_previous}}-\/>setFont(font1);}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___trip_dialog_a7e66cf28bd2fffb0686b2dcedf09a127}{label\_distance\_previous}}-\/>setAlignment(Qt::AlignCenter);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___trip_dialog_a1ec984468fc50c33243005f16f71bcf9}{retranslateUi}}(TripDialog);}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ QMetaObject::connectSlotsByName(TripDialog);}
+\DoxyCodeLine{00083\ \ \ \ \ \}\ \textcolor{comment}{//\ setupUi}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_ui___trip_dialog_a1ec984468fc50c33243005f16f71bcf9}{retranslateUi}}(QDialog\ *TripDialog)}
+\DoxyCodeLine{00090\ \ \ \ \ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ TripDialog-\/>setWindowTitle(QCoreApplication::translate(\textcolor{stringliteral}{"{}TripDialog"{}},\ \textcolor{stringliteral}{"{}Dialog"{}},\ \textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___trip_dialog_a1293de080c215062f025eef7eb078c52}{button\_previous}}-\/>setText(QCoreApplication::translate(\textcolor{stringliteral}{"{}TripDialog"{}},\ \textcolor{stringliteral}{"{}Previous"{}},\ \textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___trip_dialog_a1371a13b6ed7313632f4440175d83648}{button\_next}}-\/>setText(QCoreApplication::translate(\textcolor{stringliteral}{"{}TripDialog"{}},\ \textcolor{stringliteral}{"{}Next"{}},\ \textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___trip_dialog_af129a6e29ddbb712414a9a9c6ab6cbe3}{label\_collegeName}}-\/>setText(QString());}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___trip_dialog_ac5c489db2bbf721c8782d1c97ed7478b}{label\_distance\_next}}-\/>setText(QString());}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___trip_dialog_acf2eed6d9e2573ba2f8ab92a02806cfb}{label\_next}}-\/>setText(QCoreApplication::translate(\textcolor{stringliteral}{"{}TripDialog"{}},\ \textcolor{stringliteral}{"{}Distance\ To\ Next\ College:"{}},\ \textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___trip_dialog_a67614c57330f99d149c11fc1fc985051}{label\_previous}}-\/>setText(QCoreApplication::translate(\textcolor{stringliteral}{"{}TripDialog"{}},\ \textcolor{stringliteral}{"{}Distance\ From\ Previous\ College:"{}},\ \textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ui___trip_dialog_a7e66cf28bd2fffb0686b2dcedf09a127}{label\_distance\_previous}}-\/>setText(QString());}
+\DoxyCodeLine{00099\ \ \ \ \ \}\ \textcolor{comment}{//\ retranslateUi}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \};}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \textcolor{keyword}{namespace\ }Ui\ \{}
+\DoxyCodeLine{00107\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_ui_1_1_trip_dialog}{TripDialog}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_ui___trip_dialog}{Ui\_TripDialog}}\ \{\};}
+\DoxyCodeLine{00108\ \}\ \textcolor{comment}{//\ namespace\ Ui}}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ QT\_END\_NAMESPACE}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ UI\_TRIPDIALOG\_H}}
+
+\end{DoxyCode}

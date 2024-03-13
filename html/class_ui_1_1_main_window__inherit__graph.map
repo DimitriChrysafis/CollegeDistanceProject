@@ -1,0 +1,5 @@
+<map id="Ui::MainWindow" name="Ui::MainWindow">
+<area shape="rect" id="Node000001" title="The MainWindow class provides access to the UI elements and setup methods for the MainWindow." alt="" coords="21,368,130,433"/>
+<area shape="rect" id="Node000002" href="$class_ui___main_window.html" title="The Ui_MainWindow class contains the UI elements and setup methods for the MainWindow." alt="" coords="5,5,145,320"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="78,335,78,368,73,368,73,335"/>
+</map>

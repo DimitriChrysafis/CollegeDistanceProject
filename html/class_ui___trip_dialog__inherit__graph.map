@@ -1,0 +1,5 @@
+<map id="Ui_TripDialog" name="Ui_TripDialog">
+<area shape="rect" id="Node000001" title="The Ui_TripDialog class manages the UI elements and setup methods for the TripDialog." alt="" coords="5,5,168,211"/>
+<area shape="rect" id="Node000002" href="$class_ui_1_1_trip_dialog.html" title="The TripDialog class provides access to the UI elements and setup methods for the TripDialog." alt="" coords="40,259,133,324"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,225,89,259,84,259,84,225"/>
+</map>
