@@ -1,10 +1,4 @@
-/********************************************************************************
-** Form generated from reading UI file 'logindialog.ui'
-**
-** Created by: Qt User Interface Compiler version 6.6.2
-**
-** WARNING! All changes made in this file will be lost when recompiling UI file!
-********************************************************************************/
+
 
 #ifndef UI_LOGINDIALOG_H
 #define UI_LOGINDIALOG_H
@@ -18,38 +12,48 @@
 
 QT_BEGIN_NAMESPACE
 
+/**
+ * @brief The Ui_LoginDialog class contains the UI elements and setup methods for the LoginDialog.
+ */
 class Ui_LoginDialog
 {
 public:
-    QPushButton *button_cancel;
-    QPushButton *button_ok;
-    QLabel *label_password;
-    QLineEdit *line_password;
+    QPushButton *button_cancel; /**< Pointer to the Cancel button. */
+    QPushButton *button_ok; /**< Pointer to the OK button. */
+    QLabel *label_password; /**< Pointer to the password label. */
+    QLineEdit *line_password; /**< Pointer to the password line edit field. */
 
+    /**
+     * @brief setupUi initializes the UI components for the LoginDialog.
+     * @param LoginDialog Pointer to the LoginDialog object.
+     */
     void setupUi(QDialog *LoginDialog)
     {
         if (LoginDialog->objectName().isEmpty())
-            LoginDialog->setObjectName("LoginDialog");
+            LoginDialog->setObjectName(QString::fromUtf8("LoginDialog"));
         LoginDialog->resize(400, 112);
         button_cancel = new QPushButton(LoginDialog);
-        button_cancel->setObjectName("button_cancel");
+        button_cancel->setObjectName(QString::fromUtf8("button_cancel"));
         button_cancel->setGeometry(QRect(200, 70, 80, 24));
         button_ok = new QPushButton(LoginDialog);
-        button_ok->setObjectName("button_ok");
+        button_ok->setObjectName(QString::fromUtf8("button_ok"));
         button_ok->setGeometry(QRect(300, 70, 80, 24));
         label_password = new QLabel(LoginDialog);
-        label_password->setObjectName("label_password");
+        label_password->setObjectName(QString::fromUtf8("label_password"));
         label_password->setGeometry(QRect(20, 29, 61, 16));
         line_password = new QLineEdit(LoginDialog);
-        line_password->setObjectName("line_password");
+        line_password->setObjectName(QString::fromUtf8("line_password"));
         line_password->setGeometry(QRect(90, 24, 281, 24));
-        line_password->setEchoMode(QLineEdit::Password);
 
         retranslateUi(LoginDialog);
 
         QMetaObject::connectSlotsByName(LoginDialog);
     } // setupUi
 
+    /**
+     * @brief retranslateUi translates the UI components for the LoginDialog.
+     * @param LoginDialog Pointer to the LoginDialog object.
+     */
     void retranslateUi(QDialog *LoginDialog)
     {
         LoginDialog->setWindowTitle(QCoreApplication::translate("LoginDialog", "Dialog", nullptr));
@@ -61,7 +65,10 @@ public:
 };
 
 namespace Ui {
-    class LoginDialog: public Ui_LoginDialog {};
+/**
+     * @brief The LoginDialog class provides access to the UI elements and setup methods for the LoginDialog.
+     */
+class LoginDialog: public Ui_LoginDialog {};
 } // namespace Ui
 
 QT_END_NAMESPACE
