@@ -1,0 +1,5 @@
+<map id="Ui_SouvenirDialog" name="Ui_SouvenirDialog">
+<area shape="rect" id="Node000001" title="The Ui_SouvenirDialog class manages the UI elements and setup methods for the SouvenirDialog." alt="" coords="5,5,127,231"/>
+<area shape="rect" id="Node000002" href="$class_ui_1_1_souvenir_dialog.html" title="The SouvenirDialog class provides access to the UI elements and setup methods for the SouvenirDialog." alt="" coords="5,279,127,344"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="69,245,69,279,63,279,63,245"/>
+</map>
