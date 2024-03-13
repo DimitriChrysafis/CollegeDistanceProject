@@ -33,7 +33,7 @@ protected:
     void calculateTripDetails();
     void updateCartTotal();
 
-    void paintEvent(QPaintEvent* event) override;
+    void paintEvent(QPaintEvent *event) override;
 
 private:
     int index = 0;
