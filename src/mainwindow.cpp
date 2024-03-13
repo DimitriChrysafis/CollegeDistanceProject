@@ -82,9 +82,8 @@ MainWindow::MainWindow(QWidget *parent)
     ASUTripAct = new QAction("Preset Trip from ASU", this);
     SaddlebackTripAct = new QAction("Preset Trip from Saddleback", this);
 
-    SaveToCsv = new QAction ("Save changes", this);
-    LoadCsv = new QAction ("Load CSV", this);
-
+    SaveToCsv = new QAction("Save changes", this);
+    LoadCsv = new QAction("Load CSV", this);
 
     loginMenu = menuBar()->addMenu("&Login");
     loginMenu->addAction(loginAct);
@@ -352,7 +351,8 @@ void MainWindow::saveToCsv()
     df_to_csv(path, souvenirMap, "College,Traditional Souvenirs,Cost");
 }
 
-void MainWindow::loadCsv(){
+void MainWindow::loadCsv()
+{
     distanceMap = {};
     souvenirMap = {};
 
@@ -434,7 +434,11 @@ void MainWindow::on_button_editSouvenir_clicked()
     for (int i = 0; i < souvenir.length(); i++) {
         if (souvenir[i] != '-') {
             key.append(souvenir[i]);
-        } else {
+        }
+        else if (souvenir[i + 1] != ' ') {
+            key.append(souvenir[i]);
+        }
+        else {
             key.chop(1);
             break;
         }
@@ -462,11 +466,9 @@ void MainWindow::on_button_deleteSouvenir_clicked()
     for (int i = 0; i < souvenir.length(); i++) {
         if (souvenir[i] != '-') {
             key.append(souvenir[i]);
-        }
-        else if (souvenir[i + 1] != ' ') {
+        } else if (souvenir[i + 1] != ' ') {
             key.append(souvenir[i]);
-        }
-        else {
+        } else {
             key.chop(1);
             break;
         }

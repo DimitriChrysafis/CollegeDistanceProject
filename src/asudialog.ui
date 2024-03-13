@@ -42,10 +42,10 @@
   <widget class="QPushButton" name="button_cancel">
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>171</x>
      <y>70</y>
-     <width>93</width>
-     <height>30</height>
+     <width>80</width>
+     <height>24</height>
     </rect>
    </property>
    <property name="text">
@@ -55,10 +55,10 @@
   <widget class="QPushButton" name="button_ok">
    <property name="geometry">
     <rect>
-     <x>270</x>
+     <x>281</x>
      <y>70</y>
-     <width>93</width>
-     <height>30</height>
+     <width>80</width>
+     <height>24</height>
     </rect>
    </property>
    <property name="text">
